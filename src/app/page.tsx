@@ -1,11 +1,7 @@
+import HomePage from '@/components/screens/home/HomePage'
+
 const Home = () => {
-  return (
-    <main>
-      <div className='container'>
-        <p>home</p>
-      </div>
-    </main>
-  )
+  return <HomePage />
 }
 
 export default Home
