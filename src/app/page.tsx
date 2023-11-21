@@ -1,12 +1,11 @@
-import Image from 'next/image'
-// import styles from '../assets/styles/globals.scss'
-
-const HomePage = () => {
+const Home = () => {
   return (
-    <div>
-
-    </div>
+    <main>
+      <div className='container'>
+        <p>home</p>
+      </div>
+    </main>
   )
 }
 
-export default HomePage
+export default Home
