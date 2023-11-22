@@ -1,12 +1,42 @@
 .about {
+  padding: 100px 0;
+  
   h2 {
     font-size: 80px;
     font-weight: 400;
+    padding-bottom: 60px;
   }
+
   figure {
-    width: 400px;
+    max-width: 880px;
+    grid-area: i;
   }
-  .grid {
-    display: flex;
+
+  .wrapper {
+    display: grid;
+    grid-template-areas:
+      'i i i i t'
+      'i i i i p'
+      'i i i i b';
+    column-gap: 30px;
+
+    h3 {
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      grid-area: t;
+    }
+
+    p {
+      font-size: 22px;
+      font-weight: 400;
+      grid-area: p;
+    }
+
+    #btn {
+      grid-area: b;
+      width: 270px;
+      align-self: end;
+    }
   }
 }

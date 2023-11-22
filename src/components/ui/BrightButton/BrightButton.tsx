@@ -3,7 +3,7 @@ import { Button } from '@mui/base/Button'
 
 interface BrightButtonProps {
   children: string
-  id: string
+  id?: string
 }
 
 const BrightButton: React.FC<BrightButtonProps> = ({ children, id }) => {
