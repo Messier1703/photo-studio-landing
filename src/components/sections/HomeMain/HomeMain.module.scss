@@ -1,0 +1,22 @@
+.main {
+  background-color: var(--light-gray);
+  height: 760px;
+
+  .wrapper{
+    display: grid;
+    grid-template-columns: 70%;
+  }
+
+  h1 {
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 50px;
+  }
+
+  #button {
+    &:hover {
+      background-color: var(--white-color);
+    }
+  }
+}

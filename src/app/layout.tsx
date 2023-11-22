@@ -2,8 +2,8 @@ import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
-import Header from '@/layout/header/Header'
-import Footer from '@/layout/footer/Footer'
+import Header from '@/components/layout/header/Header'
+import Footer from '@/components/layout/footer/Footer'
 
 import '@/assets/styles/globals.scss'
 import '@/assets/styles/variables.scss'

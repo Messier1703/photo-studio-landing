@@ -1,5 +1,11 @@
 :root {
+  // COLORS
+  --black-color: #000;
+  --white-color: white;
   --bright-color: #ff0032;
-  --text-color: #000;
   --faded-color: rgb(128, 128, 128);
+  --light-gray: rgb(230, 230, 230);
+
+  // TRANSITIONS
+  --hover-transition: 0.4s ease-in-out;
 }
