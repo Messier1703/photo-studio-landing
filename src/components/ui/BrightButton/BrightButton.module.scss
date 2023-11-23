@@ -5,10 +5,10 @@
   background-color: var(--bright-color);
   width: 380px;
   height: 80px;
-  transition: var(--hover-transition);
+  transition: var(--button-hover);
 
   &:hover {
-    transition: var(--hover-transition);
+    transition: var(--button-hover);
     background-color: var(--light-gray);
     color: var(--black-color);
   }

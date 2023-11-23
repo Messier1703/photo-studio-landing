@@ -4,8 +4,9 @@
   --white-color: white;
   --bright-color: #ff0032;
   --faded-color: rgb(128, 128, 128);
-  --light-gray: rgb(230, 230, 230);
+  --light-gray: #e7e7e7;
 
   // TRANSITIONS
-  --hover-transition: 0.4s ease-in-out;
+  --button-hover: 0.4s ease-in-out;
+  --link-hover: 0.2s ease-in-out;
 }

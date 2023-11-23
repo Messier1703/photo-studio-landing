@@ -2,8 +2,8 @@ import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
-// import Header from '@/components/layout/header/Header'
-// import Footer from '@/components/layout/footer/Footer'
+import Header from '@/components/layout/Header/Header'
+import Footer from '@/components/layout/Footer/Footer'
 
 import '@/assets/styles/globals.scss'
 import '@/assets/styles/variables.scss'
@@ -24,9 +24,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html>
       <body className={montserrat.variable}>
-        {/* <Header /> */}
+        <Header />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   )
