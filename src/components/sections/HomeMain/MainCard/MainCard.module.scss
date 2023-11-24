@@ -1,0 +1,22 @@
+.card {
+  width: 200px;
+  height: 280px;
+  background-color: var(--white-color);
+  border-radius: 20px;
+  position: relative;
+
+  h3 {
+    color: var(--black-color);
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  img {
+    border-radius: 20px;
+  }
+}

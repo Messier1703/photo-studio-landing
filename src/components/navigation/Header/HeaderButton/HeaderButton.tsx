@@ -1,4 +1,5 @@
-import { Button } from '@mui/base'
+'use client'
+import { Button } from 'react-aria-components'
 import s from './HeaderButton.module.scss'
 
 interface HeaderButtonProps {

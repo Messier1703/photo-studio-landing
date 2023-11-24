@@ -1,5 +1,6 @@
+'use client'
 import s from './BrightButton.module.scss'
-import { Button } from '@mui/base/Button'
+import { Button } from 'react-aria-components'
 
 interface BrightButtonProps {
   children: string

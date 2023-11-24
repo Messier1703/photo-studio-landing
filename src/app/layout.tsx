@@ -2,12 +2,13 @@ import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
-import Header from '@/components/layout/Header/Header'
-import Footer from '@/components/layout/Footer/Footer'
+import Header from '@/components/navigation/Header/Header'
+import Footer from '@/components/navigation/Footer/Footer'
 
-import '@/assets/styles/globals.scss'
-import '@/assets/styles/variables.scss'
-import '@/assets/styles/media.scss'
+import '@/styles/globals.scss'
+import '@/styles/variables.scss'
+import '@/styles/media.scss'
+import '@radix-ui/themes/styles.css'
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--var-montserrat' })
 
