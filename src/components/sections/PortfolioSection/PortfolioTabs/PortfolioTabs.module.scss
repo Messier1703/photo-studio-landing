@@ -52,6 +52,10 @@
     }
   }
 
+  &[data-selected] + .tab {
+    border-left: 1px solid var(--bright-color);
+  }
+
   &[data-disabled] {
     color: var(--faded-color);
   }
