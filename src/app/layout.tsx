@@ -8,7 +8,6 @@ import Footer from '@/components/navigation/Footer/Footer'
 import '@/styles/globals.scss'
 import '@/styles/variables.scss'
 import '@/styles/media.scss'
-import '@radix-ui/themes/styles.css'
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--var-montserrat' })
 
