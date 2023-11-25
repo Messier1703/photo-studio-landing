@@ -1,0 +1,82 @@
+.main {
+  background-color: var(--light-gray);
+  height: 760px;
+
+  &_content {
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 50px;
+  }
+
+  &_cards {
+    display: flex;
+  }
+
+  #main_button {
+    &:hover {
+      background-color: var(--white-color);
+    }
+  }
+}
+
+// .portfolio {
+
+// }
+
+.offers {
+  h2 {
+    font-size: 80px;
+  }
+
+  h4 {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  &_content {
+    padding-top: 110px;
+    display: grid;
+    grid-gap: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+
+    h3 {
+      font-size: 40px;
+      margin-bottom: 45px;
+    }
+  }
+
+  &_pricing {
+    div {
+      margin-bottom: 45px;
+
+      h4 {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  &_sign_up {
+    p {
+      margin-bottom: 215px;
+    }
+  }
+}
+
+.team {
+  &_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+}

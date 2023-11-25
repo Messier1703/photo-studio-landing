@@ -1,13 +1,16 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import s from './FooterDesktop.module.scss'
+import logoPath from '@/lib/constants/logoPath'
 
 const FooterDesktop = () => {
   return (
     <div className={s.wrapper}>
       <div>
         <Link href='#'>
-          <Image src='/sample.svg' alt='Logo' width={100} height={100} />
+          <figure className={s.footer_logo}>
+            <Image src={logoPath} alt='Logo' />
+          </figure>
         </Link>
       </div>
       <div>
