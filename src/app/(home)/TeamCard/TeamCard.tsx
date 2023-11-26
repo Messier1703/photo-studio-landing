@@ -1,19 +1,18 @@
-import Image from 'next/image'
+import { StaticImageData } from 'next/image'
 import s from './TeamCard.module.scss'
+import AdaptiveImage from '@/lib/AdaptiveImage'
 
 interface TeamCardProps {
   name: string
   job: string
-  img: string
+  img: StaticImageData
 }
 
 const TeamCard: React.FC<TeamCardProps> = ({ name, job, img }) => {
   return (
     <article className={s.card}>
       <h6>{name}</h6>
-      <figure>
-        <Image src={img} alt='Фото участника команды' sizes='100vw' className='img' />
-      </figure>
+      <AdaptiveImage src={img} alt={name} id={s.image} fitCover={true} />
       <p>{job}</p>
     </article>
   )

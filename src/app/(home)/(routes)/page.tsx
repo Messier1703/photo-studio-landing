@@ -1,10 +1,19 @@
 import s from './HomePage.module.scss'
+
 import Link from 'next/link'
+
 import MainCard from '../MainCard/MainCard'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import PortfolioTabs from '../PortfolioTabs/PortfolioTabs'
 import AboutSection from '@/components/sections/AboutSection/AboutSection'
+import PerksCard from '../PerksCard/PerksCard'
 import TeamCard from '../TeamCard/TeamCard'
+
+import AdaptiveImage from '@/lib/AdaptiveImage'
+import companyName from '@/constants/studioName'
+
+import perksDeco from 'public/perks-deco.png'
+import placeholderIMG from 'public/placeholder.webp'
 
 const HomePage = () => {
   return (
@@ -19,25 +28,28 @@ const HomePage = () => {
               </Link>
             </div>
             <div className={s.main_cards}>
-              <MainCard />
-              <MainCard />
-              <MainCard />
-              <MainCard />
+              <MainCard img={placeholderIMG} />
+              <MainCard img={placeholderIMG} />
+              <MainCard img={placeholderIMG} />
+              <MainCard img={placeholderIMG} />
             </div>
           </div>
         </div>
       </main>
+
       <AboutSection />
+
       <section className={s.portfolio}>
         <div className='container'>
-          <h2>Наши работы</h2>
+          <h2 className='section_title'>Наши работы</h2>
           <PortfolioTabs />
         </div>
       </section>
+
       <section className={s.offers}>
         <div className='container'>
           <div className={s.offers_prices}>
-            <h2>Услуги</h2>
+            <h2 className='section_title'>Услуги</h2>
             <div className={s.offers_content}>
               <div className={s.offers_pricing}>
                 <div>
@@ -61,34 +73,56 @@ const HomePage = () => {
             </div>
           </div>
           <div className={s.offers_products}>
-            <h3>Предметная съемка</h3>
-            <p>Фотообзор вашего товара со всех сторон с акцентом на детали, выигрышные ракурсы, и особенности изделия</p>
+            <div>
+              <h3>Предметная съемка</h3>
+              <p>Фотообзор вашего товара со всех сторон с акцентом на детали, выигрышные ракурсы, и особенности изделия</p>
+            </div>
+            <div className={s.offers_products_images}>
+              <div></div>
+            </div>
           </div>
           <div className={s.offers_posters}>
-            <h3>Инфографика</h3>
-            <p>Красивая, гармоничная, и функциональная упаковка изделия, которая будет сразу замета на витрине</p>
+            <div>
+              <h3>Инфографика</h3>
+              <p>Красивая, гармоничная, и функциональная упаковка изделия, которая будет сразу замета на витрине</p>
+            </div>
           </div>
         </div>
       </section>
+
       <section className={s.perks}>
         <div className='container'>
-          <h2>Почему мы</h2>
-        </div>
-      </section>
-      <section className={s.team}>
-        <div className='container'>
-          <h2>Наша команда</h2>
-          <div className={s.team_grid}>
-            <TeamCard />
-            <TeamCard />
-            <TeamCard />
-            <TeamCard />
+          <h2 className='section_title'>Почему мы</h2>
+          <div className={s.perks_wrapper}>
+            <div className={s.perks_deco}>
+              <h3>{companyName}</h3>
+              <AdaptiveImage src={perksDeco} alt='Декорация' maxWidth='500px' id={s.perks_deco_img} />
+            </div>
+            <div>
+              <PerksCard title='title title title' desc='description' img={placeholderIMG} />
+              <PerksCard title='title title title' desc='description' img={placeholderIMG} />
+              <PerksCard title='title title title' desc='description' img={placeholderIMG} />
+              <PerksCard title='title title title' desc='description' img={placeholderIMG} />
+            </div>
           </div>
         </div>
       </section>
+
+      <section className={s.team}>
+        <div className='container'>
+          <h2 className='section_title'>Наша команда</h2>
+          <div className={s.team_grid}>
+            <TeamCard name='name' job='job' img={placeholderIMG} />
+            <TeamCard name='name' job='job' img={placeholderIMG} />
+            <TeamCard name='name' job='job' img={placeholderIMG} />
+            <TeamCard name='name' job='job' img={placeholderIMG} />
+          </div>
+        </div>
+      </section>
+
       <section className={s.reviews}>
         <div className='container'>
-          <h2>Отзывы наших клиентов</h2>
+          <h2 className='section_title'>Отзывы наших клиентов</h2>
         </div>
       </section>
     </>

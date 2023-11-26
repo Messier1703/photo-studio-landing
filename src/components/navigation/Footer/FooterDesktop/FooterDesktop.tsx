@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import s from './FooterDesktop.module.scss'
-import logoPath from '@/lib/constants/logoPath'
+import logoPath from '@/constants/logoPath'
 
 const FooterDesktop = () => {
   return (

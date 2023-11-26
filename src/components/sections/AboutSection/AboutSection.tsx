@@ -1,17 +1,19 @@
 import Image from 'next/image'
 import s from './AboutSection.module.scss'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
+import companyName from '@/constants/studioName'
+import bg from 'public/placeholder.svg'
 
 const AboutSection = () => {
   return (
     <section className={s.about}>
       <div className='container'>
-        <h2>О нас</h2>
+        <h2 className='section_title'>О нас</h2>
         <div className={s.wrapper}>
           <figure>
-            <Image src='/about-us-bg.jpg' width={1680} height={1120} alt='Фон' sizes='100vw' className='img' />
+            <Image src={bg} alt='Фон' className='img' />
           </figure>
-          <h3>sample title</h3>
+          <h3>{companyName}</h3>
           <p>
             Наша студия занимается только коммерческими съемками для любых маркетплейсов без выходных!
             <br />

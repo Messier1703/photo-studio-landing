@@ -1,11 +1,16 @@
+import FixedImage from '@/lib/FixedImage'
 import s from './MainCard.module.scss'
-import Image from 'next/image'
-import img from 'public/card-img.jpg'
+import { StaticImageData } from 'next/image'
+import React from 'react'
 
-const MainCard = () => {
+interface MainCardProps {
+  img: StaticImageData
+}
+
+const MainCard: React.FC<MainCardProps> = ({ img }) => {
   return (
     <article className={s.card}>
-      <Image src={img} className='img' alt='Фото товара' />
+      <FixedImage src={img} alt='Фото товара' id={s.image} fitCover={true} />
       <h3>Одежда</h3>
     </article>
   )
