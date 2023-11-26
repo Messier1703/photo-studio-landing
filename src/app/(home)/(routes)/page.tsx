@@ -14,6 +14,7 @@ import companyName from '@/constants/studioName'
 
 import perksDeco from 'public/perks-deco.png'
 import placeholderIMG from 'public/placeholder.webp'
+import SignUpSection from '@/components/sections/SignUp/SignUp'
 
 const HomePage = () => {
   return (
@@ -125,6 +126,8 @@ const HomePage = () => {
           <h2 className='section_title'>Отзывы наших клиентов</h2>
         </div>
       </section>
+
+      <SignUpSection />
     </>
   )
 }
