@@ -17,22 +17,22 @@ const Header = () => {
           <Link href='/'>
             <FixedImage src={logoPath} alt='Логотип' id={s.header_logo} />
           </Link>
-          <Link href='/' id={s.desktop_only}>
+          <Link href='#about-us' id={s.desktop_only}>
             О студии
           </Link>
-          <Link href='/' id={s.desktop_only}>
+          <Link href='#portfolio' id={s.desktop_only}>
             Наши работы
           </Link>
-          <Link href='/' id={s.desktop_only}>
+          <Link href='/#offers' id={s.desktop_only}>
             Услуги
           </Link>
-          <Link href='/' id={s.desktop_only}>
+          <Link href='/#reviews' id={s.desktop_only}>
             Отзывы
           </Link>
-          <Link href='/' id={s.desktop_only}>
+          <Link href='/blog' id={s.desktop_only}>
             Блог о съемке
           </Link>
-          <Link href='/' id={s.desktop_only}>
+          <Link href='/#contacts' id={s.desktop_only}>
             Контакты
           </Link>
           <div className={s.header_button}>

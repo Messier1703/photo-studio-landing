@@ -1,12 +1,21 @@
 .about {
-  padding: 100px 0;
+  padding: 120px 0;
+  background-color: aqua;
+
+  h2 {
+    margin-bottom: 80px;
+  }
 
   figure {
     max-width: 880px;
     grid-area: i;
   }
 
-  .wrapper {
+  #about_image {
+    grid-area: i;
+  }
+
+  &_wrapper {
     display: grid;
     grid-template-areas:
       'i i i i t'

@@ -2,7 +2,7 @@ import s from './HomePage.module.scss'
 
 import Link from 'next/link'
 
-import MainCard from '../MainCard/MainCard'
+// import MainCard from '../MainCard/MainCard'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import PortfolioTabs from '../PortfolioTabs/PortfolioTabs'
 import AboutSection from '@/components/sections/AboutSection/AboutSection'
@@ -28,19 +28,19 @@ const HomePage = () => {
                 <BrightButton id={s.main_button}>Узнать о фотосъемке</BrightButton>
               </Link>
             </div>
-            <div className={s.main_cards}>
+            {/* <div className={s.main_cards}>
               <MainCard img={placeholderIMG} />
               <MainCard img={placeholderIMG} />
               <MainCard img={placeholderIMG} />
               <MainCard img={placeholderIMG} />
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
 
       <AboutSection />
 
-      <section className={s.portfolio}>
+      <section className={s.portfolio} id='portfolio'>
         <div className='container'>
           <h2 className='section_title'>Наши работы</h2>
           <PortfolioTabs />

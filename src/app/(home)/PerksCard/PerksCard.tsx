@@ -1,4 +1,3 @@
-import React from 'react'
 import s from './PerksCard.module.scss'
 import FixedImage from '@/lib/FixedImage'
 import { StaticImageData } from 'next/image'

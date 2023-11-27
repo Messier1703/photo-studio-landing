@@ -3,16 +3,18 @@ import Image, { StaticImageData } from 'next/image'
 interface AdaptiveImageProps {
   src: StaticImageData
   alt: string
-  fill?: boolean
   maxWidth?: string
+  width?: string
+  maxHeight?: string
+  height?: string
   id?: string
   fitCover?: boolean
 }
 
-const AdaptiveImage: React.FC<AdaptiveImageProps> = ({ src, alt, fill, maxWidth, id, fitCover }) => {
+const AdaptiveImage: React.FC<AdaptiveImageProps> = ({ src, alt, maxWidth, id, fitCover, height, maxHeight, width }) => {
   return (
-    <figure id={id} style={{ maxWidth: `${maxWidth}` }}>
-      <Image src={src} alt={alt} fill={fill} style={{ width: '100%', height: '100%', objectFit: fitCover ? 'cover' : 'contain' }} />
+    <figure id={id} style={{ maxWidth: `${maxWidth}`, width: `${width}`, maxHeight: `${maxHeight}`, height: `${height}` }}>
+      <Image src={src} alt={alt} style={{ width: '100%', height: '100%', objectFit: fitCover ? 'cover' : 'contain' }} />
     </figure>
   )
 }

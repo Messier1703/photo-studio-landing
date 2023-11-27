@@ -1,17 +1,17 @@
-import Image from 'next/image'
 import s from './AboutSection.module.scss'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import companyName from '@/constants/studioName'
 import bg from 'public/placeholder.svg'
+import AdaptiveImage from '@/lib/AdaptiveImage'
 
 const AboutSection = () => {
   return (
-    <section className={s.about}>
+    <section className={s.about} id='about-us'>
       <div className='container'>
         <h2 className='section_title'>О нас</h2>
-        <div className={s.wrapper}>
+        <div className={s.about_wrapper}>
           <figure>
-            <Image src={bg} alt='Фон' className='img' />
+            <AdaptiveImage src={bg} alt='Фон' fitCover={true} height='600px' id={s.about_image} />
           </figure>
           <h3>{companyName}</h3>
           <p>

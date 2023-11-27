@@ -1,3 +1,44 @@
 .footer {
   border-top: 1px solid rgba(0, 0, 0, 0.5);
+
+  #footer_logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  &_wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 15px;
+
+    a {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      transition: var(--link-hover);
+
+      &:hover {
+        color: var(--bright-color);
+        transition: var(--link-hover);
+      }
+    }
+  }
+
+  #footer_number {
+    margin-bottom: 10px;
+  }
+
+  &_icons {
+    display: flex;
+    justify-content: space-around;
+
+    a {
+      font-size: 35px;
+      width: 35px;
+      height: 35px;
+    }
+  }
 }
+
+// @media (max-width: )
