@@ -1,14 +1,15 @@
 'use client'
 import { RiMenu3Fill } from 'react-icons/ri'
 import { Button } from 'react-aria-components'
+import s from './BurgerButton.module.scss'
 
 interface BurgerButtonProps {
-  className: string
+  id: string
 }
 
-const BurgerButton: React.FC<BurgerButtonProps> = ({ className }) => {
+const BurgerButton: React.FC<BurgerButtonProps> = ({ id }) => {
   return (
-    <Button className={className}>
+    <Button className={s.button} id={id}>
       <RiMenu3Fill />
     </Button>
   )

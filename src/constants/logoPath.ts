@@ -1,4 +1,4 @@
-import e from 'public/placeholder.svg'
+import e from '../app/icon.svg'
 
 const logoPath = e
 

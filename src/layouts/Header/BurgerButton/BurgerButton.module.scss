@@ -1,0 +1,11 @@
+.button {
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+  transition: var(--link-hover);
+
+  &:hover {
+    color: var(--bright-color);
+    transition: var(--link-hover);
+  }
+}

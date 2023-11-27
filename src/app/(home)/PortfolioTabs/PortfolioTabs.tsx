@@ -23,19 +23,19 @@ const PortfolioTabs = () => {
         </Tab>
       </TabList>
       <TabPanel id='clothing' className={s.tab_panel}>
-        clothing
+        <h3>clothing</h3>
       </TabPanel>
       <TabPanel id='footwear' className={s.tab_panel}>
-        footwear
+        <h3>footwear</h3>
       </TabPanel>
       <TabPanel id='accessories' className={s.tab_panel}>
-        accessories
+        <h3>accessories</h3>
       </TabPanel>
       <TabPanel id='items' className={s.tab_panel}>
-        items
+        <h3>items</h3>
       </TabPanel>
       <TabPanel id='info' className={s.tab_panel}>
-        info
+        <h3>info</h3>
       </TabPanel>
     </Tabs>
   )

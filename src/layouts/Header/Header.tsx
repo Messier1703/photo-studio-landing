@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import s from './Header.module.scss'
 import HeaderButton from './HeaderButton/HeaderButton'
 import managerNumber from '@/constants/managerNumber'
 import logoPath from '@/constants/logoPath'
 import { FaTelegram, FaWhatsapp } from 'react-icons/fa'
 import { SlSocialVkontakte } from 'react-icons/sl'
+import FixedImage from '@/lib/FixedImage'
+import BurgerButton from './BurgerButton/BurgerButton'
 // import BurgerButton from './BurgerButton/BurgerButton'
 
 const Header = () => {
@@ -14,9 +15,7 @@ const Header = () => {
       <div className='container'>
         <div className={s.wrapper}>
           <Link href='/'>
-            <figure className={s.logo}>
-              <Image src={logoPath} alt='Логотип' sizes='100vw' className='img' />
-            </figure>
+            <FixedImage src={logoPath} alt='Логотип' id={s.header_logo} />
           </Link>
           <Link href='/' id={s.desktop_only}>
             О студии
@@ -36,11 +35,18 @@ const Header = () => {
           <Link href='/' id={s.desktop_only}>
             Контакты
           </Link>
-          <Link href='/'>
-            <HeaderButton>Календарь съемок</HeaderButton>
-          </Link>
-          <div>
-            <Link href='/'>{managerNumber}</Link>
+          <div className={s.header_button}>
+            <Link href='/' id={s.mobile_only} className={s.header_number}>
+              {managerNumber}
+            </Link>
+            <Link href='/'>
+              <HeaderButton>Календарь съемок</HeaderButton>
+            </Link>
+          </div>
+          <div className={s.header_contacts}>
+            <Link href='/' id={s.desktop_only} className={s.header_number}>
+              {managerNumber}
+            </Link>
             <div className={s.socials}>
               <Link href='/'>
                 <FaTelegram />
@@ -53,7 +59,7 @@ const Header = () => {
               </Link>
             </div>
           </div>
-          {/* <BurgerButton className=''/> */}
+          <BurgerButton id={s.mobile_only} />
         </div>
       </div>
     </header>
