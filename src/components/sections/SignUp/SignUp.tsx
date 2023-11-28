@@ -2,7 +2,7 @@ import SignUpForm from './SignUpForm/SignUpForm'
 
 const SignUpSection = () => {
   return (
-    <section>
+    <section id='contacts'>
       <div className='container'>
         <SignUpForm />
       </div>

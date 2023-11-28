@@ -47,7 +47,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className={s.offers}>
+      <section className={s.offers} id='offers'>
         <div className='container'>
           <div className={s.offers_prices}>
             <h2 className='section_title'>Услуги</h2>
@@ -91,7 +91,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className={s.perks}>
+      <section className={s.perks} id='perks'>
         <div className='container'>
           <h2 className='section_title'>Почему мы</h2>
           <div className={s.perks_wrapper}>
@@ -109,7 +109,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className={s.team}>
+      <section className={s.team} id='team'>
         <div className='container'>
           <h2 className='section_title'>Наша команда</h2>
           <div className={s.team_grid}>
@@ -121,7 +121,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className={s.reviews}>
+      <section className={s.reviews} id='reviews'>
         <div className='container'>
           <h2 className='section_title'>Отзывы наших клиентов</h2>
         </div>
