@@ -9,10 +9,16 @@
   }
 
   input {
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     font-size: 16px;
     width: 460px;
     padding: 15px 0;
     margin: 8px 0 20px;
+    transition: var(--link-hover);
+
+    &:focus {
+      border-bottom: 1px solid var(--bright-color);
+      transition: var(--link-hover);
+    }
   }
 }

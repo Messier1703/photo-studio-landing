@@ -2,6 +2,15 @@
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import { FieldError, Form, Input, Label, TextField } from 'react-aria-components'
 import s from './SignUpForm.module.scss'
+// import { useState, useEffect } from 'react'
+// import API_BASE_URL from '@/constants/API_BASE_URL'
+//   useEffect(() => {
+//     async function postForm() {
+//       try {
+//         const res = ky.get(`${API_BASE_URL}/form`)
+//       }
+//     }
+//   })
 
 const SignUpForm = () => {
   return (
@@ -13,7 +22,7 @@ const SignUpForm = () => {
       </TextField>
       <TextField name='phone' isRequired className={s.form_field}>
         <Label>Телефон</Label>
-        <Input />
+        <Input placeholder='(###) ####-####' />
         <FieldError />
       </TextField>
       <TextField name='amount' isRequired className={s.form_field}>
