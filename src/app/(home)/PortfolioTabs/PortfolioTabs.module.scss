@@ -19,6 +19,7 @@
   color: var(--text-color);
   transition: var(--link-hover);
   box-sizing: border-box;
+  text-transform: lowercase;
 
   &:not(:last-child) {
     border-top: 1px solid var(--border-color);

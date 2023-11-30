@@ -26,35 +26,35 @@ const PortfolioTabs = () => {
     <Tabs className={s.tabs}>
       <TabList className={s.tab_list}>
         <Tab id='clothing' className={s.tab}>
-          clothing
+          одежда
         </Tab>
         <Tab id='footwear' className={s.tab}>
-          footwear
+          обувь
         </Tab>
         <Tab id='accessories' className={s.tab}>
-          accessories
+          аксессуары
         </Tab>
         <Tab id='items' className={s.tab}>
-          items
+          предметная съемка
         </Tab>
         <Tab id='info' className={s.tab}>
-          info
+          инфографика
         </Tab>
       </TabList>
       <TabPanel id='clothing' className={s.tab_panel}>
-        <h3>clothing</h3>
+        <h3>одежда</h3>
       </TabPanel>
       <TabPanel id='footwear' className={s.tab_panel}>
-        <h3>footwear</h3>
+        <h3>обувь</h3>
       </TabPanel>
       <TabPanel id='accessories' className={s.tab_panel}>
-        <h3>accessories</h3>
+        <h3>аксессуары</h3>
       </TabPanel>
       <TabPanel id='items' className={s.tab_panel}>
-        <h3>items</h3>
+        <h3>предметная съемка</h3>
       </TabPanel>
       <TabPanel id='info' className={s.tab_panel}>
-        <h3>info</h3>
+        <h3>инфографика</h3>
       </TabPanel>
     </Tabs>
   )

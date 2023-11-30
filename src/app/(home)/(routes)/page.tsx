@@ -24,6 +24,8 @@ import requestInterface from '@/constants/requestInterface'
 
 const HomePage = () => {
   const [services, setServices] = useState<requestInterface | null>(null)
+  const [preShoot, setPreShoot] = useState<requestInterface | null>(null)
+  const [infographics, setInfographics] = useState<requestInterface | null>(null)
 
   useEffect(() => {
     const getServices = async () => {
@@ -35,7 +37,27 @@ const HomePage = () => {
       }
     }
 
+    const getPreShoot = async () => {
+      try {
+        const response = await ky.get(`${API_BASE_URL}/pre_shoot`).json<requestInterface[]>()
+        setPreShoot(response[0])
+      } catch (error) {
+        console.error('Error fetching services:', error)
+      }
+    }
+
+    const getInfographics = async () => {
+      try {
+        const response = await ky.get(`${API_BASE_URL}/infographic`).json<requestInterface[]>()
+        setInfographics(response[0])
+      } catch (error) {
+        console.error('Error fetching services:', error)
+      }
+    }
+
     getServices()
+    getPreShoot()
+    getInfographics()
   }, [])
 
   return (
@@ -99,19 +121,25 @@ const HomePage = () => {
             </div>
           </div>
           <div className={styles.services_products}>
-            <div>
-              <h3>Предметная съемка</h3>
-              <p>Фотообзор вашего товара со всех сторон с акцентом на детали, выигрышные ракурсы, и особенности изделия</p>
-            </div>
-            <div className={styles.services_products_images}>
-              <div></div>
-            </div>
+            {preShoot && (
+              <>
+                <div>
+                  <h3>{preShoot.title}</h3>
+                  <p>{preShoot.description}</p>
+                </div>
+                <div className={styles.services_products_images}>
+                  <div></div>
+                </div>
+              </>
+            )}
           </div>
           <div className={styles.services_posters}>
-            <div>
-              <h3>Инфографика</h3>
-              <p>Красивая, гармоничная, и функциональная упаковка изделия, которая будет сразу замета на витрине</p>
-            </div>
+            {infographics && (
+              <div>
+                <h3>{infographics.title}</h3>
+                <p>{infographics.description}</p>
+              </div>
+            )}
           </div>
         </div>
       </section>

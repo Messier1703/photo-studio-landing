@@ -1,3 +1,3 @@
-const companyName = 'Pixel Production'
+const companyName = 'Impulse'
 
 export default companyName
