@@ -120,27 +120,94 @@ const HomePage = () => {
               )}
             </div>
           </div>
-          <div className={styles.services_products}>
-            {preShoot && (
-              <>
-                <div>
+        </div>
+      </section>
+
+      <section className={styles.item_shoots}>
+        <div className='container'>
+          {preShoot && (
+            <>
+              <div className={styles.item_shoots_wrapper}>
+                <div className={styles.item_shoots_content}>
                   <h3>{preShoot.title}</h3>
                   <p>{preShoot.description}</p>
+                  <Link href='/#contacts'>
+                    <BrightButton>Записаться на съемку</BrightButton>
+                  </Link>
                 </div>
-                <div className={styles.services_products_images}>
-                  <div></div>
+                <div className={styles.item_shoots_images}>
+                  <AdaptiveImage
+                    src={preShoot.image_1}
+                    nextWidth={300}
+                    nextHeight={500}
+                    height='500px'
+                    maxWidth='300px'
+                    fitCover={true}
+                    alt='Фото'
+                  />
+                  <AdaptiveImage
+                    src={preShoot.image_2}
+                    nextWidth={300}
+                    nextHeight={500}
+                    height='500px'
+                    maxWidth='300px'
+                    fitCover={true}
+                    alt='Фото'
+                  />
                 </div>
-              </>
-            )}
-          </div>
-          <div className={styles.services_posters}>
-            {infographics && (
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+
+      <section className={styles.infographics}>
+        <div className='container'>
+          {infographics && (
+            <div className={styles.infographics_wrapper}>
+              <div className={styles.infographics_images}>
+                <AdaptiveImage
+                  src={infographics.image_1}
+                  alt='Фото'
+                  nextWidth={300}
+                  nextHeight={360}
+                  fitCover={true}
+                  id={styles.infographics_image}
+                />
+                <AdaptiveImage
+                  src={infographics.image_2}
+                  alt='Фото'
+                  nextWidth={300}
+                  nextHeight={360}
+                  fitCover={true}
+                  id={styles.infographics_image}
+                />
+                <AdaptiveImage
+                  src={infographics.image_3}
+                  alt='Фото'
+                  nextWidth={300}
+                  nextHeight={360}
+                  fitCover={true}
+                  id={styles.infographics_image}
+                />
+                <AdaptiveImage
+                  src={infographics.image_4}
+                  alt='Фото'
+                  nextWidth={300}
+                  nextHeight={360}
+                  fitCover={true}
+                  id={styles.infographics_image}
+                />
+              </div>
               <div>
                 <h3>{infographics.title}</h3>
                 <p>{infographics.description}</p>
+                <Link href='/#contacts'>
+                  <BrightButton>Обсудить работу</BrightButton>
+                </Link>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
