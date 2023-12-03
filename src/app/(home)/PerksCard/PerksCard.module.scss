@@ -2,12 +2,14 @@
   display: flex;
   gap: 20px;
 
-  #image {
+  figure {
     width: 80px;
     height: 80px;
+    font-size: 80px;
+    color: rgb(125, 125, 125);
   }
 
-  h2 {
+  h4 {
     font-size: 20px;
     font-weight: 700;
     padding-bottom: 20px;

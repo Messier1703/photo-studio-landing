@@ -21,6 +21,11 @@ import perksDeco from 'public/perks-deco.png'
 import placeholderIMG from 'public/placeholder.webp'
 import ContactsSection from '@/components/sections/ContactsSection/ContactsSection'
 import requestInterface from '@/constants/requestInterface'
+import FixedImage from '@/lib/FixedImage'
+
+import { FaCamera, FaCalendarCheck } from 'react-icons/fa'
+import { IoMdPhotos } from 'react-icons/io'
+import { TbHandClick } from 'react-icons/tb'
 
 const HomePage = () => {
   const [services, setServices] = useState<requestInterface | null>(null)
@@ -217,13 +222,21 @@ const HomePage = () => {
           <div className={styles.perks_wrapper}>
             <div className={styles.perks_deco}>
               <h3>{companyName}</h3>
-              <AdaptiveImage src={perksDeco} alt='Декорация' maxWidth='500px' id={styles.perks_deco_img} />
+              <FixedImage src={perksDeco} alt='Декорация' id={styles.perks_deco_img} />
             </div>
             <div>
-              <PerksCard title='title title title' desc='description' img={placeholderIMG} />
-              <PerksCard title='title title title' desc='description' img={placeholderIMG} />
-              <PerksCard title='title title title' desc='description' img={placeholderIMG} />
-              <PerksCard title='title title title' desc='description' img={placeholderIMG} />
+              <PerksCard title='title title title' desc='description'>
+                <FaCamera />
+              </PerksCard>
+              <PerksCard title='title title title' desc='description'>
+                <IoMdPhotos />
+              </PerksCard>
+              <PerksCard title='title title title' desc='description'>
+                <FaCalendarCheck />
+              </PerksCard>
+              <PerksCard title='title title title' desc='description'>
+                <TbHandClick />
+              </PerksCard>
             </div>
           </div>
         </div>

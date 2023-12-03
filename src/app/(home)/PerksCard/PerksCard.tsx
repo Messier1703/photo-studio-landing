@@ -1,19 +1,18 @@
 import s from './PerksCard.module.scss'
-import FixedImage from '@/lib/FixedImage'
-import { StaticImageData } from 'next/image'
+import { ReactNode } from 'react'
 
 interface PerksCardProps {
   title: string
   desc: string
-  img: StaticImageData
+  children: ReactNode
 }
 
-const PerksCard: React.FC<PerksCardProps> = ({ title, desc, img }) => {
+const PerksCard: React.FC<PerksCardProps> = ({ title, desc, children }) => {
   return (
     <article className={s.card}>
-      <FixedImage src={img} alt='alt' id={s.image} />
+      <figure>{children}</figure>
       <div>
-        <h2>{title}</h2>
+        <h4>{title}</h4>
         <p>{desc}</p>
       </div>
     </article>
