@@ -1,5 +1,6 @@
 .main {
   background-color: var(--light-gray);
+  background-color: crimson;
   padding: 130px 0 220px;
 
   &_content {
@@ -25,12 +26,16 @@
 }
 
 .portfolio {
+  background-color: red;
+  padding: 120px 0 100px;
   h2 {
     margin-bottom: 30px;
   }
 }
 
 .services {
+  background-color: aqua;
+  padding: 120px 0 60px;
   h4 {
     font-size: 24px;
     text-transform: uppercase;
@@ -76,6 +81,8 @@
 }
 
 .item_shoots {
+  background-color: greenyellow;
+  padding: 60px 0;
   &_wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -83,6 +90,7 @@
     h3 {
       font-size: 40px;
       margin-bottom: 45px;
+      font-weight: 500;
     }
 
     p {
@@ -103,6 +111,9 @@
 }
 
 .infographics {
+  background-color: chocolate;
+  padding: 60px 0 120px;
+
   &_wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -111,6 +122,7 @@
     h3 {
       font-size: 40px;
       margin-bottom: 45px;
+      font-weight: 500;
     }
 
     p {
@@ -132,6 +144,8 @@
 }
 
 .perks {
+  background-color: darkorchid;
+  padding: 120px 0 160px;
   &_wrapper {
     display: flex;
     gap: 50px;
@@ -156,11 +170,23 @@
 }
 
 .team {
+  background-color: cyan;
+  padding: 100px 0;
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
   &_grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
   }
+}
+
+.reviews {
+  padding: 120px 0 160px;
+  background-color: gold;
 }
 
 // @media (max-width: 1200px) {

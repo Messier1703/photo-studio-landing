@@ -19,7 +19,7 @@ import companyName from '@/constants/studioName'
 
 import perksDeco from 'public/perks-deco.png'
 import placeholderIMG from 'public/placeholder.webp'
-import SignUpSection from '@/components/sections/SignUp/SignUp'
+import ContactsSection from '@/components/sections/ContactsSection/ContactsSection'
 import requestInterface from '@/constants/requestInterface'
 
 const HomePage = () => {
@@ -247,7 +247,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <SignUpSection />
+      <ContactsSection />
     </>
   )
 }

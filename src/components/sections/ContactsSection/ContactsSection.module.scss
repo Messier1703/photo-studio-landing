@@ -1,0 +1,55 @@
+.contacts {
+  padding: 100px 0 200px;
+
+  &_wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      margin-bottom: 35px;
+    }
+
+    h3 {
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+  }
+
+  &_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+
+    div {
+      display: flex;
+      gap: 16px;
+    }
+  }
+
+  &_icons {
+    font-size: 40px;
+
+    a {
+      height: 40px;
+      width: 40px;
+      transition: var(--link-hover);
+
+      &:hover {
+        transition: var(--link-hover);
+        color: var(--bright-color);
+      }
+    }
+  }
+
+  &_number {
+    color: var(--bright-color);
+    font-size: 18px;
+    transition: var(--link-hover);
+
+    &:hover {
+      transition: var(--link-hover);
+    }
+  }
+}
