@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import s from './Header.module.scss'
 import HeaderButton from './HeaderButton/HeaderButton'
@@ -7,11 +8,31 @@ import { FaTelegram, FaWhatsapp } from 'react-icons/fa'
 import { SlSocialVkontakte } from 'react-icons/sl'
 import FixedImage from '@/lib/FixedImage'
 import BurgerButton from './BurgerButton/BurgerButton'
-// import BurgerButton from './BurgerButton/BurgerButton'
+import { useState, useEffect } from 'react'
 
 const Header = () => {
+  const [scroll, setScroll] = useState(false)
+
+  const toggleScroll = () => {
+    if (window.scrollY > 20) {
+      setScroll(true)
+    } else {
+      setScroll(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', toggleScroll)
+    }
+  }, [])
+
+  const color = scroll ? `${s.header} ${s.header_scroll}` : s.header
+
   return (
-    <header className={s.header}>
+    <header className={color}>
       <div className='container'>
         <div className={s.wrapper}>
           <Link href='/'>

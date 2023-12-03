@@ -1,5 +1,22 @@
 .header {
   background-color: var(--light-gray);
+  transition: var(--button-hover);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+
+  &_scroll {
+    transition: var(--button-hover);
+    box-shadow: 1px 3px 15px 0px rgba(0, 0, 0, 0.35);
+
+    .wrapper {
+      height: 90px;
+      transition: var(--button-hover);
+    }
+  }
 
   #header_logo {
     height: 60px;
@@ -20,6 +37,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: var(--button-hover);
 
   a {
     transition: var(--link-hover);
