@@ -1,13 +1,13 @@
 'use client'
 import Link from 'next/link'
 import s from './Header.module.scss'
-import HeaderButton from './HeaderButton/HeaderButton'
+import HeaderButton from '../../components/ui/HeaderButton/HeaderButton'
 import managerNumber from '@/constants/managerNumber'
 import logoPath from '@/constants/logoPath'
 import { FaTelegram, FaWhatsapp } from 'react-icons/fa'
 import { SlSocialVkontakte } from 'react-icons/sl'
 import FixedImage from '@/lib/FixedImage'
-import BurgerButton from './BurgerButton/BurgerButton'
+import BurgerButton from '../../components/ui/BurgerButton/BurgerButton'
 import { useState, useEffect } from 'react'
 
 const Header = () => {

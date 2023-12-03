@@ -1,26 +1,27 @@
 'use client'
 import { Tabs, TabList, Tab, TabPanel } from 'react-aria-components'
 import s from './PortfolioTabs.module.scss'
-// import { useEffect, useState } from 'react'
-// import ky from 'ky'
-// import requestInterface from '@/constants/requestInterface'
-// import API_BASE_URL from '@/constants/API_BASE_URL'
+import API_BASE_URL from '@/constants/API_BASE_URL'
+import requestInterface from '@/constants/requestInterface'
+import ky from 'ky'
+import { useState, useEffect } from 'react'
 
 const PortfolioTabs = () => {
-  // const [products, setProducts] = useState<requestInterface | null>(null)
+  const [portfolio, setPortfolio] = useState<requestInterface[]>([])
 
-  // useEffect(() => {
-  //   const getProducts = async () => {
-  //     try {
-  //       const response = await ky.get(`${API_BASE_URL}/our_products`).json<requestInterface[]>()
-  //       setProducts(response[0])
-  //     } catch (error) {
-  //       console.error('Error fetching services:', error)
-  //     }
-  //   }
+  useEffect(() => {
+    const getPortfolio = async () => {
+      try {
+        const response = await ky.get(`${API_BASE_URL}/our_team`).json<requestInterface[]>()
+        console.log(response)
+        setPortfolio(response)
+      } catch (error) {
+        console.error(error)
+      }
+    }
 
-  //   getProducts()
-  // }, [])
+    getPortfolio()
+  }, [])
 
   return (
     <Tabs className={s.tabs}>

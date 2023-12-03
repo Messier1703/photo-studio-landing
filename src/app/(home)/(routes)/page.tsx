@@ -7,11 +7,9 @@ import ky from 'ky'
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-// import MainCard from '../MainCard/MainCard'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
-import PortfolioTabs from '../PortfolioTabs/PortfolioTabs'
 import AboutSection from '@/components/sections/AboutSection/AboutSection'
-import PerksCard from '../PerksCard/PerksCard'
+import PerksCard from '../../../components/ui/PerksCard/PerksCard'
 
 import AdaptiveImage from '@/lib/AdaptiveImage'
 import companyName from '@/constants/studioName'
@@ -86,13 +84,6 @@ const HomePage = () => {
       </main>
 
       <AboutSection />
-
-      <section className={styles.portfolio} id='portfolio'>
-        <div className='container'>
-          <h2 className='section_title'>Наши работы</h2>
-          <PortfolioTabs />
-        </div>
-      </section>
 
       <section className={styles.services} id='services'>
         <div className='container'>

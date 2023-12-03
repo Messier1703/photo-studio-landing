@@ -1,4 +1,4 @@
-import SignUpForm from './SignUpForm/SignUpForm'
+import SignUpForm from '../../ui/SignUpForm/SignUpForm'
 import styles from './ContactsSection.module.scss'
 import managerNumber from '@/constants/managerNumber'
 import { FaTelegram, FaWhatsapp } from 'react-icons/fa'

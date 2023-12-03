@@ -47,17 +47,13 @@ button {
   font-family: var(--var-montserrat), Arial, Helvetica, sans-serif;
 }
 
-// section {
-//   padding: 120px 0;
-// }
-
 input {
   border: none;
   font-family: var(--var-montserrat);
 }
 
 .container {
-  max-width: 1420px;
+  max-width: 1440px;
   padding: 0 120px;
   margin: 0 auto;
 }
@@ -83,20 +79,9 @@ input {
 .align_center {
   align-items: center;
 }
-// @media (max-width: 960px) {
-//   .container {
-//     padding: 0 90px;
-//   }
-// }
 
-// @media (max-width: 768px) {
-//   .container {
-//     padding: 0 60px;
-//   }
-// }
-
-// @media (max-width: 480px) {
-//   .container {
-//     padding: 0 90px;
-//   }
-// }
+@media (max-width: 960px) {
+  .container {
+    padding: 0 90px;
+  }
+}

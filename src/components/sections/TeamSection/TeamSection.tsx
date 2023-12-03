@@ -1,5 +1,5 @@
 'use client'
-import TeamCard from './TeamCard/TeamCard'
+import TeamCard from '../../ui/TeamCard/TeamCard'
 import styles from './TeamSection.module.scss'
 import { useEffect, useState } from 'react'
 import ky from 'ky'
