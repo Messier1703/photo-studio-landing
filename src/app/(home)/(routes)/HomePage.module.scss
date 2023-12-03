@@ -189,21 +189,6 @@
   }
 }
 
-.team {
-  background-color: cyan;
-  padding: 100px 0;
-
-  h2 {
-    margin-bottom: 20px;
-  }
-
-  &_grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-  }
-}
-
 .reviews {
   padding: 120px 0 160px;
   background-color: gold;

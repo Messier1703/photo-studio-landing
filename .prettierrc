@@ -6,6 +6,6 @@
   "bracketSpacing": true,
   "trailingComma": "all",
   "tabWidth": 2,
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "endOfLine": "lf"
 }

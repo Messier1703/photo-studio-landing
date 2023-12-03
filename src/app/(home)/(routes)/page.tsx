@@ -12,13 +12,11 @@ import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import PortfolioTabs from '../PortfolioTabs/PortfolioTabs'
 import AboutSection from '@/components/sections/AboutSection/AboutSection'
 import PerksCard from '../PerksCard/PerksCard'
-import TeamCard from '../TeamCard/TeamCard'
 
 import AdaptiveImage from '@/lib/AdaptiveImage'
 import companyName from '@/constants/studioName'
 
 import perksDeco from 'public/perks-deco.png'
-import placeholderIMG from 'public/placeholder.webp'
 import ContactsSection from '@/components/sections/ContactsSection/ContactsSection'
 import requestInterface from '@/constants/requestInterface'
 import FixedImage from '@/lib/FixedImage'
@@ -26,6 +24,7 @@ import FixedImage from '@/lib/FixedImage'
 import { FaCamera, FaCalendarCheck } from 'react-icons/fa'
 import { IoMdPhotos } from 'react-icons/io'
 import { TbHandClick } from 'react-icons/tb'
+import TeamSection from '@/components/sections/TeamSection/TeamSection'
 
 const HomePage = () => {
   const [services, setServices] = useState<requestInterface | null>(null)
@@ -242,17 +241,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className={styles.team} id='team'>
-        <div className='container'>
-          <h2 className='section_title'>Наша команда</h2>
-          <div className={styles.team_grid}>
-            <TeamCard name='name' job='job' img={placeholderIMG} />
-            <TeamCard name='name' job='job' img={placeholderIMG} />
-            <TeamCard name='name' job='job' img={placeholderIMG} />
-            <TeamCard name='name' job='job' img={placeholderIMG} />
-          </div>
-        </div>
-      </section>
+      <TeamSection />
 
       <section className={styles.reviews} id='reviews'>
         <div className='container'>
