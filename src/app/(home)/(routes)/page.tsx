@@ -62,7 +62,7 @@ const HomePage = () => {
 
   return (
     <>
-      <main className={styles.main}>
+      <main className={styles.main} id='main'>
         <div className='container'>
           <div className={styles.main_wrapper}>
             <div className={styles.main_content}>

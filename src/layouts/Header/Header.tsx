@@ -35,7 +35,7 @@ const Header = () => {
     <header className={color}>
       <div className='container'>
         <div className={s.wrapper}>
-          <Link href='/'>
+          <Link href='/#main'>
             <FixedImage src={logoPath} alt='Логотип' id={s.header_logo} />
           </Link>
           <Link href='#about-us' id={s.desktop_only}>
@@ -44,7 +44,7 @@ const Header = () => {
           <Link href='#portfolio' id={s.desktop_only}>
             Наши работы
           </Link>
-          <Link href='/#offers' id={s.desktop_only}>
+          <Link href='/#services' id={s.desktop_only}>
             Услуги
           </Link>
           <Link href='/#reviews' id={s.desktop_only}>
