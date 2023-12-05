@@ -1,3 +1,4 @@
+import AboutSection from '@/components/sections/AboutSection/AboutSection'
 import MainSection from '@/components/sections/MainSection/MainSection'
 import TeamSection from '@/components/sections/TeamSection/TeamSection'
 
@@ -42,6 +43,7 @@ const HomePage = () => {
   return (
     <>
       <MainSection />
+      <AboutSection />
       <TeamSection />
     </>
   )
