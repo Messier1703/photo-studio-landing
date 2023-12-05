@@ -3,12 +3,11 @@ import Link from 'next/link'
 import s from './Header.module.scss'
 import HeaderButton from '../../components/ui/HeaderButton/HeaderButton'
 import managerNumber from '@/constants/managerNumber'
-import logoPath from '@/constants/logoPath'
 import { FaTelegram, FaWhatsapp } from 'react-icons/fa'
 import { SlSocialVkontakte } from 'react-icons/sl'
-import FixedImage from '@/lib/FixedImage'
 import BurgerButton from '../../components/ui/BurgerButton/BurgerButton'
 import { useState, useEffect } from 'react'
+import Logo from '@/components/ui/Logo/Logo'
 
 const Header = () => {
   const [scroll, setScroll] = useState(false)
@@ -36,7 +35,7 @@ const Header = () => {
       <div className='container'>
         <div className={s.wrapper}>
           <Link href='/#main'>
-            <FixedImage src={logoPath} alt='Логотип' id={s.header_logo} />
+            <Logo />
           </Link>
           <Link href='#about-us' id={s.desktop_only}>
             О студии
