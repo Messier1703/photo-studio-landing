@@ -1,0 +1,47 @@
+.services {
+  padding: 120px 0 60px;
+  background-color: yellow;
+  
+  h4 {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 40px;
+  }
+
+  &_content {
+    padding-top: 110px;
+    display: grid;
+    grid-gap: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+
+    h3 {
+      margin-bottom: 45px;
+      text-transform: capitalize;
+    }
+  }
+
+  &_pricing {
+    div {
+      margin-bottom: 45px;
+
+      h4 {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  &_sign_up {
+    p {
+      margin-bottom: 215px;
+    }
+  }
+}
