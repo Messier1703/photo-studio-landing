@@ -1,4 +1,6 @@
 .perks {
+  padding: 120px 0 160px;
+
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -12,17 +14,16 @@
     margin-bottom: 60px;
   }
 
-  padding: 120px 0 160px;
   &_wrapper {
     display: flex;
     gap: 50px;
-    justify-content: space-between;
+    align-items: center;
   }
 
   &_deco {
     position: relative;
 
-    #perks_deco_img {
+    figure {
       width: 500px;
       height: 500px;
 
@@ -40,6 +41,22 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+  }
+
+  &_cards {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+
+    article {
+      &:nth-child(2) {
+        margin-left: 60px;
+      }
+
+      &:nth-child(4) {
+        margin-left: 60px;
+      }
     }
   }
 }
