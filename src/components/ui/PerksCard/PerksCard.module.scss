@@ -20,3 +20,13 @@
     font-size: 20px;
   }
 }
+
+@media (max-width: 740px) {
+  .card {
+    figure {
+      width: 70px;
+      height: 70px;
+      font-size: 70px;
+    }
+  }
+}
