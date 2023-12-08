@@ -4,6 +4,7 @@ import styles from './ServicesSection.module.scss'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import ky from 'ky'
 import API_BASE_URL from '@/constants/API_BASE_URL'
+import placeholderText from '@/constants/placeholderText'
 
 const ServicesSection = () => {
   interface GetServicesProps {
@@ -17,7 +18,16 @@ const ServicesSection = () => {
     description_4: string
   }
 
-  const [services, setServices] = useState<GetServicesProps | null>(null)
+  const [services, setServices] = useState<GetServicesProps>({
+    title_1: `${placeholderText}`,
+    description_1: `${placeholderText}`,
+    title_2: `${placeholderText}`,
+    description_2: `${placeholderText}`,
+    title_3: `${placeholderText}`,
+    description_3: `${placeholderText}`,
+    title_4: `${placeholderText}`,
+    description_4: `${placeholderText}`,
+  })
 
   useEffect(() => {
     const getServices = async () => {
@@ -56,7 +66,7 @@ const ServicesSection = () => {
               <div className={styles.services_sign_up}>
                 <h3>{services.title_4}</h3>
                 <p>{services.description_4}</p>
-                <BrightButton>Записаться на съемку</BrightButton>
+                <BrightButton id={styles.services_button}>Записаться на съемку</BrightButton>
               </div>
             </div>
           )}

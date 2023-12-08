@@ -4,7 +4,7 @@ import PortfolioSection from '@/components/sections/PortfolioSection/PortfolioSe
 import ServicesSection from '@/components/sections/ServicesSection/ServicesSection'
 import ObjectSection from '@/components/sections/ObjectSection/ObjectSection'
 import InfographicsSection from '@/components/sections/InfographicsSection/InfographicsSection'
-import PerksSection from '@/components/sections/PerksSection/PerksSection'
+// import PerksSection from '@/components/sections/PerksSection/PerksSection'
 import TeamSection from '@/components/sections/TeamSection/TeamSection'
 // import ReviewsSection from '@/components/sections/ReviewsSection/ReviewsSection'
 import ContactsSection from '@/components/sections/ContactsSection/ContactsSection'
@@ -13,12 +13,12 @@ const HomePage = () => {
   return (
     <>
       <MainSection />
-      <PerksSection />
+      {/* <PerksSection /> */}
       {/* <ReviewsSection /> */}
-      <AboutSection />
-      <PortfolioSection />
+      {/* <AboutSection />
+      <PortfolioSection /> */}
       <ServicesSection />
-      <ObjectSection />
+      {/* {/* <ObjectSection /> */}
       <InfographicsSection />
       <TeamSection />
       <ContactsSection />
