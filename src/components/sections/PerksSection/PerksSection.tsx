@@ -22,22 +22,25 @@ const PerksSection = () => {
             <h3>{companyName}</h3>
           </div>
           <div className={styles.perks_cards}>
-            <PerksCard title='title title title' desc='description'>
+            <PerksCard title='Можно присутствовать на съёмке' desc='Вы сможете приехать к нам в студию и познакомиться с нами лично!'>
               <figure>
                 <IoCameraOutline />
               </figure>
             </PerksCard>
-            <PerksCard title='title title title' desc='description'>
+            <PerksCard title='Фото за 48 часов' desc='Оперативно отдаем готовый материал на файлообменнике (облачное хранилище)'>
               <figure>
                 <PiLightning />
               </figure>
             </PerksCard>
-            <PerksCard title='title title title' desc='description'>
+            <PerksCard
+              title='Опыт более 12 лет'
+              desc='Более 12 лет опыта позволяет нам снимать ваши товары даже без Вашего ТЗ. Мы знаем свою работу!'
+            >
               <figure>
                 <IoCalendarOutline />
               </figure>
             </PerksCard>
-            <PerksCard title='title title title' desc='description'>
+            <PerksCard title='Создаем кликабельную инфографику' desc='Яркий дизайн который заставит купить'>
               <figure>
                 <PiCursor />
               </figure>
