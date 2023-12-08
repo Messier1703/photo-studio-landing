@@ -6,6 +6,7 @@ import API_BASE_URL from '@/constants/API_BASE_URL'
 import Link from 'next/link'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import Image from 'next/image'
+import placeholderText from '@/constants/placeholderText'
 
 const InfographicsSection = () => {
   interface GetInfographicsProps {
@@ -17,7 +18,14 @@ const InfographicsSection = () => {
     image_4: string
   }
 
-  const [infographics, setInfographics] = useState<GetInfographicsProps | null>(null)
+  const [infographics, setInfographics] = useState<GetInfographicsProps>({
+    title: `${placeholderText}`,
+    description: `${placeholderText}`,
+    image_1: '',
+    image_2: '',
+    image_3: '',
+    image_4: '',
+  })
 
   useEffect(() => {
     const getServices = async () => {

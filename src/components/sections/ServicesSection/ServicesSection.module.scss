@@ -1,6 +1,10 @@
 .services {
   padding: 120px 0 60px;
 
+  h2 {
+    margin-bottom: 110px;
+  }
+
   h4 {
     font-size: 24px;
     text-transform: uppercase;
@@ -15,7 +19,6 @@
   }
 
   &_content {
-    padding-top: 110px;
     display: flex;
     justify-content: space-around;
     gap: 50px;
@@ -47,9 +50,15 @@
   .services {
     padding: 60px 0 30px;
 
+    h2 {
+      margin-bottom: 70px;
+    }
+
     &_content {
       flex-direction: column;
       gap: 0;
+      align-items: center;
+      text-align: center;
     }
 
     &_sign_up {
@@ -57,11 +66,5 @@
         margin-bottom: 90px;
       }
     }
-  }
-}
-
-@media (max-width: 480px) {
-  #services_button {
-    width: 300px;
   }
 }

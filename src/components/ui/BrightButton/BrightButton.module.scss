@@ -14,3 +14,9 @@
     color: var(--black-color);
   }
 }
+
+@media (max-width: 420px) {
+  .button {
+    width: 320px;
+  }
+}

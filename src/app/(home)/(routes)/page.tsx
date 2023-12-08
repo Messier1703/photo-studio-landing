@@ -15,10 +15,10 @@ const HomePage = () => {
       <MainSection />
       {/* <PerksSection /> */}
       {/* <ReviewsSection /> */}
-      {/* <AboutSection />
-      <PortfolioSection /> */}
+      {/* <AboutSection /> */}
+      {/* <PortfolioSection /> */}
       <ServicesSection />
-      {/* {/* <ObjectSection /> */}
+      <ObjectSection />
       <InfographicsSection />
       <TeamSection />
       <ContactsSection />

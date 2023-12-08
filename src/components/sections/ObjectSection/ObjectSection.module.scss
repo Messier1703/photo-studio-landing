@@ -1,9 +1,14 @@
 .object {
   padding: 60px 0;
 
+  &_content {
+    width: 50%;
+  }
+
   &_wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
 
     h3 {
       font-size: 40px;
@@ -17,13 +22,8 @@
     }
   }
 
-  &_content {
-    max-width: 380px;
-  }
-
   &_images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 20px;
   }
 
@@ -34,8 +34,52 @@
     object-position: center;
 
     &_wrapper {
-      width: 300px;
+      max-width: 300px;
       height: 500px;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .object {
+    &_wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &_images {
+      justify-content: center;
+    }
+
+    &_image {
+      &_wrapper {
+        max-width: 400px;
+      }
+    }
+
+    &_content {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .object {
+    padding: 30px 0;
+
+    &_images {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &_content {
+      width: 100%;
+    }
+
+    &_image {
+      &_wrapper {
+        max-width: 420px;
+      }
     }
   }
 }

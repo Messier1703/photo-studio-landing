@@ -7,6 +7,7 @@ import API_BASE_URL from '@/constants/API_BASE_URL'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import Link from 'next/link'
 import Image from 'next/image'
+import placeholderText from '@/constants/placeholderText'
 
 const ObjectSection = () => {
   interface GetObjectsProps {
@@ -16,7 +17,12 @@ const ObjectSection = () => {
     image_2: string
   }
 
-  const [object, setObject] = useState<GetObjectsProps | null>(null)
+  const [object, setObject] = useState<GetObjectsProps>({
+    title: `${placeholderText}`,
+    description: `${placeholderText}`,
+    image_1: '',
+    image_2: '',
+  })
 
   useEffect(() => {
     const getServices = async () => {
