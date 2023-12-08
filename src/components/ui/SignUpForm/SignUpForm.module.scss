@@ -16,9 +16,14 @@
     margin: 8px 0 20px;
     transition: var(--link-hover);
 
-    &:focus {
+    &:hover {
       border-bottom: 1px solid var(--bright-color);
       transition: var(--link-hover);
+    }
+
+    &:focus {
+      border-bottom: 1px solid var(--bright-color);
+      transition: var(--button-hover);
     }
   }
 }

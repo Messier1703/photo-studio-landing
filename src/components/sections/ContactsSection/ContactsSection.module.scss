@@ -1,6 +1,12 @@
 .contacts {
   padding: 100px 0 200px;
 
+  &_bar {
+    height: 1060px;
+    width: 1px;
+    background-color: var(--black-color);
+  }
+
   &_wrapper {
     display: flex;
     justify-content: space-between;

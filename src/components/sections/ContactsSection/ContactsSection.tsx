@@ -36,6 +36,7 @@ const ContactsSection = () => {
               </div>
             </div>
           </div>
+          <div className={styles.contacts_bar} />
           <SignUpForm />
         </div>
       </div>
