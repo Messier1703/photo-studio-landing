@@ -5,20 +5,38 @@ import API_BASE_URL from '@/constants/API_BASE_URL'
 import ky from 'ky'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import placeholderText from '@/constants/placeholderText'
 
 interface Image {
-  id: number
+  id: number | undefined
   image: string
 }
 
 interface PortfolioItem {
-  id: number
+  id: number | undefined
   title: string
   images: Image[]
 }
 
-const PortfolioTabs = () => {
-  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([])
+interface PortfolioTabsProps {
+  id: string
+}
+
+const PortfolioTabs: React.FC<PortfolioTabsProps> = ({ id }) => {
+  const [isDataLoaded, setIsDataLoaded] = useState(false)
+
+  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([
+    {
+      id: undefined,
+      title: `${placeholderText}`,
+      images: [
+        {
+          id: undefined,
+          image: '',
+        },
+      ],
+    },
+  ])
 
   useEffect(() => {
     const getPortfolio = async () => {
@@ -26,6 +44,7 @@ const PortfolioTabs = () => {
         const response = await ky.get(`${API_BASE_URL}/our_products`).json<PortfolioItem[]>()
         console.log(response)
         setPortfolio(response)
+        setIsDataLoaded(true)
       } catch (error) {
         console.error(error)
       }
@@ -35,10 +54,10 @@ const PortfolioTabs = () => {
   }, [])
 
   return (
-    <Tabs className={styles.tabs}>
+    <Tabs className={styles.tabs} id={id}>
       <TabList className={styles.tab_list}>
         {portfolio.map((item) => (
-          <Tab key={item.id} id={item.title.toLowerCase()} className={styles.tab}>
+          <Tab key={item.id} id={item.title.toLowerCase()} className={`${styles.tab} ${isDataLoaded ? '' : styles.tab_rounded}`}>
             {item.title}
           </Tab>
         ))}
@@ -50,7 +69,7 @@ const PortfolioTabs = () => {
           <div className={styles.tab_image_wrapper}>
             {item.images.map((image) => (
               <figure key={image.id}>
-                <Image src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
+                <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
               </figure>
             ))}
           </div>

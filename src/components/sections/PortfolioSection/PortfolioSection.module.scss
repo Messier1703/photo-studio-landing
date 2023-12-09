@@ -4,3 +4,9 @@
     margin-bottom: 30px;
   }
 }
+
+@media (max-width: 960px) {
+  #desktop_only {
+    display: none;
+  }
+}

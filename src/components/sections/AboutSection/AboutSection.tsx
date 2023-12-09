@@ -46,9 +46,11 @@ const AboutSection = () => {
                 <Image className={styles.about_image} src={image.image} alt='Фото' width={880} height={600} />
               </figure>
             ))}
-            <h3>{companyName}</h3>
-            <p>{about.title}</p>
-            <BrightButton id={styles.btn}>Посмотреть работы</BrightButton>
+            <div className={styles.about_text}>
+              <h3>{companyName}</h3>
+              <p>{about.title}</p>
+              <BrightButton id={styles.btn}>Посмотреть работы</BrightButton>
+            </div>
           </div>
         </div>
       )}

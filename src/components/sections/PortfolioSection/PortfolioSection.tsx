@@ -6,7 +6,7 @@ const PortfolioSection = () => {
     <section className={styles.portfolio} id='portfolio'>
       <div className='container'>
         <h2 className='section_title'>Наши работы</h2>
-        <PortfolioTabs />
+        <PortfolioTabs id={styles.desktop_only} />
       </div>
     </section>
   )
