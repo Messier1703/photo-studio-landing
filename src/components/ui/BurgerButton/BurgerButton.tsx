@@ -5,11 +5,12 @@ import s from './BurgerButton.module.scss'
 
 interface BurgerButtonProps {
   id: string
+  onClick: () => void
 }
 
-const BurgerButton: React.FC<BurgerButtonProps> = ({ id }) => {
+const BurgerButton: React.FC<BurgerButtonProps> = ({ id, onClick }) => {
   return (
-    <Button className={s.button} id={id}>
+    <Button className={s.button} id={id} onPress={onClick}>
       <RiMenu3Fill />
     </Button>
   )

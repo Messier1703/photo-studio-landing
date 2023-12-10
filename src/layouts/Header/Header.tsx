@@ -9,12 +9,30 @@ import telegramLogo from 'public/svg/telegram-logo.svg'
 import { useState, useEffect } from 'react'
 import Logo from '@/components/ui/Logo/Logo'
 import Image from 'next/image'
+import BurgerButton from '@/components/ui/BurgerButton/BurgerButton'
+import BurgerMenu from '@/components/ui/BurgerMenu/BurgerMenu'
 
 const Header = () => {
   const [scroll, setScroll] = useState(false)
+  const [pastMain, setPastMain] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   const toggleScroll = () => {
-    if (window.scrollY > 20) {
+    const scrollPosition = window.scrollY
+
+    const mainSection = document.getElementById('main')
+
+    if (mainSection && scrollPosition > mainSection.offsetTop + mainSection.offsetHeight) {
+      setPastMain(true)
+    } else {
+      setPastMain(false)
+    }
+
+    if (scrollPosition > 20) {
       setScroll(true)
     } else {
       setScroll(false)
@@ -29,37 +47,44 @@ const Header = () => {
     }
   }, [])
 
-  const scrollToggle = scroll ? `${styles.header} ${styles.header_scroll}` : styles.header
+  const scrollToggle =
+    scroll || pastMain ? `${styles.header} ${styles.header_scroll} ${pastMain ? styles.header_white : ''}` : styles.header
 
   return (
     <header className={scrollToggle}>
       <div className='container'>
         <div className={styles.header_wrapper}>
-          <Link href='/'>logo</Link>
-          <Link href='/' className={styles.header_link}>
+          <BurgerMenu isOpen={isMenuOpen} onClose={toggleMenu} id={styles.mobile_only} linkClass={styles.header_link} />
+          <Link href='/#main'>
+            <Logo />
+          </Link>
+          <Link href='#about' className={styles.header_link} id={styles.desktop_only}>
             О студии
           </Link>
-          <Link href='/' className={styles.header_link}>
+          <Link href='/#portfolio' className={styles.header_link} id={styles.desktop_only}>
             Наши работы
           </Link>
-          <Link href='/' className={styles.header_link}>
+          <Link href='/#services' className={styles.header_link} id={styles.desktop_only}>
             Услуги
           </Link>
-          <Link href='/' className={styles.header_link}>
+          <Link href='/#reviews' className={styles.header_link} id={styles.desktop_only}>
             Отзывы
           </Link>
-          <Link href='/' className={styles.header_link}>
+          <Link href='/blog' className={styles.header_link} id={styles.desktop_only}>
             Блог о съемке
           </Link>
-          <Link href='/' className={styles.header_link}>
+          <Link href='#contacts' className={styles.header_link} id={styles.desktop_only}>
             Контакты
           </Link>
-          <Link href='/' className={styles.header_link}>
+          <Link href='/calendar' className={styles.header_link} id={styles.desktop_only}>
             <HeaderButton>Календарь съемок</HeaderButton>
           </Link>
           <div className={styles.header_contacts}>
-            <Link href='/' className={styles.header_link}>
+            <Link href='/' className={styles.header_link} id={styles.manager_number}>
               {managerNumber}
+            </Link>
+            <Link href='/' className={styles.header_link} id={styles.mobile_only}>
+              <HeaderButton>Календарь съемок</HeaderButton>
             </Link>
             <div className={styles.header_contacts_icons}>
               <Link href='/'>
@@ -73,6 +98,7 @@ const Header = () => {
               </Link>
             </div>
           </div>
+          <BurgerButton id={styles.mobile_only} onClick={toggleMenu} />
         </div>
       </div>
     </header>
