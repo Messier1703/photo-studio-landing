@@ -8,6 +8,7 @@ import placeholderText from '@/constants/placeholderText'
 
 const ServicesSection = () => {
   interface GetServicesProps {
+    id: number
     title_1: string
     description_1: string
     title_2: string
@@ -19,6 +20,7 @@ const ServicesSection = () => {
   }
 
   const [services, setServices] = useState<GetServicesProps>({
+    id: 0,
     title_1: `${placeholderText}`,
     description_1: `${placeholderText}`,
     title_2: `${placeholderText}`,
@@ -45,32 +47,30 @@ const ServicesSection = () => {
   return (
     <section className={styles.services} id='services'>
       <div className='container'>
-        <div className={styles.services_prices}>
-          <h2 className='section_title'>Услуги</h2>
-          {services && (
-            <div className={styles.services_content}>
-              <div className={styles.services_pricing}>
-                <div>
-                  <h4>{services.title_1}</h4>
-                  <p>{services.description_1}</p>
-                </div>
-                <div>
-                  <h4>{services.title_2}</h4>
-                  <p>{services.description_2}</p>
-                </div>
-                <div>
-                  <h4>{services.title_3}</h4>
-                  <p>{services.description_3}</p>
-                </div>
+        <h2 className='section_title'>Услуги</h2>
+        {services && (
+          <div className={styles.services_wrapper} key={services.id}>
+            <div className={styles.services_pricing}>
+              <div>
+                <h4>{services.title_1}</h4>
+                <p>{services.description_1}</p>
               </div>
-              <div className={styles.services_sign_up}>
-                <h3>{services.title_4}</h3>
-                <p>{services.description_4}</p>
-                <BrightButton id={styles.services_button}>Записаться на съемку</BrightButton>
+              <div>
+                <h4>{services.title_2}</h4>
+                <p>{services.description_2}</p>
+              </div>
+              <div>
+                <h4>{services.title_3}</h4>
+                <p>{services.description_3}</p>
               </div>
             </div>
-          )}
-        </div>
+            <div className={styles.services_sign_up}>
+              <h3>{services.title_4}</h3>
+              <p>{services.description_4}</p>
+              <BrightButton id={styles.services_button}>Записаться на съемку</BrightButton>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
