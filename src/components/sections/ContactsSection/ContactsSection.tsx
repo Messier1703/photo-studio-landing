@@ -1,9 +1,11 @@
 import SignUpForm from '../../ui/SignUpForm/SignUpForm'
 import styles from './ContactsSection.module.scss'
 import managerNumber from '@/constants/managerNumber'
-import { FaTelegram, FaWhatsapp } from 'react-icons/fa'
-import { SlSocialVkontakte } from 'react-icons/sl'
 import Link from 'next/link'
+import vkLogo from 'public/svg/vk-logo.svg'
+import telegramLogo from 'public/svg/telegram-logo.svg'
+import whatsappLogo from 'public/svg/whatsapp-logo.svg'
+import Image from 'next/image'
 
 const ContactsSection = () => {
   return (
@@ -20,23 +22,22 @@ const ContactsSection = () => {
                 </Link>
                 <p>Менеджер</p>
               </div>
-            </div>
-            <div className={styles.contacts_info}>
               <h3>МЕССЕНДЖЕРЫ</h3>
-              <div className={styles.contacts_icons}>
-                <Link href='/'>
-                  <FaWhatsapp />
-                </Link>
-                <Link href='/'>
-                  <FaTelegram />
-                </Link>
-                <Link href='/'>
-                  <SlSocialVkontakte />
-                </Link>
+              <div className={styles.contacts_info}>
+                <div className={styles.contacts_icons}>
+                  <Link href='/'>
+                    <Image src={whatsappLogo} alt='Whatsapp' />
+                  </Link>
+                  <Link href='/'>
+                    <Image src={telegramLogo} alt='Telegram' />
+                  </Link>
+                  <Link href='/'>
+                    <Image src={vkLogo} alt='Vkontakte' />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-          <div className={styles.contacts_bar} />
           <SignUpForm />
         </div>
       </div>

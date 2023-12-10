@@ -75,6 +75,10 @@
   }
 }
 
+#main_button_link {
+  width: min-content;
+}
+
 #main_button {
   &:hover {
     background-color: var(--white-color);
@@ -93,6 +97,7 @@
   #desktop_only {
     display: none;
   }
+
   #main_button_link {
     margin: 0 auto;
   }

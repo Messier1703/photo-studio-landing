@@ -37,6 +37,11 @@ a {
   display: block;
 }
 
+a {
+  height: fit-content;
+  width: fit-content;
+}
+
 li {
   list-style: none;
 }
@@ -55,11 +60,6 @@ input {
 
 section {
   padding: 120px 0;
-}
-
-a {
-  width: min-content;
-  height: min-content;
 }
 
 .container {

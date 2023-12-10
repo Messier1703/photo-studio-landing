@@ -13,15 +13,15 @@ const HomePage = () => {
   return (
     <>
       <MainSection />
-      {/* <PortfolioSection /> */}
-      {/* <PerksSection /> */}
-      {/* <ReviewsSection /> */}
       {/* <AboutSection /> */}
-      {/* <ServicesSection /> */}
-      {/* <ObjectSection /> */}
-      {/* <InfographicsSection /> */}
+      {/* <PortfolioSection /> */}
+      <PerksSection />
+      {/* <ReviewsSection /> */}
+      <ServicesSection />
+      <ObjectSection />
+      <InfographicsSection />
       {/* <TeamSection /> */}
-      {/* <ContactsSection /> */}
+      <ContactsSection />
     </>
   )
 }

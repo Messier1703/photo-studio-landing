@@ -1,13 +1,14 @@
 'use client'
 import Link from 'next/link'
-import s from './Header.module.scss'
+import styles from './Header.module.scss'
 import HeaderButton from '../../components/ui/HeaderButton/HeaderButton'
 import managerNumber from '@/constants/managerNumber'
-import { FaTelegram, FaWhatsapp } from 'react-icons/fa'
-import { SlSocialVkontakte } from 'react-icons/sl'
-import BurgerButton from '../../components/ui/BurgerButton/BurgerButton'
+import vkLogo from 'public/svg/vk-logo.svg'
+import whatsappLogo from 'public/svg/whatsapp-logo.svg'
+import telegramLogo from 'public/svg/telegram-logo.svg'
 import { useState, useEffect } from 'react'
 import Logo from '@/components/ui/Logo/Logo'
+import Image from 'next/image'
 
 const Header = () => {
   const [scroll, setScroll] = useState(false)
@@ -28,58 +29,50 @@ const Header = () => {
     }
   }, [])
 
-  const color = scroll ? `${s.header} ${s.header_scroll}` : s.header
+  const scrollToggle = scroll ? `${styles.header} ${styles.header_scroll}` : styles.header
 
   return (
-    <header className={color}>
+    <header className={scrollToggle}>
       <div className='container'>
-        <div className={s.wrapper}>
-          <Link href='/#main'>
-            <Logo />
-          </Link>
-          <Link href='#about-us' id={s.desktop_only}>
+        <div className={styles.header_wrapper}>
+          <Link href='/'>logo</Link>
+          <Link href='/' className={styles.header_link}>
             О студии
           </Link>
-          <Link href='#portfolio' id={s.desktop_only}>
+          <Link href='/' className={styles.header_link}>
             Наши работы
           </Link>
-          <Link href='/#services' id={s.desktop_only}>
+          <Link href='/' className={styles.header_link}>
             Услуги
           </Link>
-          <Link href='/#reviews' id={s.desktop_only}>
+          <Link href='/' className={styles.header_link}>
             Отзывы
           </Link>
-          <Link href='/blog' id={s.desktop_only}>
+          <Link href='/' className={styles.header_link}>
             Блог о съемке
           </Link>
-          <Link href='/#contacts' id={s.desktop_only}>
+          <Link href='/' className={styles.header_link}>
             Контакты
           </Link>
-          <div className={s.header_button}>
-            <Link href='/' id={s.mobile_only} className={s.header_number}>
+          <Link href='/' className={styles.header_link}>
+            <HeaderButton>Календарь съемок</HeaderButton>
+          </Link>
+          <div className={styles.header_contacts}>
+            <Link href='/' className={styles.header_link}>
               {managerNumber}
             </Link>
-            <Link href='/'>
-              <HeaderButton>Календарь съемок</HeaderButton>
-            </Link>
-          </div>
-          <div className={s.header_contacts}>
-            <Link href='/' id={s.desktop_only} className={s.header_number}>
-              {managerNumber}
-            </Link>
-            <div className={s.socials}>
+            <div className={styles.header_contacts_icons}>
               <Link href='/'>
-                <FaTelegram />
+                <Image src={whatsappLogo} alt='WhatsApp' />
               </Link>
               <Link href='/'>
-                <FaWhatsapp />
+                <Image src={vkLogo} alt='VKontakte' />
               </Link>
               <Link href='/'>
-                <SlSocialVkontakte />
+                <Image src={telegramLogo} alt='Telegram' />
               </Link>
             </div>
           </div>
-          <BurgerButton id={s.mobile_only} />
         </div>
       </div>
     </header>

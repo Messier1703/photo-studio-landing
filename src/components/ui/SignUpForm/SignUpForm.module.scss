@@ -11,7 +11,7 @@
   input {
     border-bottom: 1px solid black;
     font-size: 16px;
-    width: 460px;
+    width: 100%;
     padding: 15px 0;
     margin: 8px 0 20px;
     transition: var(--link-hover);
@@ -27,3 +27,20 @@
     }
   }
 }
+
+@media (max-width: 1240px) {
+  .form {
+    input {
+      width: 460px;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .form {
+    input {
+      width: 370px;
+    }
+  }
+}
+
