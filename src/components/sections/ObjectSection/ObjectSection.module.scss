@@ -4,7 +4,7 @@
   &_wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    grid-gap: 80px;
   }
 
   &_content {
@@ -57,6 +57,7 @@
   .object {
     &_wrapper {
       grid-template-columns: 1fr;
+      grid-gap: 20px;
     }
 
     &_content {
