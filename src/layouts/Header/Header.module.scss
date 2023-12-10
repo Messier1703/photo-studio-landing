@@ -90,21 +90,22 @@
       }
     }
   }
+}
 
-  @media (max-width: 920px) {
-    #mobile_only {
-      display: block;
-    }
+@media (max-width: 920px) {
+  #mobile_only {
+    display: block;
+  }
 
-    #desktop_only {
-      display: none;
-    }
-
-    .header {
-      &_contacts {
-        flex-direction: column;
-        gap: 10px;
-      }
+  #desktop_only {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .header {
+    &_contacts {
+      flex-direction: column;
+      gap: 10px;
     }
   }
 }

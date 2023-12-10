@@ -83,9 +83,6 @@ const Header = () => {
             <Link href='/' className={styles.header_link} id={styles.manager_number}>
               {managerNumber}
             </Link>
-            <Link href='/' className={styles.header_link} id={styles.mobile_only}>
-              <HeaderButton>Календарь съемок</HeaderButton>
-            </Link>
             <div className={styles.header_contacts_icons}>
               <Link href='/'>
                 <Image src={whatsappLogo} alt='WhatsApp' />
