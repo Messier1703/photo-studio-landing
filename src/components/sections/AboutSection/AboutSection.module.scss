@@ -17,6 +17,12 @@
     margin-bottom: 80px;
   }
 
+  &_images {
+    position: relative;
+    height: 600px;
+    max-width: 880px;
+  }
+
   &_image {
     width: 100%;
     height: 100%;
@@ -24,7 +30,8 @@
 
     &_wrapper {
       height: 600px;
-      max-width: 880px;
+      width: 880px;
+      position: absolute;
     }
   }
 

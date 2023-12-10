@@ -38,7 +38,7 @@ const ObjectSection = () => {
   }, [])
 
   return (
-    <section className={styles.object}>
+    <div className={styles.object}>
       <div className='container'>
         {object && (
           <>
@@ -62,7 +62,7 @@ const ObjectSection = () => {
           </>
         )}
       </div>
-    </section>
+    </div>
   )
 }
 

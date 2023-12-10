@@ -41,7 +41,7 @@ const InfographicsSection = () => {
   }, [])
 
   return (
-    <section className={styles.infographics}>
+    <div className={styles.infographics}>
       <div className='container'>
         {infographics && (
           <div className={styles.infographics_wrapper}>
@@ -69,7 +69,7 @@ const InfographicsSection = () => {
           </div>
         )}
       </div>
-    </section>
+    </div>
   )
 }
 

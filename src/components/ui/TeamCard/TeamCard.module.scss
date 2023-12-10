@@ -1,4 +1,5 @@
 .card {
+  margin: 0 auto;
   h6 {
     font-size: 18px;
     font-weight: 700;
@@ -19,7 +20,18 @@
 
     &_wrapper {
       height: 340px;
-      max-width: 280px;
+      width: 280px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .card {
+    &_image {
+      &_wrapper {
+        height: 240px;
+        width: 170px;
+      }
     }
   }
 }

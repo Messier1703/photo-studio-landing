@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import ky from 'ky'
 import API_BASE_URL from '@/constants/API_BASE_URL'
 import { StaticImageData } from 'next/image'
+import placeholderText from '@/constants/placeholderText'
 
 const TeamSection = () => {
   interface GetTeamProps {
@@ -14,7 +15,14 @@ const TeamSection = () => {
     image_1: StaticImageData
   }
 
-  const [team, setTeam] = useState<GetTeamProps[]>([])
+  const [team, setTeam] = useState<GetTeamProps[]>([
+    {
+      id: 0,
+      title: `${placeholderText}`,
+      job: `${placeholderText}`,
+      image_1: {} as StaticImageData,
+    },
+  ])
 
   useEffect(() => {
     const getTeam = async () => {

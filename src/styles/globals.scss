@@ -52,6 +52,10 @@ input {
   font-family: var(--var-montserrat);
 }
 
+section {
+  padding: 120px 0;
+}
+
 .container {
   max-width: 1440px;
   padding: 0 120px;
@@ -65,6 +69,7 @@ input {
 
 .section_title {
   font-size: 80px;
+  margin-bottom: 50px;
   font-weight: 500;
 }
 
@@ -87,6 +92,11 @@ input {
 
   .section_title {
     font-size: 50px;
+    margin-bottom: 35px;
+  }
+
+  section {
+    padding: 60px 0;
   }
 }
 
@@ -105,5 +115,10 @@ input {
 @media (max-width: 480px) {
   .container {
     padding: 0 10px;
+  }
+
+  .section_title {
+    font-size: 45px;
+    margin-bottom: 25px;
   }
 }

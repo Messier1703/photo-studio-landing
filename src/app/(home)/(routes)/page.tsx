@@ -12,16 +12,16 @@ import ContactsSection from '@/components/sections/ContactsSection/ContactsSecti
 const HomePage = () => {
   return (
     <>
-      <MainSection />
-      <PortfolioSection />
-      <PerksSection />
-      <ReviewsSection />
-      <AboutSection />
-      <ServicesSection />
-      <ObjectSection />
-      <InfographicsSection />
+      {/* <MainSection /> */}
+      {/* <PortfolioSection /> */}
+      {/* <PerksSection /> */}
+      {/* <ReviewsSection /> */}
+      {/* <AboutSection /> */}
+      {/* <ServicesSection /> */}
+      {/* <ObjectSection /> */}
+      {/* <InfographicsSection /> */}
       <TeamSection />
-      <ContactsSection />
+      {/* <ContactsSection /> */}
     </>
   )
 }

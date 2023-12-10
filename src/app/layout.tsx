@@ -24,7 +24,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html>
       <body className={montserrat.variable}>
-        <Header />
+        {/* <Header /> */}
         {children}
         {/* <Footer /> */}
       </body>
