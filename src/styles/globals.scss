@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: var(--link-hover);
 
   &:focus {
     outline: none;
@@ -54,6 +55,11 @@ input {
 
 section {
   padding: 120px 0;
+}
+
+a {
+  width: min-content;
+  height: min-content;
 }
 
 .container {

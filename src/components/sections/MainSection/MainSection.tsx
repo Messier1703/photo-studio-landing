@@ -5,6 +5,11 @@ import Link from 'next/link'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import MainCard from '@/components/ui/MainCard/MainCard'
 import API_BASE_URL from '@/constants/API_BASE_URL'
+import ky from 'ky'
+import Image from 'next/image'
+import ozonLogo from 'public/images/ozon-logo.png'
+import wbLogo from 'public/images/wb-logo.png'
+import yaMarketLogo from 'public/images/ya-market-logo.png'
 
 interface Image {
   id: number
@@ -24,7 +29,6 @@ const MainSection = () => {
     const getPortfolio = async () => {
       try {
         const response = await ky.get(`${API_BASE_URL}/our_products`).json<PortfolioItem[]>()
-        console.log(response)
         setProducts(response)
       } catch (error) {
         console.error(error)
@@ -36,19 +40,63 @@ const MainSection = () => {
 
   return (
     <main className={styles.main} id='main'>
+      <div className={styles.main_logos} id={styles.desktop_only}>
+        <Link href='/' className={styles.main_logo}>
+          <Image src={wbLogo} alt='Озон' />
+        </Link>
+        <Link href='/' className={styles.main_logo}>
+          <Image src={ozonLogo} alt='Озон' />
+        </Link>
+        <Link href='/' className={styles.main_logo}>
+          <Image src={yaMarketLogo} alt='Озон' />
+        </Link>
+      </div>
       <div className='container'>
         <div className={styles.main_wrapper}>
-          <div className={styles.main_content}>
+          <div className={styles.main_content} id={styles.desktop_only}>
             <h1>Создаем продающий контент для маркетплейсов</h1>
             <Link href='/'>
               <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
             </Link>
           </div>
           <div className={styles.main_cards}>
-            {/* <MainCard img={placeholderIMG} />
-            <MainCard img={placeholderIMG} />
-            <MainCard img={placeholderIMG} />
-            <MainCard img={placeholderIMG} /> */}
+            <div>
+              {products.slice(0, 2).map((category) => (
+                <MainCard
+                  key={category.id}
+                  title={category.title}
+                  img={category.images[0]?.image} // Use placeholder if no image is available
+                  alt={`Фото ${category.title}`}
+                />
+              ))}
+            </div>
+            <div>
+              {products.slice(2, 4).map((category) => (
+                <MainCard
+                  key={category.id}
+                  title={category.title}
+                  img={category.images[0]?.image} // Use placeholder if no image is available
+                  alt={`Фото ${category.title}`}
+                />
+              ))}
+            </div>
+          </div>
+          <div className={styles.main_content} id={styles.mobile_only}>
+            <h1>Создаем продающий контент для маркетплейсов</h1>
+            <div className={styles.main_logos}>
+              <Link href='/'>
+                <Image src={ozonLogo} alt='Озон' />
+              </Link>
+              <Link href='/'>
+                <Image src={wbLogo} alt='Озон' />
+              </Link>
+              <Link href='/'>
+                <Image src={yaMarketLogo} alt='Озон' />
+              </Link>
+            </div>
+            <Link href='/' id={styles.main_button_link}>
+              <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
+            </Link>
           </div>
         </div>
       </div>
