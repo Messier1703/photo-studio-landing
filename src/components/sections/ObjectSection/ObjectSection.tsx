@@ -8,20 +8,21 @@ import BrightButton from '@/components/ui/BrightButton/BrightButton'
 import Link from 'next/link'
 import Image from 'next/image'
 import placeholderText from '@/constants/placeholderText'
+import { StaticImageData } from 'next/image'
 
 const ObjectSection = () => {
   interface GetObjectsProps {
     title: string
     description: string
-    image_1: string
-    image_2: string
+    image_1: StaticImageData
+    image_2: StaticImageData
   }
 
   const [object, setObject] = useState<GetObjectsProps>({
     title: `${placeholderText}`,
     description: `${placeholderText}`,
-    image_1: '',
-    image_2: '',
+    image_1: {} as StaticImageData,
+    image_2: {} as StaticImageData,
   })
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const ObjectSection = () => {
                 <h3>{object.title}</h3>
                 <p>{object.description}</p>
                 <Link href='/#contacts'>
-                  <BrightButton>Записаться на съемку</BrightButton>
+                  <BrightButton id={styles.desktop_only}>Записаться на съемку</BrightButton>
                 </Link>
               </div>
               <div className={styles.object_images}>
@@ -58,6 +59,7 @@ const ObjectSection = () => {
                   <Image className={styles.object_image} src={object.image_2} alt='Фото' width={300} height={500} />
                 </figure>
               </div>
+              <BrightButton id={styles.mobile_only}>Записаться на съемку</BrightButton>
             </div>
           </>
         )}

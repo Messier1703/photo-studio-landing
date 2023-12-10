@@ -18,9 +18,9 @@ const HomePage = () => {
       {/* <ReviewsSection /> */}
       {/* <AboutSection /> */}
       {/* <ServicesSection /> */}
-      {/* <ObjectSection /> */}
+      <ObjectSection />
       {/* <InfographicsSection /> */}
-      <TeamSection />
+      {/* <TeamSection /> */}
       {/* <ContactsSection /> */}
     </>
   )
