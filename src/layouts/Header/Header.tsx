@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import styles from './Header.module.scss'
-import HeaderButton from '../../components/ui/HeaderButton/HeaderButton'
+import HeaderButton from '../../components/ui/BurgerButton/HeaderButton/HeaderButton'
 import managerNumber from '@/constants/managerNumber'
 import vkLogo from 'public/svg/vk-logo.svg'
 import whatsappLogo from 'public/svg/whatsapp-logo.svg'

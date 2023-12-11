@@ -1,20 +1,13 @@
 'use client'
+import React from 'react'
 import BrightButton from '@/components/ui/BrightButton/BrightButton'
-import { FieldError, Form, Input, Label, TextField } from 'react-aria-components'
+import { FieldError, Form, Input, Label, TextField, Checkbox } from 'react-aria-components'
 import s from './SignUpForm.module.scss'
-// import { useState, useEffect } from 'react'
-// import API_BASE_URL from '@/constants/API_BASE_URL'
-//   useEffect(() => {
-//     async function postForm() {
-//       try {
-//         const res = ky.get(`${API_BASE_URL}/form`)
-//       }
-//     }
-//   })
 
 const SignUpForm = () => {
   return (
     <Form className={s.form}>
+      <h2 className='section_title'>Обсудить работу</h2>
       <TextField name='name' isRequired className={s.form_field}>
         <Label>Имя</Label>
         <Input />
@@ -35,6 +28,15 @@ const SignUpForm = () => {
         <Input />
         <FieldError />
       </TextField>
+      <Checkbox name='checkbox1' className={s.form_field}>
+        <Label>Опция 1</Label>
+      </Checkbox>
+      <Checkbox name='checkbox2' className={s.form_field}>
+        <Label>Опция 2</Label>
+      </Checkbox>
+      <Checkbox name='checkbox3' className={s.form_field}>
+        <Label>Опция 3</Label>
+      </Checkbox>
       <BrightButton type='submit'>Submit</BrightButton>
     </Form>
   )

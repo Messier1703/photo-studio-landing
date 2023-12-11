@@ -49,11 +49,32 @@ const AboutSection = () => {
           <h2 className='section_title'>О нас</h2>
           <div className={styles.about_wrapper}>
             <div className={styles.about_images}>
-              <motion.div initial={{ opacity: 0, x: -20 }} animate={controls} transition={{ staggerChildren: 0.2 }}>
-                {about.images.map((image) => (
-                  <figure className={styles.about_image_wrapper}>
+              <motion.div
+                initial='hidden'
+                animate='visible'
+                variants={{
+                  visible: { opacity: 1, x: 0 },
+                  hidden: { opacity: 0, x: -20 },
+                }}
+                transition={{ duration: 0.5 }} // Initial delay for the first image
+              >
+                {about.images.map((image, index) => (
+                  <motion.figure
+                    key={index}
+                    className={styles.about_image_wrapper}
+                    variants={{
+                      visible: { opacity: 1, x: 0 },
+                      hidden: { opacity: 0, x: -20 },
+                    }}
+                    initial={index === 0 ? 'visible' : 'hidden'} // Set the first image to be initially visible
+                    animate='visible'
+                    transition={{
+                      delay: index === 0 ? 0.5 : 0.5 + index * 0.5, // Initial delay for the first image, staggered delay for the rest
+                      duration: 0.5,
+                    }}
+                  >
                     <Image className={styles.about_image} src={image.image} alt='Фото' width={880} height={600} />
-                  </figure>
+                  </motion.figure>
                 ))}
               </motion.div>
             </div>

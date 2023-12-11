@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import styles from './BurgerMenu.module.scss'
 import Link from 'next/link'
-import HeaderButton from '../HeaderButton/HeaderButton'
+import HeaderButton from '../BurgerButton/HeaderButton/HeaderButton'
 
 interface BurgerMenuProps {
   isOpen: boolean

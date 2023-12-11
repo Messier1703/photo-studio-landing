@@ -29,10 +29,10 @@ const ContactsSection = () => {
                     <Image src={whatsappLogo} alt='Whatsapp' />
                   </Link>
                   <Link href='/'>
-                    <Image src={telegramLogo} alt='Telegram' />
+                    <Image src={vkLogo} alt='Vkontakte' />
                   </Link>
                   <Link href='/'>
-                    <Image src={vkLogo} alt='Vkontakte' />
+                    <Image src={telegramLogo} alt='Telegram' />
                   </Link>
                 </div>
               </div>
