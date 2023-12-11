@@ -14,13 +14,13 @@ const HomePage = () => {
     <>
       <MainSection />
       {/* <AboutSection /> */}
-      <PortfolioSection />
+      {/* <PortfolioSection /> */}
       <PerksSection />
-      {/* <ReviewsSection /> */}
+      <ReviewsSection />
       <ServicesSection />
       <ObjectSection />
       <InfographicsSection />
-      {/* <TeamSection /> */}
+      <TeamSection />
       <ContactsSection />
     </>
   )

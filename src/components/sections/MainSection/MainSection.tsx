@@ -62,23 +62,13 @@ const MainSection = () => {
           <div className={styles.main_cards}>
             <div>
               {products.slice(0, 2).map((category) => (
-                <MainCard
-                  key={category.id}
-                  title={category.title}
-                  img={category.images[0]?.image} // Use placeholder if no image is available
-                  alt={`Фото ${category.title}`}
-                />
+                <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
               ))}
             </div>
             <div>
               {products.slice(2, 4).map((category) => (
                 <Link href='/'>
-                  <MainCard
-                    key={category.id}
-                    title={category.title}
-                    img={category.images[0]?.image} // Use placeholder if no image is available
-                    alt={`Фото ${category.title}`}
-                  />
+                  <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
                 </Link>
               ))}
             </div>
