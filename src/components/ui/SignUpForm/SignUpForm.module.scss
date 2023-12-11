@@ -4,6 +4,36 @@
     flex-direction: column;
   }
 
+  &_modal {
+    background-color: var(--white-color);
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: (-50% -50%);
+    text-align: center;
+    z-index: 999;
+    color: black;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    transition: var(--link-hover);
+
+    &_title {
+      margin-bottom: 15px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  &_error {
+    color: var(--bright-color);
+    margin-bottom: 15px;
+  }
+
   label {
     font-size: 16px;
   }
@@ -24,6 +54,41 @@
     &:focus {
       border-bottom: 1px solid var(--bright-color);
       transition: var(--button-hover);
+    }
+  }
+
+  &_checkbox {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+
+    &_box {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1px;
+      border: 2px solid rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    &_check {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: var(--link-hover);
+    }
+
+    &[data-selected],
+    &[data-indeterminate] {
+      .form_checkbox {
+        &_check {
+          opacity: 1;
+          transition: var(--link-hover);
+        }
+      }
     }
   }
 }
