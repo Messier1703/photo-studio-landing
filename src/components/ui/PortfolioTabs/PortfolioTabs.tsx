@@ -18,11 +18,11 @@ interface PortfolioItem {
   images: Image[]
 }
 
-interface PortfolioTabsProps {
-  id: string
+interface PortfolioDropdownProps {
+  id?: string
 }
 
-const PortfolioTabs: React.FC<PortfolioTabsProps> = ({ id }) => {
+const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
   const [isDataLoaded, setIsDataLoaded] = useState(false)
 
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>([
