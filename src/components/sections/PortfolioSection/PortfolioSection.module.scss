@@ -5,8 +5,16 @@
   }
 }
 
+#mobile_only {
+  display: none;
+}
+
 @media (max-width: 960px) {
   #desktop_only {
     display: none;
+  }
+
+  #mobile_only {
+    display: block;
   }
 }

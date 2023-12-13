@@ -2,9 +2,6 @@ import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
-import Header from '@/layouts/Header/Header'
-import Footer from '@/layouts/Footer/Footer'
-
 import '@/styles/globals.scss'
 import '@/styles/variables.scss'
 import '@/styles/media.scss'
@@ -23,11 +20,7 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html>
-      <body className={montserrat.variable}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <body className={montserrat.variable}>{children}</body>
     </html>
   )
 }

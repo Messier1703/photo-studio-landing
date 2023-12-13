@@ -1,14 +1,14 @@
-'use client'
-import { useState } from 'react'
-import BrightButton from '@/components/ui/BrightButton/BrightButton'
-import { FieldError, Form, Input, Label, TextField, Checkbox, Dialog, DialogTrigger, Heading, Modal } from 'react-aria-components'
-import styles from './SignUpForm.module.scss'
-import checkIcon from 'public/svg/check-icon.svg'
-import Image from 'next/image'
-import ky from 'ky'
-import API_BASE_URL from '@/constants/API_BASE_URL'
+"use client"
+import { useState } from "react"
+import BrightButton from "@/components/ui/BrightButton/BrightButton"
+import { FieldError, Form, Input, Label, TextField, Checkbox, Dialog, DialogTrigger, Heading, Modal } from "react-aria-components"
+import styles from "./SignUpForm.module.scss"
+import checkIcon from "public/svg/check-icon.svg"
+import Image from "next/image"
+import ky from "ky"
+import API_BASE_URL from "@/constants/API_BASE_URL"
 
-interface FormData {
+interface FormDataProps {
   name: string
   phone: string
   email: string
@@ -22,14 +22,14 @@ interface FormData {
 interface SignUpFormProps {}
 
 const SignUpForm: React.FC<SignUpFormProps> = () => {
-  const [modalMessage, setModalMessage] = useState('')
+  const [modalMessage, setModalMessage] = useState("")
 
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    phone: '',
-    email: '',
-    amount: '',
-    preferences: '',
+  const [formData, setFormData] = useState<FormDataProps>({
+    name: "",
+    phone: "",
+    email: "",
+    amount: "",
+    preferences: "",
     model: false,
     object: false,
     infographics: false,
@@ -53,11 +53,11 @@ const SignUpForm: React.FC<SignUpFormProps> = () => {
         })
         .json()
 
-      console.log('Email sent successfully:', response)
-      setModalMessage('Заявка успешно отправлена!')
+      console.log("Email sent successfully:", response)
+      setModalMessage("Заявка успешно отправлена!")
     } catch (error) {
-      console.error('Error sending email:', error)
-      setModalMessage('Что-то пошло не так...')
+      console.error("Error sending email:", error)
+      setModalMessage("Что-то пошло не так...")
     }
   }
 
@@ -70,60 +70,60 @@ const SignUpForm: React.FC<SignUpFormProps> = () => {
 
   return (
     <Form className={styles.form} onSubmit={handleSubmit}>
-      <h2 className='section_title'>Обсудить работу</h2>
-      <TextField name='name' isRequired className={styles.form_field}>
+      <h2 className="section_title">Обсудить работу</h2>
+      <TextField name="name" isRequired className={styles.form_field}>
         <Label>Имя</Label>
         <Input value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
         <FieldError className={styles.form_error} />
       </TextField>
-      <TextField name='phone' isRequired className={styles.form_field}>
+      <TextField name="phone" isRequired className={styles.form_field}>
         <Label>Телефон</Label>
-        <Input value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder='(###) ####-####' />
+        <Input value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="(###) ####-####" />
         <FieldError className={styles.form_error} />
       </TextField>
-      <TextField name='email' isRequired className={styles.form_field}>
+      <TextField name="email" isRequired className={styles.form_field}>
         <Label>Email</Label>
-        <Input type='email' value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+        <Input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
         <FieldError className={styles.form_error} />
       </TextField>
-      <TextField name='amount' isRequired className={styles.form_field}>
+      <TextField name="amount" isRequired className={styles.form_field}>
         <Label>Количество артикулов</Label>
         <Input value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: e.target.value })} />
         <FieldError className={styles.form_error} />
       </TextField>
-      <TextField name='preferences' className={styles.form_field}>
+      <TextField name="preferences" className={styles.form_field}>
         <Label>Пожелания</Label>
         <Input value={formData.preferences} onChange={(e) => setFormData({ ...formData, preferences: e.target.value })} />
         <FieldError className={styles.form_error} />
       </TextField>
-      <Checkbox name='model' className={styles.form_checkbox} isSelected={formData.model} onChange={() => handleCheckboxChange('model')}>
+      <Checkbox name="model" className={styles.form_checkbox} isSelected={formData.model} onChange={() => handleCheckboxChange("model")}>
         <div className={styles.form_checkbox_box}>
-          <Image src={checkIcon} alt='Check' className={styles.form_checkbox_check} />
+          <Image src={checkIcon} alt="Check" className={styles.form_checkbox_check} />
         </div>
         <Label>Фото на модели</Label>
       </Checkbox>
-      <Checkbox name='object' className={styles.form_checkbox} isSelected={formData.object} onChange={() => handleCheckboxChange('object')}>
+      <Checkbox name="object" className={styles.form_checkbox} isSelected={formData.object} onChange={() => handleCheckboxChange("object")}>
         <div className={styles.form_checkbox_box}>
-          <Image src={checkIcon} alt='Check' className={styles.form_checkbox_check} />
+          <Image src={checkIcon} alt="Check" className={styles.form_checkbox_check} />
         </div>
         <Label>Предметное фото</Label>
       </Checkbox>
       <Checkbox
-        name='infographics'
+        name="infographics"
         className={styles.form_checkbox}
         isSelected={formData.infographics}
-        onChange={() => handleCheckboxChange('infographics')}
+        onChange={() => handleCheckboxChange("infographics")}
       >
         <div className={styles.form_checkbox_box}>
-          <Image src={checkIcon} alt='Check' className={styles.form_checkbox_check} />
+          <Image src={checkIcon} alt="Check" className={styles.form_checkbox_check} />
         </div>
         <Label>Инфографика</Label>
       </Checkbox>
       <DialogTrigger>
-        <BrightButton type='submit'>Обсудить работу</BrightButton>
+        <BrightButton type="submit">Обсудить работу</BrightButton>
         <Modal isDismissable>
           <Dialog className={styles.form_modal}>
-            <Heading slot='title' className={styles.form_modal_title}>
+            <Heading slot="title" className={styles.form_modal_title}>
               {modalMessage}
             </Heading>
             <p>Нажмите за пределами этого окна, чтобы закрыть</p>

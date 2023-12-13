@@ -1,9 +1,10 @@
 'use client'
+import { ReactNode } from 'react'
 import s from './BrightButton.module.scss'
 import { Button } from 'react-aria-components'
 
 interface BrightButtonProps {
-  children: string
+  children: string | ReactNode
   id?: string
   type?: 'button' | 'submit' | 'reset' | undefined
 }
