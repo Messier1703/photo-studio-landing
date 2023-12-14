@@ -2,7 +2,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: var(--link-hover);
 
   &:focus {
     outline: none;
@@ -35,6 +34,8 @@ a {
   text-decoration: none;
   color: inherit;
   display: block;
+  width: fit-content;
+  height: fit-content;
 }
 
 a {
@@ -51,6 +52,8 @@ button {
   border: none;
   cursor: pointer;
   font-family: var(--var-montserrat), Arial, Helvetica, sans-serif;
+  width: fit-content;
+  height: fit-content;
 }
 
 input {
@@ -80,6 +83,7 @@ section {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .flex {

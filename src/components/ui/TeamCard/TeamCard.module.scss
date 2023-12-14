@@ -1,4 +1,6 @@
 .card {
+  width: 280px;
+
   margin: 0 auto;
   h6 {
     font-size: 18px;
@@ -27,6 +29,7 @@
 
 @media (max-width: 720px) {
   .card {
+    width: 170px;
     &_image {
       &_wrapper {
         height: 240px;

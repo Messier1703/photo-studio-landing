@@ -12,10 +12,10 @@ import ContactsSection from "@/components/sections/ContactsSection/ContactsSecti
 const HomePage = () => {
   return (
     <>
+      <ServicesSection />
       <AboutSection />
       <PortfolioSection />
       <MainSection />
-      <ServicesSection />
       <ObjectSection />
       <InfographicsSection />
       <PerksSection />

@@ -4,11 +4,11 @@ import styles from "./ServicesSection.module.scss"
 import BrightButton from "@/components/ui/BrightButton/BrightButton"
 import ky from "ky"
 import API_BASE_URL from "@/constants/API_BASE_URL"
-import placeholderText from "@/constants/placeholderText"
 import EditButton from "@/components/ui/EditButton/EditButton"
 import StyledPopover from "@/components/ui/StyledPopover/StyledPopover"
 import { Button, Form } from "react-aria-components"
 import AdminInput from "@/components/ui/AdminInput/AdminInput"
+import refreshToken from "@/lib/refreshToken"
 
 const ServicesSection = () => {
   interface GetServicesProps {
@@ -25,14 +25,14 @@ const ServicesSection = () => {
 
   const [services, setServices] = useState<GetServicesProps>({
     id: 0,
-    title_1: `${placeholderText}`,
-    description_1: `${placeholderText}`,
-    title_2: `${placeholderText}`,
-    description_2: `${placeholderText}`,
-    title_3: `${placeholderText}`,
-    description_3: `${placeholderText}`,
-    title_4: `${placeholderText}`,
-    description_4: `${placeholderText}`,
+    title_1: "",
+    description_1: "",
+    title_2: "",
+    description_2: "",
+    title_3: "",
+    description_3: "",
+    title_4: "",
+    description_4: "",
   })
 
   useEffect(() => {
@@ -40,8 +40,9 @@ const ServicesSection = () => {
       try {
         const response = await ky.get(`${API_BASE_URL}/services`).json<GetServicesProps[]>()
         setServices(response[0])
+        console.log(services)
       } catch (error) {
-        console.error("Error fetching services:", error)
+        console.error(error)
       }
     }
 
@@ -57,15 +58,12 @@ const ServicesSection = () => {
             button={<EditButton />}
             content={
               <Form
+                className="admin_form"
                 onSubmit={async (e) => {
                   e.preventDefault()
-
                   const formData = new FormData(e.currentTarget)
-
-                  const id = 1
-
                   const data = {
-                    id,
+                    id: 1,
                     title_1: formData.get("title_1") as string,
                     description_1: formData.get("description_1") as string,
                     title_2: formData.get("title_2") as string,
@@ -77,6 +75,7 @@ const ServicesSection = () => {
                   }
                   const postServices = async () => {
                     try {
+                      refreshToken()
                       const response = await ky.patch(`${API_BASE_URL}/services?id=1`, { json: data, credentials: "include" })
                       console.log(response)
                       window.location.reload()
@@ -87,14 +86,14 @@ const ServicesSection = () => {
                   postServices()
                 }}
               >
-                <AdminInput name="title_1" type="text" placeholder="title1" label="label" defaultValue={services.title_1} />
-                <AdminInput name="description_1" type="text" placeholder="title1" label="label" defaultValue={services.description_1} />
-                <AdminInput name="title_2" type="text" placeholder="title1" label="label" defaultValue={services.title_2} />
-                <AdminInput name="description_2" type="text" placeholder="title1" label="label" defaultValue={services.description_2} />
-                <AdminInput name="title_3" type="text" placeholder="title1" label="label" defaultValue={services.title_3} />
-                <AdminInput name="description_3" type="text" placeholder="title1" label="label" defaultValue={services.description_3} />
-                <AdminInput name="title_4" type="text" placeholder="title1" label="label" defaultValue={services.title_4} />
-                <AdminInput name="description_4" type="text" placeholder="title1" label="label" defaultValue={services.description_4} />
+                <AdminInput name="title_1" type="text" placeholder="title1" defaultValue={services.title_1} />
+                <AdminInput name="description_1" type="text" placeholder="title1" defaultValue={services.description_1} />
+                <AdminInput name="title_2" type="text" placeholder="title1" defaultValue={services.title_2} />
+                <AdminInput name="description_2" type="text" placeholder="title1" defaultValue={services.description_2} />
+                <AdminInput name="title_3" type="text" placeholder="title1" defaultValue={services.title_3} />
+                <AdminInput name="description_3" type="text" placeholder="title1" defaultValue={services.description_3} />
+                <AdminInput name="title_4" type="text" placeholder="title1" defaultValue={services.title_4} />
+                <AdminInput name="description_4" type="text" placeholder="title1" defaultValue={services.description_4} />
                 <Button type="submit">Обновить секцию</Button>
               </Form>
             }

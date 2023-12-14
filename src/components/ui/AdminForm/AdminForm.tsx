@@ -4,7 +4,7 @@ import styles from "./AdminForm.module.scss"
 
 interface AdminFormProps {
   children: ReactNode
-  onSubmit: (e) => void
+  onSubmit: ((event: FormEvent<HTMLFormElement>) => void) | undefined
 }
 
 const AdminForm: React.FC<AdminFormProps> = ({ children, onSubmit }) => {

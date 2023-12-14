@@ -1,17 +1,15 @@
-import { FieldError, Input, Label, TextField } from "react-aria-components"
+import { FieldError, Input, TextField } from "react-aria-components"
 
 interface AdminInputProps {
   name: string
   type: string
   placeholder: string
-  label: string
-  defaultValue: string
+  defaultValue?: string
 }
 
-const AdminInput: React.FC<AdminInputProps> = ({ name, type, placeholder, label, defaultValue }) => {
+const AdminInput: React.FC<AdminInputProps> = ({ name, type, placeholder, defaultValue }) => {
   return (
     <TextField name={name} type={type} defaultValue={defaultValue}>
-      <Label>{label}</Label>
       <Input placeholder={placeholder} />
       <FieldError />
     </TextField>

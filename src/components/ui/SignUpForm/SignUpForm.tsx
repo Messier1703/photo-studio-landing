@@ -23,97 +23,76 @@ interface SignUpFormProps {}
 
 const SignUpForm: React.FC<SignUpFormProps> = () => {
   const [modalMessage, setModalMessage] = useState("")
-
-  const [formData, setFormData] = useState<FormDataProps>({
-    name: "",
-    phone: "",
-    email: "",
-    amount: "",
-    preferences: "",
-    model: false,
-    object: false,
-    infographics: false,
-  })
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
-    try {
-      const response = await ky
-        .post(`${API_BASE_URL}/email_visa/send-email/`, {
-          json: {
-            name: formData.name,
-            number: formData.phone,
-            to_email: formData.email,
-            message: formData.preferences,
-            foto_in_model: formData.model,
-            subject_photo: formData.object,
-            infographics: formData.infographics,
-          },
-        })
-        .json()
-
-      console.log("Email sent successfully:", response)
-      setModalMessage("Заявка успешно отправлена!")
-    } catch (error) {
-      console.error("Error sending email:", error)
-      setModalMessage("Что-то пошло не так...")
-    }
-  }
-
-  const handleCheckboxChange = (name: keyof FormData) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: !prevFormData[name],
-    }))
-  }
+  // const [checkedBox, setCheckedBox] = useState(false)
 
   return (
-    <Form className={styles.form} onSubmit={handleSubmit}>
+    <Form
+      className={styles.form}
+      onSubmit={async (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.currentTarget)
+        const data = {
+          name: formData.get("name") as string,
+          number: formData.get("number") as string,
+          to_email: formData.get("to_email") as string,
+          message: formData.get("message") as string,
+          foto_in_model: formData.get("foto_in_model") as unknown,
+          subject_photo: formData.get("subject_photo") as unknown,
+          infographics: formData.get("infographics") as unknown,
+        }
+        const postSignUp = async () => {
+          try {
+            const response = await ky.post(`${API_BASE_URL}/email_visa/send-email`, { json: data, credentials: "include" })
+            console.log(response)
+            setModalMessage("Заявка успешно отправлена!")
+            window.location.reload()
+          } catch (error) {
+            console.error(error)
+            setModalMessage("Что-то пошло не так...")
+          }
+        }
+        postSignUp()
+      }}
+    >
       <h2 className="section_title">Обсудить работу</h2>
-      <TextField name="name" isRequired className={styles.form_field}>
+      <TextField name="name" type="text" isRequired className={styles.form_field}>
         <Label>Имя</Label>
-        <Input value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+        <Input />
         <FieldError className={styles.form_error} />
       </TextField>
-      <TextField name="phone" isRequired className={styles.form_field}>
+      <TextField name="number" type="text" isRequired className={styles.form_field}>
         <Label>Телефон</Label>
-        <Input value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="(###) ####-####" />
+        <Input placeholder="(###) ####-####" />
         <FieldError className={styles.form_error} />
       </TextField>
-      <TextField name="email" isRequired className={styles.form_field}>
+      <TextField name="email" type="text" isRequired className={styles.form_field}>
         <Label>Email</Label>
-        <Input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+        <Input type="email" />
         <FieldError className={styles.form_error} />
       </TextField>
-      <TextField name="amount" isRequired className={styles.form_field}>
+      <TextField name="amount" type="text" isRequired className={styles.form_field}>
         <Label>Количество артикулов</Label>
-        <Input value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: e.target.value })} />
+        <Input />
         <FieldError className={styles.form_error} />
       </TextField>
-      <TextField name="preferences" className={styles.form_field}>
+      <TextField name="preferences" type="text" className={styles.form_field}>
         <Label>Пожелания</Label>
-        <Input value={formData.preferences} onChange={(e) => setFormData({ ...formData, preferences: e.target.value })} />
+        <Input />
         <FieldError className={styles.form_error} />
       </TextField>
-      <Checkbox name="model" className={styles.form_checkbox} isSelected={formData.model} onChange={() => handleCheckboxChange("model")}>
+      <Checkbox name="model" className={styles.form_checkbox}>
         <div className={styles.form_checkbox_box}>
           <Image src={checkIcon} alt="Check" className={styles.form_checkbox_check} />
         </div>
         <Label>Фото на модели</Label>
       </Checkbox>
-      <Checkbox name="object" className={styles.form_checkbox} isSelected={formData.object} onChange={() => handleCheckboxChange("object")}>
+      <Checkbox name="object" className={styles.form_checkbox}>
         <div className={styles.form_checkbox_box}>
           <Image src={checkIcon} alt="Check" className={styles.form_checkbox_check} />
         </div>
         <Label>Предметное фото</Label>
       </Checkbox>
-      <Checkbox
-        name="infographics"
-        className={styles.form_checkbox}
-        isSelected={formData.infographics}
-        onChange={() => handleCheckboxChange("infographics")}
-      >
+      <Checkbox name="infographics" className={styles.form_checkbox}>
         <div className={styles.form_checkbox_box}>
           <Image src={checkIcon} alt="Check" className={styles.form_checkbox_check} />
         </div>
