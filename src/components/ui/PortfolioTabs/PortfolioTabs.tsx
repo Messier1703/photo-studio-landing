@@ -87,7 +87,7 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
               }}
             >
               <AdminInput name="id" type="text" placeholder="ID категории" />
-              <input type="file" name="images" accept="image/*" />
+              <input type="file" name="image" accept="image/*" />
               <AdminButton>Сохранить изменения</AdminButton>
             </Form>
             <p>Редактировать изображение</p>
