@@ -1,7 +1,6 @@
 "use client"
 import styles from "./BlogSection.module.scss"
 import Image from "next/image"
-import img from "public/images/placeholder.png"
 import { useState, useEffect } from "react"
 import API_BASE_URL from "@/constants/API_BASE_URL"
 import ky from "ky"

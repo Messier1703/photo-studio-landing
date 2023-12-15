@@ -108,7 +108,7 @@ const InfographicsSection = () => {
                 <input type="file" name="image_2" accept="image/*" />
                 <input type="file" name="image_3" accept="image/*" />
                 <input type="file" name="image_4" accept="image/*" />
-                <AdminButton />
+                <AdminButton>Сохранить</AdminButton>
               </Form>
             }
           />
