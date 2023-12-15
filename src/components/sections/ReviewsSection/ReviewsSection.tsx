@@ -56,6 +56,7 @@ const ReviewsSection = () => {
                       credentials: "include",
                     })
                     console.log(response)
+                    window.location.reload()
                   } catch (error) {
                     console.error(error)
                   }
@@ -74,23 +75,51 @@ const ReviewsSection = () => {
         <div id={styles.desktop_only}>
           <div className={styles.reviews_wrapper}>
             {reviews.slice(0, 2).map((review) => (
-              <ReviewsCard key={review.id} name={review.name} description={review.description} src={review.image} job={review.job} />
+              <ReviewsCard
+                itemId={review.id}
+                key={review.id}
+                name={review.name}
+                description={review.description}
+                src={review.image}
+                job={review.job}
+              />
             ))}
           </div>
           <div className={styles.reviews_wrapper}>
             {reviews.slice(2, 5).map((review) => (
-              <ReviewsCard key={review.id} name={review.name} description={review.description} src={review.image} job={review.job} />
+              <ReviewsCard
+                itemId={review.id}
+                key={review.id}
+                name={review.name}
+                description={review.description}
+                src={review.image}
+                job={review.job}
+              />
             ))}
           </div>
           <div className={styles.reviews_wrapper}>
             {reviews.slice(5, 7).map((review) => (
-              <ReviewsCard key={review.id} name={review.name} description={review.description} src={review.image} job={review.job} />
+              <ReviewsCard
+                itemId={review.id}
+                key={review.id}
+                name={review.name}
+                description={review.description}
+                src={review.image}
+                job={review.job}
+              />
             ))}
           </div>
         </div>
         <div id={styles.mobile_only}>
           {reviews.slice(0, 7).map((review) => (
-            <ReviewsCard key={review.id} name={review.name} description={review.description} src={review.image} job={review.job} />
+            <ReviewsCard
+              itemId={review.id}
+              key={review.id}
+              name={review.name}
+              description={review.description}
+              src={review.image}
+              job={review.job}
+            />
           ))}
         </div>
       </div>
