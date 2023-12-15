@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image'
+import { StaticImageData } from "next/image"
 
 interface requestInterface {
   id: number

@@ -1,4 +1,4 @@
-import e from '../app/icon.svg'
+import e from "../app/icon.svg"
 
 const logoPath = e
 

@@ -79,7 +79,7 @@ const AboutSection = () => {
               </Form>
             }
           />
-          <p>листайте вправо</p>
+          <h4>листайте вправо</h4>
           <div className={styles.about_wrapper}>
             <div className={styles.about_images}>
               <Swiper

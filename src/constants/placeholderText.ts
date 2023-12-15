@@ -1,3 +1,3 @@
-const placeholderText = 'Загрузка...'
+const placeholderText = "Загрузка..."
 
 export default placeholderText

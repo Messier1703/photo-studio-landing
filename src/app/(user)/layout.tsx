@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react"
 
-import Header from '@/layouts/Header/Header'
-import Footer from '@/layouts/Footer/Footer'
+import Header from "@/layouts/Header/Header"
+import Footer from "@/layouts/Footer/Footer"
 
 interface UserLayoutProps {
   children: ReactNode

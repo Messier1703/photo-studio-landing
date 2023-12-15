@@ -1,3 +1,3 @@
-const companyName = 'Impulse'
+const companyName = "Impulse"
 
 export default companyName

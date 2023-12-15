@@ -1,6 +1,6 @@
-'use client'
-import { Button } from 'react-aria-components'
-import s from './HeaderButton.module.scss'
+"use client"
+import { Button } from "react-aria-components"
+import s from "./HeaderButton.module.scss"
 
 interface HeaderButtonProps {
   children: string

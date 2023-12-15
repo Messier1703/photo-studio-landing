@@ -8,6 +8,7 @@ import PerksSection from "@/components/sections/PerksSection/PerksSection"
 import TeamSection from "@/components/sections/TeamSection/TeamSection"
 import ReviewsSection from "@/components/sections/ReviewsSection/ReviewsSection"
 import ContactsSection from "@/components/sections/ContactsSection/ContactsSection"
+import FloatingVideo from "@/components/ui/FloatingVideo/FloatingVideo"
 
 const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ const HomePage = () => {
       <TeamSection />
       <ReviewsSection />
       <ContactsSection />
+      <FloatingVideo />
     </>
   )
 }

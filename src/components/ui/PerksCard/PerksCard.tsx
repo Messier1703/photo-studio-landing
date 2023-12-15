@@ -1,5 +1,5 @@
-import s from './PerksCard.module.scss'
-import { ReactNode } from 'react'
+import s from "./PerksCard.module.scss"
+import { ReactNode } from "react"
 
 interface PerksCardProps {
   title: string

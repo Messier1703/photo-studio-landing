@@ -62,12 +62,14 @@ const MainSection = () => {
           <div className={styles.main_cards}>
             <div>
               {products.slice(0, 2).map((category) => (
-                <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
+                <Link href="/#portfolio">
+                  <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
+                </Link>
               ))}
             </div>
             <div>
               {products.slice(2, 4).map((category) => (
-                <Link href="/">
+                <Link href="/#portfolio">
                   <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
                 </Link>
               ))}

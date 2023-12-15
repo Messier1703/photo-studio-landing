@@ -1,6 +1,6 @@
-import styles from './MainCard.module.scss'
-import Image, { StaticImageData } from 'next/image'
-import React from 'react'
+import styles from "./MainCard.module.scss"
+import Image, { StaticImageData } from "next/image"
+import React from "react"
 
 interface MainCardProps {
   img: StaticImageData | string

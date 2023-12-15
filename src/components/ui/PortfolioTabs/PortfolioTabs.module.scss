@@ -67,7 +67,7 @@
   }
 
   &[data-focus-visible]:after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 4px;
     border-radius: 4px;
@@ -121,7 +121,7 @@
     &_image_wrapper {
       grid-template-columns: repeat(2, min-content);
     }
-    
+
     &_panel {
       h3 {
         margin: 25px 0;
