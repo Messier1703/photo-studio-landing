@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from 'next/image'
-import styles from './ReviewsCard.module.scss'
+import Image, { StaticImageData } from "next/image"
+import styles from "./ReviewsCard.module.scss"
 
 interface ReviewsCardProps {
   src: StaticImageData

@@ -1,13 +1,13 @@
-import AboutSection from '@/components/sections/AboutSection/AboutSection'
-import React from 'react'
+import React from "react"
+import BlogSection from "@/components/sections/BlogSection/BlogSection"
 
 const BlogPage = () => {
   return (
-    <div>
-      <div>blog</div>
-      <div id='id'></div>
-      <AboutSection />
-    </div>
+    <section>
+      <div className="container">
+        <BlogSection />
+      </div>
+    </section>
   )
 }
 

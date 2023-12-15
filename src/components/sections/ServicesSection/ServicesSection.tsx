@@ -6,9 +6,10 @@ import ky from "ky"
 import API_BASE_URL from "@/constants/API_BASE_URL"
 import EditButton from "@/components/ui/EditButton/EditButton"
 import StyledPopover from "@/components/ui/StyledPopover/StyledPopover"
-import { Button, Form } from "react-aria-components"
+import { Form } from "react-aria-components"
 import AdminInput from "@/components/ui/AdminInput/AdminInput"
 import refreshToken from "@/lib/refreshToken"
+import AdminButton from "@/components/ui/AdminButton/AdminButton"
 
 const ServicesSection = () => {
   interface GetServicesProps {
@@ -94,7 +95,7 @@ const ServicesSection = () => {
                 <AdminInput name="description_3" type="text" placeholder="title1" defaultValue={services.description_3} />
                 <AdminInput name="title_4" type="text" placeholder="title1" defaultValue={services.title_4} />
                 <AdminInput name="description_4" type="text" placeholder="title1" defaultValue={services.description_4} />
-                <Button type="submit">Обновить секцию</Button>
+                <AdminButton>Обновить секцию</AdminButton>
               </Form>
             }
           />

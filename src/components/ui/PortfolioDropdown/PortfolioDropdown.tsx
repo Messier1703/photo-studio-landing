@@ -75,8 +75,22 @@ const PortfolioDropdown: React.FC<PortfolioDropdownProps> = ({ id }) => {
       {portfolio.map((item) => (
         <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
           <h3>{item.title}</h3>
+          <p>листайте вправо</p>
           <div className={styles.tab_wrapper}>
-            <Swiper spaceBetween={10} slidesPerView={1.9} direction="horizontal" className={styles.tab_swiper}>
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1}
+              direction="horizontal"
+              className={styles.tab_swiper}
+              breakpoints={{
+                540: {
+                  slidesPerView: 1.5,
+                },
+                730: {
+                  slidesPerView: 2,
+                },
+              }}
+            >
               {item.images.map((image) => (
                 <SwiperSlide key={image.id}>
                   <figure>

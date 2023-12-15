@@ -73,7 +73,7 @@ const TeamSection = () => {
                 <AdminInput name="title" defaultValue="" type="text" placeholder="Имя" />
                 <AdminInput name="job" defaultValue="" type="text" placeholder="Работа" />
                 <input type="file" defaultValue="" name="image_1" accept="image/*" />
-                <AdminButton />
+                <AdminButton>Сохранить изменения</AdminButton>
               </Form>
             }
           />

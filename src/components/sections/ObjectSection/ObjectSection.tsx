@@ -50,6 +50,11 @@ const ObjectSection = () => {
       <div className="container">
         <div className={styles.object_wrapper}>
           <div className={styles.object_content}>
+            <h3>{object.title}</h3>
+            <p>{object.description}</p>
+            <Link href="/#contacts">
+              <BrightButton id={styles.desktop_only}>Записаться на съемку</BrightButton>
+            </Link>
             <StyledPopover
               button={<EditButton />}
               content={
@@ -74,15 +79,10 @@ const ObjectSection = () => {
                   <AdminInput name="description" type="text" placeholder="Описание" />
                   <input type="file" name="image_1" accept="image/*" />
                   <input type="file" name="image_2" accept="image/*" />
-                  <AdminButton />
+                  <AdminButton>Сохранить изменения</AdminButton>
                 </Form>
               }
             />
-            <h3>{object.title}</h3>
-            <p>{object.description}</p>
-            <Link href="/#contacts">
-              <BrightButton id={styles.desktop_only}>Записаться на съемку</BrightButton>
-            </Link>
           </div>
           <div className={styles.object_images}>
             <figure className={styles.object_image_wrapper}>
