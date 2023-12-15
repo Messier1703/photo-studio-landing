@@ -80,14 +80,18 @@
       grid-template-areas:
         "b b s t"
         "b b p p";
-      grid-template-rows: 270px 270px;
+      grid-template-rows: repeat(2, 270px);
+      grid-template-columns: repeat(4, 200px);
+      grid-gap: 30px;
     }
 
     &_grid_2 {
       grid-template-areas:
         "s t b b"
         "p p b b";
-      grid-template-rows: 270px 270px;
+      grid-template-rows: repeat(2, 270px);
+      grid-template-columns: repeat(4, 200px);
+      grid-gap: 30px;
     }
   }
 }

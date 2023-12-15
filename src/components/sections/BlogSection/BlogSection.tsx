@@ -1,6 +1,6 @@
 import styles from "./BlogSection.module.scss"
 import Image from "next/image"
-import img from "public/images/wb-logo.png"
+import img from "public/images/placeholder.png"
 
 const BlogSection = () => {
   return (
