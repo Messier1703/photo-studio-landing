@@ -61,7 +61,7 @@ const AboutSection = () => {
                   const formData = new FormData(e.currentTarget)
                   try {
                     refreshToken()
-                    const response = await ky.patch(`${API_BASE_URL}/infographic?infographic_id=1`, {
+                    const response = await ky.patch(`${API_BASE_URL}/about_us?section_id=1`, {
                       body: formData,
                       credentials: "include",
                     })

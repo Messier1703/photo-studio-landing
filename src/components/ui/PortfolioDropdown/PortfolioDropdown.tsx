@@ -1,5 +1,5 @@
 "use client"
-import { Tabs, TabList, Tab, TabPanel, Popover } from "react-aria-components"
+import { Tabs, TabList, Tab, TabPanel } from "react-aria-components"
 import styles from "./PortfolioDropdown.module.scss"
 import API_BASE_URL from "@/constants/API_BASE_URL"
 import ky from "ky"
@@ -13,6 +13,7 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 import StyledPopover from "../StyledPopover/StyledPopover"
+import ItemID from "../ItemID/ItemID"
 
 interface Image {
   id: number | undefined
@@ -57,52 +58,55 @@ const PortfolioDropdown: React.FC<PortfolioDropdownProps> = ({ id }) => {
   }, [])
 
   return (
-    <Tabs className={styles.tabs} id={id}>
-      <StyledPopover
-        button={<BrightButton aria-label="Menu">категории</BrightButton>}
-        content={
-          <TabList className={styles.tab_list}>
-            {portfolio.map((item) => (
-              <Tab key={item.id} id={item.title.toLowerCase()} className={styles.tab}>
-                {item.title}
-              </Tab>
-            ))}
-          </TabList>
-        }
-      />
-      <Popover className={styles.tabs_dropdown}></Popover>
-
-      {portfolio.map((item) => (
-        <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
-          <h3>{item.title}</h3>
-          <p>листайте вправо</p>
-          <div className={styles.tab_wrapper}>
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={1}
-              direction="horizontal"
-              className={styles.tab_swiper}
-              breakpoints={{
-                540: {
-                  slidesPerView: 1.5,
-                },
-                730: {
-                  slidesPerView: 2,
-                },
-              }}
-            >
-              {item.images.map((image) => (
-                <SwiperSlide key={image.id}>
-                  <figure>
-                    <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
-                  </figure>
-                </SwiperSlide>
+    <>
+      <Tabs className={styles.tabs} id={id}>
+        <StyledPopover
+          button={<BrightButton aria-label="Menu">категории</BrightButton>}
+          content={
+            <TabList className={styles.tab_list}>
+              {portfolio.map((item) => (
+                <Tab key={item.id} id={item.title.toLowerCase()} className={styles.tab}>
+                  {item.title}
+                  <ItemID>{item.id}</ItemID>
+                </Tab>
               ))}
-            </Swiper>
-          </div>
-        </TabPanel>
-      ))}
-    </Tabs>
+            </TabList>
+          }
+        />
+
+        {portfolio.map((item) => (
+          <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
+            <h3>{item.title}</h3>
+            <p>листайте вправо</p>
+            <div className={styles.tab_wrapper}>
+              <Swiper
+                spaceBetween={10}
+                slidesPerView={1}
+                direction="horizontal"
+                className={styles.tab_swiper}
+                breakpoints={{
+                  540: {
+                    slidesPerView: 1.5,
+                  },
+                  730: {
+                    slidesPerView: 2,
+                  },
+                }}
+              >
+                {item.images.map((image) => (
+                  <SwiperSlide key={image.id}>
+                    <ItemID>{image.id}</ItemID>
+                    <figure>
+                      <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
+                    </figure>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </TabPanel>
+        ))}
+      </Tabs>
+    </>
   )
 }
 
