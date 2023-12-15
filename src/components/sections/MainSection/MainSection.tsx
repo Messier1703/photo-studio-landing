@@ -88,7 +88,7 @@ const MainSection = () => {
                 <Image src={yaMarketLogo} alt="Озон" />
               </Link>
             </div>
-            <Link href="/" id={styles.main_button_link}>
+            <Link href="/#contacts" id={styles.main_button_link}>
               <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
             </Link>
           </div>

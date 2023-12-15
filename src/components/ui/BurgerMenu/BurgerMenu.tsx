@@ -28,7 +28,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isOpen, onClose, id, linkClass 
   return (
     <nav className={`${styles.burger_menu} ${isOpen ? styles.burger_menu_open : ""}`} id={id}>
       <div className={styles.burger_menu_wrapper}>
-        <Link href="#about" className={linkClass} onClick={onClose}>
+        <Link href="/#about" className={linkClass} onClick={onClose}>
           О студии
         </Link>
         <Link href="/#portfolio" className={linkClass} onClick={onClose}>

@@ -63,6 +63,11 @@
       grid-gap: 20px;
     }
 
+    a {
+      width: min-content;
+      margin: 0 auto;
+    }
+
     &_content {
       p {
         margin-bottom: 45px;

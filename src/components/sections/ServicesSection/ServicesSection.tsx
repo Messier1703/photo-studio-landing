@@ -10,6 +10,7 @@ import { Form } from "react-aria-components"
 import AdminInput from "@/components/ui/AdminInput/AdminInput"
 import refreshToken from "@/lib/refreshToken"
 import AdminButton from "@/components/ui/AdminButton/AdminButton"
+import Link from "next/link"
 
 const ServicesSection = () => {
   interface GetServicesProps {
@@ -118,7 +119,9 @@ const ServicesSection = () => {
           <div className={styles.services_sign_up}>
             <h3>{services.title_4}</h3>
             <p>{services.description_4}</p>
-            <BrightButton id={styles.services_button}>Записаться на съемку</BrightButton>
+            <Link href="/#contacts">
+              <BrightButton id={styles.services_button}>Записаться на съемку</BrightButton>
+            </Link>
           </div>
         </div>
       </div>

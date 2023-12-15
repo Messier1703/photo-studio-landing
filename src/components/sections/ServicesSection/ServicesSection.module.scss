@@ -40,6 +40,11 @@
       grid-gap: 0;
     }
 
+    a {
+      width: min-content;
+      margin: 0 auto;
+    }
+
     &_sign_up {
       p {
         margin-bottom: 100px;
