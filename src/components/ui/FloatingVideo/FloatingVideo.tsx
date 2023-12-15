@@ -37,9 +37,7 @@ const FloatingVideo = () => {
     <article className={`${styles.video} ${isClicked ? styles.clicked : ""}`} onClick={handleClick}>
       {firstVideo && (
         <figure>
-          <video autoPlay loop width="300" height="200">
-            <source src={firstVideo.video} type="video/mp4" />
-          </video>
+          <video src={firstVideo.video} autoPlay muted={!isClicked} loop width="300" height="200" />
         </figure>
       )}
     </article>

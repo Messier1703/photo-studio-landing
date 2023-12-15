@@ -57,6 +57,36 @@ const InfographicsSection = () => {
             <Link href="/#contacts" id={styles.desktop_only}>
               <BrightButton>Обсудить работу</BrightButton>
             </Link>
+            <StyledPopover
+              button={<EditButton />}
+              content={
+                <Form
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    try {
+                      refreshToken()
+                      const response = await ky.patch(`${API_BASE_URL}/infographic?infographic_id=1`, {
+                        body: formData,
+                        credentials: "include",
+                      })
+                      console.log(response)
+                      window.location.reload()
+                    } catch (error) {
+                      console.error(error)
+                    }
+                  }}
+                >
+                  <AdminInput name="title" type="text" placeholder="Заголовок" />
+                  <AdminInput name="description" type="text" placeholder="Описание" />
+                  <input type="file" name="image_1" accept="image/*" />
+                  <input type="file" name="image_2" accept="image/*" />
+                  <input type="file" name="image_3" accept="image/*" />
+                  <input type="file" name="image_4" accept="image/*" />
+                  <AdminButton>Сохранить</AdminButton>
+                </Form>
+              }
+            />
           </div>
           <div className={styles.infographics_images}>
             <figure className={styles.infographics_image_wrapper}>

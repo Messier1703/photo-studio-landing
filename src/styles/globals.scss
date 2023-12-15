@@ -20,6 +20,12 @@ body {
   overflow-x: hidden;
 }
 
+input {
+  margin: 0;
+  padding: 0;
+  width: 180px;
+}
+
 h1,
 h2,
 h3,
@@ -63,6 +69,11 @@ input {
 
 section {
   padding: 120px 0;
+}
+
+.admin_from {
+  display: flex;
+  flex-direction: column;
 }
 
 .container {

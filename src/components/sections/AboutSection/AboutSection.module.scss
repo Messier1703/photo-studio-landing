@@ -1,6 +1,11 @@
 .about {
   padding: 120px 0;
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
   &_text {
     display: flex;
     flex-direction: column;

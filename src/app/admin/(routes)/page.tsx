@@ -1,9 +1,11 @@
 "use client"
-import { Button, FieldError, Form, Input, Label, TextField } from "react-aria-components"
+import { Form } from "react-aria-components"
 import ky from "ky"
 import API_BASE_URL from "@/constants/API_BASE_URL"
+import AdminInput from "@/components/ui/AdminInput/AdminInput"
+import AdminButton from "@/components/ui/AdminButton/AdminButton"
 
-const LoginPage = () => {
+const AdminPage = () => {
   return (
     <section>
       <div className="container">
@@ -15,6 +17,7 @@ const LoginPage = () => {
               try {
                 const response = await ky.post(`${API_BASE_URL}/auth/login_user`, { json: data, credentials: "include" })
                 console.log(response)
+                window.location.href = "/"
               } catch (error) {
                 console.error(error)
               }
@@ -23,21 +26,13 @@ const LoginPage = () => {
             console.log(data)
           }}
         >
-          <TextField name="email" type="email" isRequired>
-            <Label>Email</Label>
-            <Input />
-            <FieldError />
-          </TextField>
-          <TextField name="password" type="password" isRequired>
-            <Label>Password</Label>
-            <Input />
-            <FieldError />
-          </TextField>
-          <Button type="submit">Submit</Button>
+          <AdminInput name="email" type="email" placeholder="email" />
+          <AdminInput name="password" type="password" placeholder="пароль" />
+          <AdminButton>войти</AdminButton>
         </Form>
       </div>
     </section>
   )
 }
 
-export default LoginPage
+export default AdminPage

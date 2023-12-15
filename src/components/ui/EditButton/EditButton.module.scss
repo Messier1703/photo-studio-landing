@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: var(--link-hover);
+  padding: 10px;
 
   figure {
     height: 25px;
@@ -14,6 +16,10 @@
     }
   }
 
+  g {
+    transition: var(--link-hover);
+  }
+
   span {
     font-size: 22px;
     font-weight: 500;
@@ -21,8 +27,10 @@
 
   &:hover {
     color: var(--bright-color);
+    transition: var(--link-hover);
 
     g {
+      transition: var(--link-hover);
       stroke: var(--bright-color);
     }
   }
