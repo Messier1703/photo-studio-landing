@@ -12,9 +12,11 @@ interface VideoItem {
 const FloatingVideo = () => {
   const [isClicked, setIsClicked] = useState(false)
   const [firstVideo, setFirstVideo] = useState<VideoItem | null>(null)
+  const [isMuted, setIsMuted] = useState(true)
 
   const handleClick = () => {
     setIsClicked(!isClicked)
+    setIsMuted(!isMuted)
   }
 
   useEffect(() => {

@@ -11,6 +11,7 @@ import AdminInput from "@/components/ui/AdminInput/AdminInput"
 import AdminButton from "@/components/ui/AdminButton/AdminButton"
 import StyledPopover from "@/components/ui/StyledPopover/StyledPopover"
 import refreshToken from "@/lib/refreshToken"
+import FileInput from "@/components/ui/FileInput/FileInput"
 
 const TeamSection = () => {
   interface GetTeamProps {
@@ -72,7 +73,7 @@ const TeamSection = () => {
                 <AdminInput name="id" defaultValue="" type="text" placeholder="ID участника" />
                 <AdminInput name="title" defaultValue="" type="text" placeholder="Имя" />
                 <AdminInput name="job" defaultValue="" type="text" placeholder="Работа" />
-                <input type="file" defaultValue="" name="image_1" accept="image/*" />
+                <FileInput name="image_1" accept="image/*" />
                 <AdminButton>Сохранить изменения</AdminButton>
               </Form>
             }

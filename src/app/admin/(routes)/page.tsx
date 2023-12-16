@@ -19,6 +19,7 @@ const AdminPage = () => {
     <section>
       <div className="container">
         <p>Поменять видео</p>
+        <p>(Только формат .WEBM)</p>
         <Form
           onSubmit={async (e) => {
             e.preventDefault()

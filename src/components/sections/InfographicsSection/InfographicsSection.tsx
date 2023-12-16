@@ -14,6 +14,7 @@ import AdminInput from "@/components/ui/AdminInput/AdminInput"
 import { Form } from "react-aria-components"
 import EditButton from "@/components/ui/EditButton/EditButton"
 import refreshToken from "@/lib/refreshToken"
+import FileInput from "@/components/ui/FileInput/FileInput"
 
 const InfographicsSection = () => {
   interface GetInfographicsProps {
@@ -80,10 +81,10 @@ const InfographicsSection = () => {
                   >
                     <AdminInput name="title" type="text" placeholder="Заголовок" />
                     <AdminInput name="description" type="text" placeholder="Описание" />
-                    <input type="file" name="image_1" accept="image/*" />
-                    <input type="file" name="image_2" accept="image/*" />
-                    <input type="file" name="image_3" accept="image/*" />
-                    <input type="file" name="image_4" accept="image/*" />
+                    <FileInput name="image_1" accept="image/*" />
+                    <FileInput name="image_2" accept="image/*" />
+                    <FileInput name="image_3" accept="image/*" />
+                    <FileInput name="image_4" accept="image/*" />
                     <AdminButton>Сохранить</AdminButton>
                   </Form>
                 }
@@ -135,10 +136,10 @@ const InfographicsSection = () => {
                 >
                   <AdminInput name="title" type="text" placeholder="Заголовок" />
                   <AdminInput name="description" type="text" placeholder="Описание" />
-                  <input type="file" name="image_1" accept="image/*" />
-                  <input type="file" name="image_2" accept="image/*" />
-                  <input type="file" name="image_3" accept="image/*" />
-                  <input type="file" name="image_4" accept="image/*" />
+                  <FileInput name="image_1" accept="image/*" />
+                  <FileInput name="image_2" accept="image/*" />
+                  <FileInput name="image_3" accept="image/*" />
+                  <FileInput name="image_4" accept="image/*" />
                   <AdminButton>Сохранить</AdminButton>
                 </Form>
               }

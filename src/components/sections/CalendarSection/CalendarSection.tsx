@@ -13,6 +13,7 @@ import AdminInput from "@/components/ui/AdminInput/AdminInput"
 import AdminButton from "@/components/ui/AdminButton/AdminButton"
 import { Form } from "react-aria-components"
 import refreshToken from "@/lib/refreshToken"
+import FileInput from "@/components/ui/FileInput/FileInput"
 
 interface CalendarItem {
   id: number
@@ -69,7 +70,6 @@ const CalendarSection = () => {
             button={<EditButton />}
             content={
               <>
-                <p>Редактировать</p>
                 <Form
                   onSubmit={async (e) => {
                     e.preventDefault()
@@ -88,37 +88,16 @@ const CalendarSection = () => {
                     }
                   }}
                 >
+                  <p>Редактировать</p>
                   <AdminInput name="id" type="text" placeholder="ID" />
                   <AdminInput name="name" type="text" placeholder="Имя" />
                   <AdminInput name="height" type="text" placeholder="Рост" />
                   <AdminInput name="shoe_size" type="text" placeholder="Размер обуви" />
                   <AdminInput name="clothing_sizes" type="text" placeholder="Размер одежды" />
                   <AdminInput name="available_dates" type="text" placeholder="Доступные даты" />
-                  <input type="file" name="image" accept="image/*" />
+                  <FileInput name="image" accept="image/*" />
                   <AdminButton>Сохранить изменения</AdminButton>
                 </Form>
-                <p>Удалить</p>
-                <Form
-                  onSubmit={async (e) => {
-                    e.preventDefault()
-                    const formData = new FormData(e.currentTarget)
-                    const id = Number(formData.get("id"))
-                    try {
-                      refreshToken()
-                      const response = await ky.delete(`${API_BASE_URL}/foto_calendar/${id}`, {
-                        credentials: "include",
-                      })
-                      console.log(response)
-                      window.location.reload()
-                    } catch (error) {
-                      console.error(error)
-                    }
-                  }}
-                >
-                  <AdminInput name="id" type="text" placeholder="ID" />
-                  <AdminButton>Удалить</AdminButton>
-                </Form>
-                <p>Добавить</p>
                 <Form
                   onSubmit={async (e) => {
                     e.preventDefault()
@@ -136,14 +115,36 @@ const CalendarSection = () => {
                     }
                   }}
                 >
+                  <p>Добавить</p>
                   <AdminInput name="title" type="text" placeholder="Описание" />
                   <AdminInput name="name" type="text" placeholder="Имя" />
                   <AdminInput name="height" type="text" placeholder="Рост" />
                   <AdminInput name="shoe_size" type="text" placeholder="Размер обуви" />
                   <AdminInput name="clothing_sizes" type="text" placeholder="Размер одежды" />
                   <AdminInput name="available_dates" type="text" placeholder="Доступные даты" />
-                  <input type="file" name="image" accept="image/*" />
+                  <FileInput name="image" accept="image/*" />
                   <AdminButton>Сохранить изменения</AdminButton>
+                </Form>
+                <Form
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    const id = Number(formData.get("id"))
+                    try {
+                      refreshToken()
+                      const response = await ky.delete(`${API_BASE_URL}/foto_calendar/${id}`, {
+                        credentials: "include",
+                      })
+                      console.log(response)
+                      window.location.reload()
+                    } catch (error) {
+                      console.error(error)
+                    }
+                  }}
+                >
+                  <p>Удалить</p>
+                  <AdminInput name="id" type="text" placeholder="ID" />
+                  <AdminButton>Удалить</AdminButton>
                 </Form>
               </>
             }

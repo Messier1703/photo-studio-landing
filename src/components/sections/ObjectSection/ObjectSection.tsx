@@ -14,6 +14,7 @@ import { Form } from "react-aria-components"
 import AdminInput from "@/components/ui/AdminInput/AdminInput"
 import refreshToken from "@/lib/refreshToken"
 import AdminButton from "@/components/ui/AdminButton/AdminButton"
+import FileInput from "@/components/ui/FileInput/FileInput"
 
 interface GetObjectsProps {
   id: number
@@ -78,8 +79,8 @@ const ObjectSection = () => {
                   >
                     <AdminInput name="title" type="text" placeholder="Заголовок" />
                     <AdminInput name="description" type="text" placeholder="Описание" />
-                    <input type="file" name="image_1" accept="image/*" />
-                    <input type="file" name="image_2" accept="image/*" />
+                    <FileInput name="image_1" accept="image/*" />
+                    <FileInput name="image_2" accept="image/*" />
                     <AdminButton>Сохранить изменения</AdminButton>
                   </Form>
                 }

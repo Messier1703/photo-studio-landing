@@ -10,6 +10,7 @@ import { Form } from "react-aria-components"
 import AdminInput from "@/components/ui/AdminInput/AdminInput"
 import AdminButton from "@/components/ui/AdminButton/AdminButton"
 import refreshToken from "@/lib/refreshToken"
+import FileInput from "@/components/ui/FileInput/FileInput"
 
 interface BlogProps {
   id: number
@@ -70,12 +71,12 @@ const BlogSection = () => {
                     <AdminInput name="title" type="text" placeholder="Заголовок" />
                     <AdminInput name="description_1" type="text" placeholder="Описание" />
                     <AdminInput name="description_2" type="text" placeholder="Описание 2" />
-                    <input type="file" name="image_1" accept="image/*" />
-                    <input type="file" name="image_2" accept="image/*" />
-                    <input type="file" name="image_3" accept="image/*" />
-                    <input type="file" name="image_4" accept="image/*" />
-                    <input type="file" name="image_5" accept="image/*" />
-                    <input type="file" name="image_6" accept="image/*" />
+                    <FileInput name="image_1" accept="image/*" />
+                    <FileInput name="image_2" accept="image/*" />
+                    <FileInput name="image_3" accept="image/*" />
+                    <FileInput name="image_4" accept="image/*" />
+                    <FileInput name="image_5" accept="image/*" />
+                    <FileInput name="image_6" accept="image/*" />
                     <AdminButton>Сохранить изменения</AdminButton>
                   </Form>
                 }

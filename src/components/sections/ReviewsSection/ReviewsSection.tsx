@@ -11,6 +11,7 @@ import { Form } from "react-aria-components"
 import AdminInput from "@/components/ui/AdminInput/AdminInput"
 import refreshToken from "@/lib/refreshToken"
 import AdminButton from "@/components/ui/AdminButton/AdminButton"
+import FileInput from "@/components/ui/FileInput/FileInput"
 
 interface GetReviewsProps {
   id: number
@@ -66,7 +67,7 @@ const ReviewsSection = () => {
                 <AdminInput name="name" type="text" placeholder="Имя" />
                 <AdminInput name="job" type="text" placeholder="Работа" />
                 <AdminInput name="description" type="text" placeholder="Описание" />
-                <input type="file" name="image" accept="image/*" />
+                <FileInput name="image" accept="image/*" />
                 <AdminButton>Сохранить изменения</AdminButton>
               </Form>
             }

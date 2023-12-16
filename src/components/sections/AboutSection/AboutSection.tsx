@@ -18,6 +18,7 @@ import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 import Link from "next/link"
 import AdminButton from "@/components/ui/AdminButton/AdminButton"
+import FileInput from "@/components/ui/FileInput/FileInput"
 
 interface ImageInfo {
   id: number
@@ -74,7 +75,7 @@ const AboutSection = () => {
               >
                 <AdminInput name="title" type="text" placeholder="Заголовок" />
                 <AdminInput name="description" type="text" placeholder="Описание" />
-                <input type="file" name="images" accept="image/*" multiple />
+                <FileInput name="images" accept="image/*" multiple />
                 <AdminButton>Сохранить изменения</AdminButton>
               </Form>
             }
