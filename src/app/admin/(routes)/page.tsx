@@ -43,30 +43,31 @@ const AdminPage = () => {
           <AdminInput name="new_confirm_password" type="password" placeholder="подтвердите пароль" />
           <AdminButton>ок</AdminButton>
         </Form>
-        <p>Поменять видео (MP4)</p>
+        <p>Поменять видео</p>
         <Form
           onSubmit={async (e) => {
             e.preventDefault()
             const formData = new FormData(e.currentTarget)
             try {
               refreshToken()
-              const response = await ky.put(`${API_BASE_URL}/video/1`, {
+              const response = await ky.put(`${API_BASE_URL}/video/2`, {
                 body: formData,
                 credentials: "include",
-                headers: {
-                  "Content-Type": "multipart/form-data",
-                },
+                // headers: {
+                //   accept: "application/json",
+                //   "Content-Type": "multipart/form-data",
+                // },
               })
               console.log(response)
               console.log(formData)
-              window.location.reload()
+              // window.location.reload()
             } catch (error) {
               console.error(error)
             }
           }}
         >
           <input type="file" name="file" accept="video/*" />
-          <AdminButton>ок</AdminButton>
+          <AdminButton>Ок</AdminButton>
         </Form>
         <Link href="/">
           <BrightButton>На главную</BrightButton>
