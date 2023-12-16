@@ -180,29 +180,31 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
           </>
         }
       />
-      <Tabs className={styles.tabs} id={id}>
-        <TabList className={styles.tab_list}>
-          {portfolio.map((item) => (
-            <Tab key={item.id} id={item.title.toLowerCase()} className={`${styles.tab} ${isDataLoaded ? "" : styles.tab_rounded}`}>
-              {item.title} <ItemID>{item.id}</ItemID>
-            </Tab>
-          ))}
-        </TabList>
+      {portfolio && (
+        <Tabs className={styles.tabs} id={id}>
+          <TabList className={styles.tab_list}>
+            {portfolio.map((item) => (
+              <Tab key={item.id} id={item.title.toLowerCase()} className={`${styles.tab} ${isDataLoaded ? "" : styles.tab_rounded}`}>
+                {item.title} <ItemID>{item.id}</ItemID>
+              </Tab>
+            ))}
+          </TabList>
 
-        {portfolio.map((item) => (
-          <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
-            <h3>{item.title}</h3>
-            <div className={styles.tab_image_wrapper}>
-              {item.images.map((image) => (
-                <figure key={image.id}>
-                  <ItemID>{image.id}</ItemID>
-                  <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
-                </figure>
-              ))}
-            </div>
-          </TabPanel>
-        ))}
-      </Tabs>
+          {portfolio.map((item) => (
+            <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
+              <h3>{item.title}</h3>
+              <div className={styles.tab_image_wrapper}>
+                {item.images.map((image) => (
+                  <figure key={image.id}>
+                    <ItemID>{image.id}</ItemID>
+                    <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
+                  </figure>
+                ))}
+              </div>
+            </TabPanel>
+          ))}
+        </Tabs>
+      )}
     </>
   )
 }

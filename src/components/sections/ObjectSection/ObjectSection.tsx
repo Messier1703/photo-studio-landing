@@ -48,52 +48,54 @@ const ObjectSection = () => {
   return (
     <div className={styles.object} key={object.id}>
       <div className="container">
-        <div className={styles.object_wrapper}>
-          <div className={styles.object_content}>
-            <h3>{object.title}</h3>
-            <p>{object.description}</p>
-            <Link href="/#contacts">
-              <BrightButton id={styles.desktop_only}>Записаться на съемку</BrightButton>
-            </Link>
-            <StyledPopover
-              button={<EditButton />}
-              content={
-                <Form
-                  onSubmit={async (e) => {
-                    e.preventDefault()
-                    const formData = new FormData(e.currentTarget)
-                    try {
-                      refreshToken()
-                      const response = await ky.patch(`${API_BASE_URL}/pre_shoot?pre_shoot_id=1`, {
-                        body: formData,
-                        credentials: "include",
-                      })
-                      console.log(response)
-                      window.location.reload()
-                    } catch (error) {
-                      console.error(error)
-                    }
-                  }}
-                >
-                  <AdminInput name="title" type="text" placeholder="Заголовок" />
-                  <AdminInput name="description" type="text" placeholder="Описание" />
-                  <input type="file" name="image_1" accept="image/*" />
-                  <input type="file" name="image_2" accept="image/*" />
-                  <AdminButton>Сохранить изменения</AdminButton>
-                </Form>
-              }
-            />
+        {object && (
+          <div className={styles.object_wrapper}>
+            <div className={styles.object_content}>
+              <h3>{object.title}</h3>
+              <p>{object.description}</p>
+              <Link href="/#contacts">
+                <BrightButton id={styles.desktop_only}>Записаться на съемку</BrightButton>
+              </Link>
+              <StyledPopover
+                button={<EditButton />}
+                content={
+                  <Form
+                    onSubmit={async (e) => {
+                      e.preventDefault()
+                      const formData = new FormData(e.currentTarget)
+                      try {
+                        refreshToken()
+                        const response = await ky.patch(`${API_BASE_URL}/pre_shoot?pre_shoot_id=1`, {
+                          body: formData,
+                          credentials: "include",
+                        })
+                        console.log(response)
+                        window.location.reload()
+                      } catch (error) {
+                        console.error(error)
+                      }
+                    }}
+                  >
+                    <AdminInput name="title" type="text" placeholder="Заголовок" />
+                    <AdminInput name="description" type="text" placeholder="Описание" />
+                    <input type="file" name="image_1" accept="image/*" />
+                    <input type="file" name="image_2" accept="image/*" />
+                    <AdminButton>Сохранить изменения</AdminButton>
+                  </Form>
+                }
+              />
+            </div>
+            <div className={styles.object_images}>
+              <figure className={styles.object_image_wrapper}>
+                <Image className={styles.object_image} src={object.image_1} alt="Фото" width={300} height={500} />
+              </figure>
+              <figure className={styles.object_image_wrapper}>
+                <Image className={styles.object_image} src={object.image_2} alt="Фото" width={300} height={500} />
+              </figure>
+            </div>
+            <BrightButton id={styles.mobile_only}>Записаться на съемку</BrightButton>
           </div>
-          <div className={styles.object_images}>
-            <figure className={styles.object_image_wrapper}>
-              <Image className={styles.object_image} src={object.image_1} alt="Фото" width={300} height={500} />
-            </figure>
-            <figure className={styles.object_image_wrapper}>
-              <Image className={styles.object_image} src={object.image_2} alt="Фото" width={300} height={500} />
-            </figure>
-          </div>
-          <BrightButton id={styles.mobile_only}>Записаться на съемку</BrightButton>
-        </div>
+        )}
       </div>
     </div>
   )

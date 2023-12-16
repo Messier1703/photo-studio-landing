@@ -59,22 +59,24 @@ const MainSection = () => {
               <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
             </Link>
           </div>
-          <div className={styles.main_cards}>
-            <div>
-              {products.slice(0, 2).map((category) => (
-                <Link href="/#portfolio">
-                  <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
-                </Link>
-              ))}
+          {products && (
+            <div className={styles.main_cards}>
+              <div>
+                {products.slice(0, 2).map((category) => (
+                  <Link href="/#portfolio">
+                    <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
+                  </Link>
+                ))}
+              </div>
+              <div>
+                {products.slice(2, 4).map((category) => (
+                  <Link href="/#portfolio">
+                    <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div>
-              {products.slice(2, 4).map((category) => (
-                <Link href="/#portfolio">
-                  <MainCard key={category.id} title={category.title} img={category.images[0]?.image} alt={`Фото ${category.title}`} />
-                </Link>
-              ))}
-            </div>
-          </div>
+          )}
           <div className={styles.main_content} id={styles.mobile_only}>
             <h1>Создаем продающий контент для маркетплейсов</h1>
             <div className={styles.main_logos}>

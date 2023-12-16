@@ -1,6 +1,6 @@
 .main {
   background-color: var(--light-gray);
-  padding: 260px 0 220px;
+  padding: 60px 0;
 
   &_logos {
     width: 150px;
@@ -147,6 +147,12 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 580px) {
+  section {
+    padding: 15px 0;
   }
 }
 

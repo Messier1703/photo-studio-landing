@@ -1,6 +1,5 @@
 .object {
   padding: 60px 0;
-
   &_wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -79,5 +78,11 @@
     &_images {
       grid-template-columns: repeat(1, min-content);
     }
+  }
+}
+
+@media (max-width: 580px) {
+  section {
+    padding: 15px 0;
   }
 }

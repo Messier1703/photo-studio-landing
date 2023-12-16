@@ -72,56 +72,60 @@ const ReviewsSection = () => {
             }
           />
         </h2>
-        <div id={styles.desktop_only}>
-          <div className={styles.reviews_wrapper}>
-            {reviews.slice(0, 2).map((review) => (
-              <ReviewsCard
-                itemId={review.id}
-                key={review.id}
-                name={review.name}
-                description={review.description}
-                src={review.image}
-                job={review.job}
-              />
-            ))}
-          </div>
-          <div className={styles.reviews_wrapper}>
-            {reviews.slice(2, 5).map((review) => (
-              <ReviewsCard
-                itemId={review.id}
-                key={review.id}
-                name={review.name}
-                description={review.description}
-                src={review.image}
-                job={review.job}
-              />
-            ))}
-          </div>
-          <div className={styles.reviews_wrapper}>
-            {reviews.slice(5, 7).map((review) => (
-              <ReviewsCard
-                itemId={review.id}
-                key={review.id}
-                name={review.name}
-                description={review.description}
-                src={review.image}
-                job={review.job}
-              />
-            ))}
-          </div>
-        </div>
-        <div id={styles.mobile_only}>
-          {reviews.slice(0, 7).map((review) => (
-            <ReviewsCard
-              itemId={review.id}
-              key={review.id}
-              name={review.name}
-              description={review.description}
-              src={review.image}
-              job={review.job}
-            />
-          ))}
-        </div>
+        {reviews && (
+          <>
+            <div id={styles.desktop_only}>
+              <div className={styles.reviews_wrapper}>
+                {reviews.slice(0, 2).map((review) => (
+                  <ReviewsCard
+                    itemId={review.id}
+                    key={review.id}
+                    name={review.name}
+                    description={review.description}
+                    src={review.image}
+                    job={review.job}
+                  />
+                ))}
+              </div>
+              <div className={styles.reviews_wrapper}>
+                {reviews.slice(2, 5).map((review) => (
+                  <ReviewsCard
+                    itemId={review.id}
+                    key={review.id}
+                    name={review.name}
+                    description={review.description}
+                    src={review.image}
+                    job={review.job}
+                  />
+                ))}
+              </div>
+              <div className={styles.reviews_wrapper}>
+                {reviews.slice(5, 7).map((review) => (
+                  <ReviewsCard
+                    itemId={review.id}
+                    key={review.id}
+                    name={review.name}
+                    description={review.description}
+                    src={review.image}
+                    job={review.job}
+                  />
+                ))}
+              </div>
+            </div>
+            <div id={styles.mobile_only}>
+              {reviews.slice(0, 7).map((review) => (
+                <ReviewsCard
+                  itemId={review.id}
+                  key={review.id}
+                  name={review.name}
+                  description={review.description}
+                  src={review.image}
+                  job={review.job}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   )

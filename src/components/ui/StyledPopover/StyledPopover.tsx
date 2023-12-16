@@ -1,5 +1,4 @@
 "use client"
-// StyledPopover.tsx
 import { ReactNode, useEffect } from "react"
 import { MenuTrigger, Popover } from "react-aria-components"
 import styles from "./StyledPopover.module.scss"

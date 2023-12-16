@@ -88,42 +88,44 @@ const ServicesSection = () => {
                   postServices()
                 }}
               >
-                <AdminInput name="title_1" type="text" placeholder="title1" defaultValue={services.title_1} />
-                <AdminInput name="description_1" type="text" placeholder="title1" defaultValue={services.description_1} />
-                <AdminInput name="title_2" type="text" placeholder="title1" defaultValue={services.title_2} />
-                <AdminInput name="description_2" type="text" placeholder="title1" defaultValue={services.description_2} />
-                <AdminInput name="title_3" type="text" placeholder="title1" defaultValue={services.title_3} />
-                <AdminInput name="description_3" type="text" placeholder="title1" defaultValue={services.description_3} />
-                <AdminInput name="title_4" type="text" placeholder="title1" defaultValue={services.title_4} />
-                <AdminInput name="description_4" type="text" placeholder="title1" defaultValue={services.description_4} />
+                <AdminInput name="title_1" type="text" placeholder="заголовок 1" defaultValue={services.title_1} />
+                <AdminInput name="description_1" type="text" placeholder="описание 1" defaultValue={services.description_1} />
+                <AdminInput name="title_2" type="text" placeholder="заголовок 2" defaultValue={services.title_2} />
+                <AdminInput name="description_2" type="text" placeholder="описание 2" defaultValue={services.description_2} />
+                <AdminInput name="title_3" type="text" placeholder="заголовок 3" defaultValue={services.title_3} />
+                <AdminInput name="description_3" type="text" placeholder="описание 3" defaultValue={services.description_3} />
+                <AdminInput name="title_4" type="text" placeholder="заголовок 4" defaultValue={services.title_4} />
+                <AdminInput name="description_4" type="text" placeholder="описание 4" defaultValue={services.description_4} />
                 <AdminButton>Обновить секцию</AdminButton>
               </Form>
             }
           />
         </h2>
-        <div className={styles.services_wrapper} key={services.id}>
-          <div className={styles.services_pricing}>
-            <div>
-              <h4>{services.title_1}</h4>
-              <p>{services.description_1}</p>
+        {services && (
+          <div className={styles.services_wrapper} key={services.id}>
+            <div className={styles.services_pricing}>
+              <div>
+                <h4>{services.title_1}</h4>
+                <p>{services.description_1}</p>
+              </div>
+              <div>
+                <h4>{services.title_2}</h4>
+                <p>{services.description_2}</p>
+              </div>
+              <div>
+                <h4>{services.title_3}</h4>
+                <p>{services.description_3}</p>
+              </div>
             </div>
-            <div>
-              <h4>{services.title_2}</h4>
-              <p>{services.description_2}</p>
-            </div>
-            <div>
-              <h4>{services.title_3}</h4>
-              <p>{services.description_3}</p>
+            <div className={styles.services_sign_up}>
+              <h3>{services.title_4}</h3>
+              <p>{services.description_4}</p>
+              <Link href="/#contacts">
+                <BrightButton id={styles.services_button}>Записаться на съемку</BrightButton>
+              </Link>
             </div>
           </div>
-          <div className={styles.services_sign_up}>
-            <h3>{services.title_4}</h3>
-            <p>{services.description_4}</p>
-            <Link href="/#contacts">
-              <BrightButton id={styles.services_button}>Записаться на съемку</BrightButton>
-            </Link>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   )

@@ -1,6 +1,4 @@
 .about {
-  padding: 120px 0;
-
   form {
     display: flex;
     flex-direction: column;
@@ -30,10 +28,6 @@
     width: min-content;
     margin: 0 auto;
     grid-gap: 40px;
-  }
-
-  h2 {
-    margin-bottom: 80px;
   }
 
   &_image {

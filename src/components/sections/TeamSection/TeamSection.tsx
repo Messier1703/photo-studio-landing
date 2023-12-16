@@ -78,11 +78,13 @@ const TeamSection = () => {
             }
           />
         </h2>
-        <div className={styles.team_grid}>
-          {team.map((member) => (
-            <TeamCard id={member.id} key={member.id} name={member.title} job={member.job} src={member.image_1} alt={member.title} />
-          ))}
-        </div>
+        {team && (
+          <div className={styles.team_grid}>
+            {team.map((member) => (
+              <TeamCard id={member.id} key={member.id} name={member.title} job={member.job} src={member.image_1} alt={member.title} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

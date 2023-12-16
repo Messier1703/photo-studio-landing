@@ -12,7 +12,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
-import StyledPopover from "../StyledPopover/StyledPopover"
+import UserPopover from "../UserPopover/UserPopover"
 import ItemID from "../ItemID/ItemID"
 
 interface Image {
@@ -58,55 +58,53 @@ const PortfolioDropdown: React.FC<PortfolioDropdownProps> = ({ id }) => {
   }, [])
 
   return (
-    <>
-      <Tabs className={styles.tabs} id={id}>
-        <StyledPopover
-          button={<BrightButton aria-label="Menu">категории</BrightButton>}
-          content={
-            <TabList className={styles.tab_list}>
-              {portfolio.map((item) => (
-                <Tab key={item.id} id={item.title.toLowerCase()} className={styles.tab}>
-                  {item.title}
-                  <ItemID>{item.id}</ItemID>
-                </Tab>
-              ))}
-            </TabList>
-          }
-        />
+    <Tabs className={styles.tabs} id={id}>
+      <UserPopover
+        button={<BrightButton aria-label="Menu">категории</BrightButton>}
+        content={
+          <TabList className={styles.tab_list}>
+            {portfolio.map((item) => (
+              <Tab key={item.id} id={item.title.toLowerCase()} className={styles.tab}>
+                {item.title}
+                <ItemID>{item.id}</ItemID>
+              </Tab>
+            ))}
+          </TabList>
+        }
+      />
 
-        {portfolio.map((item) => (
-          <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
-            <h3>{item.title}</h3>
-            <p>листайте вправо</p>
-            <div className={styles.tab_wrapper}>
-              <Swiper
-                spaceBetween={10}
-                slidesPerView={1}
-                direction="horizontal"
-                className={styles.tab_swiper}
-                breakpoints={{
-                  540: {
-                    slidesPerView: 1.5,
-                  },
-                  730: {
-                    slidesPerView: 2,
-                  },
-                }}
-              >
-                {item.images.map((image) => (
-                  <SwiperSlide key={image.id}>
-                    <ItemID>{image.id}</ItemID>
-                    <figure>
-                      <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
-                    </figure>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </TabPanel>
-        ))}
-      </Tabs>
-    </>
+      {portfolio.map((item) => (
+        <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
+          <h3>{item.title}</h3>
+          <p>листайте вправо</p>
+          <div className={styles.tab_wrapper}>
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1}
+              direction="horizontal"
+              className={styles.tab_swiper}
+              breakpoints={{
+                540: {
+                  slidesPerView: 1.5,
+                },
+                730: {
+                  slidesPerView: 2,
+                },
+              }}
+            >
+              {item.images.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <ItemID>{image.id}</ItemID>
+                  <figure>
+                    <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
+                  </figure>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </TabPanel>
+      ))}
+    </Tabs>
   )
 }
 
