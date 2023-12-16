@@ -48,7 +48,7 @@ const AboutSection = () => {
   }, [])
 
   return (
-    <section className={styles.about} id="about-us">
+    <section className={styles.about} id="about">
       {about && (
         <div className="container">
           <h2 className="section_title">О нас</h2>

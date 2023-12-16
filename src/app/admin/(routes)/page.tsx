@@ -53,10 +53,6 @@ const AdminPage = () => {
               const response = await ky.put(`${API_BASE_URL}/video/2`, {
                 body: formData,
                 credentials: "include",
-                // headers: {
-                //   accept: "application/json",
-                //   "Content-Type": "multipart/form-data",
-                // },
               })
               console.log(response)
               console.log(formData)
