@@ -52,30 +52,79 @@ const TeamSection = () => {
           <StyledPopover
             button={<EditButton />}
             content={
-              <Form
-                onSubmit={async (e) => {
-                  e.preventDefault()
-                  const formData = new FormData(e.currentTarget)
-                  const id = Number(formData.get("id"))
-                  try {
-                    refreshToken()
-                    const response = await ky.patch(`${API_BASE_URL}/our_team?our_team_id=${id}`, {
-                      body: formData,
-                      credentials: "include",
-                    })
-                    console.log(response)
-                    window.location.reload()
-                  } catch (error) {
-                    console.error(error)
-                  }
-                }}
-              >
-                <AdminInput name="id" defaultValue="" type="text" placeholder="ID участника" />
-                <AdminInput name="title" defaultValue="" type="text" placeholder="Имя" />
-                <AdminInput name="job" defaultValue="" type="text" placeholder="Работа" />
-                <FileInput name="image_1" accept="image/*" />
-                <AdminButton>Сохранить изменения</AdminButton>
-              </Form>
+              <>
+                <Form
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    const id = Number(formData.get("id"))
+                    try {
+                      refreshToken()
+                      const response = await ky.patch(`${API_BASE_URL}/our_team?our_team_id=${id}`, {
+                        body: formData,
+                        credentials: "include",
+                      })
+                      console.log(response)
+                      window.location.reload()
+                    } catch (error) {
+                      console.error(error)
+                    }
+                  }}
+                >
+                  <p>Редактировать участника</p>
+                  <AdminInput name="id" defaultValue="" type="text" placeholder="ID участника" />
+                  <AdminInput name="title" defaultValue="" type="text" placeholder="Имя" />
+                  <AdminInput name="job" defaultValue="" type="text" placeholder="Работа" />
+                  <FileInput name="image_1" accept="image/*" />
+                  <AdminButton>Сохранить изменения</AdminButton>
+                </Form>
+                <Form
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    try {
+                      refreshToken()
+                      const response = await ky.post(`${API_BASE_URL}/our_team`, {
+                        body: formData,
+                        credentials: "include",
+                      })
+                      console.log(response)
+                      window.location.reload()
+                    } catch (error) {
+                      console.error(error)
+                    }
+                  }}
+                >
+                  <p>Добавить участника</p>
+                  <AdminInput name="title" defaultValue="" type="text" placeholder="Имя" />
+                  <AdminInput name="description" defaultValue="" type="text" placeholder="Описание" />
+                  <AdminInput name="job" defaultValue="" type="text" placeholder="Работа" />
+                  <FileInput name="image_1" accept="image/*" />
+                  <AdminButton>Добавить</AdminButton>
+                </Form>
+                <Form
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    const id = Number(formData.get("id"))
+                    try {
+                      refreshToken()
+                      const response = await ky.delete(`${API_BASE_URL}/our_team?our_team_id=${id}`, {
+                        body: formData,
+                        credentials: "include",
+                      })
+                      console.log(response)
+                      window.location.reload()
+                    } catch (error) {
+                      console.error(error)
+                    }
+                  }}
+                >
+                  <p>Удалить участника</p>
+                  <AdminInput name="id" defaultValue="" type="text" placeholder="ID участника" />
+                  <AdminButton>Удалить</AdminButton>
+                </Form>
+              </>
             }
           />
         </h2>

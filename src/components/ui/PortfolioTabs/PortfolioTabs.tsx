@@ -12,6 +12,7 @@ import EditButton from "../EditButton/EditButton"
 import refreshToken from "@/lib/refreshToken"
 import AdminInput from "../AdminInput/AdminInput"
 import ItemID from "../ItemID/ItemID"
+import FileInput from "../FileInput/FileInput"
 
 interface Image {
   id: number | undefined
@@ -65,7 +66,6 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
         button={<EditButton />}
         content={
           <>
-            <p>Добавить изображение</p>
             <Form
               onSubmit={async (e) => {
                 e.preventDefault()
@@ -86,11 +86,11 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
                 }
               }}
             >
+              <p>Добавить изображение</p>
               <AdminInput name="id" type="text" placeholder="ID категории" />
-              <input type="file" name="image" accept="image/*" />
+              <FileInput name="image" accept="image/*" />
               <AdminButton>Сохранить изменения</AdminButton>
             </Form>
-            <p>Редактировать изображение</p>
             <Form
               onSubmit={async (e) => {
                 e.preventDefault()
@@ -109,11 +109,11 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
                 }
               }}
             >
+              <p>Редактировать изображение</p>
               <AdminInput name="id" type="text" placeholder="ID" />
-              <input type="file" name="image" accept="image/*" />
+              <FileInput name="image" accept="image/*" />
               <AdminButton>Сохранить изменения</AdminButton>
             </Form>
-            <p>Удалить изображение</p>
             <Form
               onSubmit={async (e) => {
                 e.preventDefault()
@@ -131,10 +131,10 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
                 }
               }}
             >
+              <p>Удалить изображение</p>
               <AdminInput name="id" type="text" placeholder="ID" />
               <AdminButton>Удалить</AdminButton>
             </Form>
-            <p>Добавить категорию</p>
             <Form
               onSubmit={async (e) => {
                 e.preventDefault()
@@ -152,11 +152,11 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
                 }
               }}
             >
+              <p>Добавить категорию</p>
               <AdminInput name="title" type="text" placeholder="Название" />
-              <input type="file" name="images" accept="image/*" multiple />
+              <FileInput name="images" accept="image/*" multiple />
               <AdminButton>Сохранить изменения</AdminButton>
             </Form>
-            <p>Удалить категорию</p>
             <Form
               onSubmit={async (e) => {
                 e.preventDefault()
@@ -174,6 +174,7 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
                 }
               }}
             >
+              <p>Удалить категорию</p>
               <AdminInput name="id" type="text" placeholder="ID" />
               <AdminButton>Удалить</AdminButton>
             </Form>

@@ -7,6 +7,7 @@ import BrightButton from "@/components/ui/BrightButton/BrightButton"
 import Link from "next/link"
 import { useEffect } from "react"
 import { useAuth } from "@/lib/AuthContext"
+import FileInput from "@/components/ui/FileInput/FileInput"
 
 const AdminPage = () => {
   const { isAuthenticated, refreshToken } = useAuth()
@@ -38,7 +39,7 @@ const AdminPage = () => {
             }
           }}
         >
-          <input type="file" name="file" accept="video/*" />
+          <FileInput name="file" accept="video/*" />
           <AdminButton>Ок</AdminButton>
         </Form>
         <Link href="/">
