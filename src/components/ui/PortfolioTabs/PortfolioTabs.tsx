@@ -5,14 +5,6 @@ import API_BASE_URL from "@/constants/API_BASE_URL"
 import ky from "ky"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Form } from "react-aria-components"
-import StyledPopover from "../StyledPopover/StyledPopover"
-import AdminButton from "../AdminButton/AdminButton"
-import EditButton from "../EditButton/EditButton"
-import refreshToken from "@/lib/refreshToken"
-import AdminInput from "../AdminInput/AdminInput"
-import ItemID from "../ItemID/ItemID"
-import FileInput from "../FileInput/FileInput"
 
 interface Image {
   id: number | undefined
@@ -62,131 +54,12 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
 
   return (
     <>
-      <StyledPopover
-        button={<EditButton />}
-        content={
-          <>
-            <Form
-              onSubmit={async (e) => {
-                e.preventDefault()
-                const formData = new FormData(e.currentTarget)
-                const id = Number(formData.get("id"))
-                formData.delete("id")
-                try {
-                  refreshToken()
-                  const response = await ky.post(`${API_BASE_URL}/our_products_image?product_id=${id}`, {
-                    body: formData,
-                    credentials: "include",
-                  })
-                  console.log(response)
-                  console.log(formData)
-                  window.location.reload()
-                } catch (error) {
-                  console.error(error)
-                }
-              }}
-            >
-              <p>Добавить изображение</p>
-              <AdminInput name="id" type="text" placeholder="ID категории" />
-              <FileInput name="image" accept="image/*" />
-              <AdminButton>Сохранить изменения</AdminButton>
-            </Form>
-            <Form
-              onSubmit={async (e) => {
-                e.preventDefault()
-                const formData = new FormData(e.currentTarget)
-                const id = Number(formData.get("id"))
-                try {
-                  refreshToken()
-                  const response = await ky.patch(`${API_BASE_URL}/our_products_image?image_id=${id}`, {
-                    body: formData,
-                    credentials: "include",
-                  })
-                  console.log(response)
-                  window.location.reload()
-                } catch (error) {
-                  console.error(error)
-                }
-              }}
-            >
-              <p>Редактировать изображение</p>
-              <AdminInput name="id" type="text" placeholder="ID" />
-              <FileInput name="image" accept="image/*" />
-              <AdminButton>Сохранить изменения</AdminButton>
-            </Form>
-            <Form
-              onSubmit={async (e) => {
-                e.preventDefault()
-                const formData = new FormData(e.currentTarget)
-                const id = Number(formData.get("id"))
-                try {
-                  refreshToken()
-                  const response = await ky.delete(`${API_BASE_URL}/our_products_image?image_id=${id}`, {
-                    credentials: "include",
-                  })
-                  console.log(response)
-                  window.location.reload()
-                } catch (error) {
-                  console.error(error)
-                }
-              }}
-            >
-              <p>Удалить изображение</p>
-              <AdminInput name="id" type="text" placeholder="ID" />
-              <AdminButton>Удалить</AdminButton>
-            </Form>
-            <Form
-              onSubmit={async (e) => {
-                e.preventDefault()
-                const formData = new FormData(e.currentTarget)
-                try {
-                  refreshToken()
-                  const response = await ky.post(`${API_BASE_URL}/our_products`, {
-                    body: formData,
-                    credentials: "include",
-                  })
-                  console.log(response)
-                  window.location.reload()
-                } catch (error) {
-                  console.error(error)
-                }
-              }}
-            >
-              <p>Добавить категорию</p>
-              <AdminInput name="title" type="text" placeholder="Название" />
-              <FileInput name="images" accept="image/*" multiple />
-              <AdminButton>Сохранить изменения</AdminButton>
-            </Form>
-            <Form
-              onSubmit={async (e) => {
-                e.preventDefault()
-                const formData = new FormData(e.currentTarget)
-                const id = Number(formData.get("id"))
-                try {
-                  refreshToken()
-                  const response = await ky.delete(`${API_BASE_URL}/our_products?product_id=${id}`, {
-                    credentials: "include",
-                  })
-                  console.log(response)
-                  window.location.reload()
-                } catch (error) {
-                  console.error(error)
-                }
-              }}
-            >
-              <p>Удалить категорию</p>
-              <AdminInput name="id" type="text" placeholder="ID" />
-              <AdminButton>Удалить</AdminButton>
-            </Form>
-          </>
-        }
-      />
       {portfolio && (
         <Tabs className={styles.tabs} id={id}>
           <TabList className={styles.tab_list}>
             {portfolio.map((item) => (
               <Tab key={item.id} id={item.title.toLowerCase()} className={`${styles.tab} ${isDataLoaded ? "" : styles.tab_rounded}`}>
-                {item.title} <ItemID>{item.id}</ItemID>
+                {item.title}
               </Tab>
             ))}
           </TabList>
@@ -197,7 +70,6 @@ const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
               <div className={styles.tab_image_wrapper}>
                 {item.images.map((image) => (
                   <figure key={image.id}>
-                    <ItemID>{image.id}</ItemID>
                     <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
                   </figure>
                 ))}

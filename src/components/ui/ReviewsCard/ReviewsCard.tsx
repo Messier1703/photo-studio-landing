@@ -1,6 +1,5 @@
 import Image, { StaticImageData } from "next/image"
 import styles from "./ReviewsCard.module.scss"
-import ItemID from "../ItemID/ItemID"
 
 interface ReviewsCardProps {
   src: StaticImageData
@@ -10,7 +9,7 @@ interface ReviewsCardProps {
   itemId: number
 }
 
-const ReviewsCard: React.FC<ReviewsCardProps> = ({ src, name, job, description, itemId }) => {
+const ReviewsCard: React.FC<ReviewsCardProps> = ({ src, name, job, description }) => {
   return (
     <article className={styles.card}>
       <div className={styles.card_content}>
@@ -24,7 +23,6 @@ const ReviewsCard: React.FC<ReviewsCardProps> = ({ src, name, job, description, 
           </div>
         </div>
         <p>{description}</p>
-        <ItemID>{itemId}</ItemID>
       </div>
     </article>
   )

@@ -4,13 +4,6 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import API_BASE_URL from "@/constants/API_BASE_URL"
 import ky from "ky"
-import StyledPopover from "@/components/ui/StyledPopover/StyledPopover"
-import EditButton from "@/components/ui/EditButton/EditButton"
-import { Form } from "react-aria-components"
-import AdminInput from "@/components/ui/AdminInput/AdminInput"
-import AdminButton from "@/components/ui/AdminButton/AdminButton"
-import refreshToken from "@/lib/refreshToken"
-import FileInput from "@/components/ui/FileInput/FileInput"
 
 interface BlogProps {
   id: number
@@ -46,42 +39,7 @@ const BlogSection = () => {
       <div className="container">
         {blog.map((post) => (
           <div key={post.id}>
-            <h2 className="section_title">
-              {post.title}
-              <StyledPopover
-                button={<EditButton />}
-                content={
-                  <Form
-                    onSubmit={async (e) => {
-                      e.preventDefault()
-                      const formData = new FormData(e.currentTarget)
-                      try {
-                        refreshToken()
-                        const response = await ky.patch(`${API_BASE_URL}/blog_about_us?blog_about_us_id=1`, {
-                          body: formData,
-                          credentials: "include",
-                        })
-                        console.log(response)
-                        window.location.reload()
-                      } catch (error) {
-                        console.error(error)
-                      }
-                    }}
-                  >
-                    <AdminInput name="title" type="text" placeholder="Заголовок" />
-                    <AdminInput name="description_1" type="text" placeholder="Описание" />
-                    <AdminInput name="description_2" type="text" placeholder="Описание 2" />
-                    <FileInput name="image_1" accept="image/*" />
-                    <FileInput name="image_2" accept="image/*" />
-                    <FileInput name="image_3" accept="image/*" />
-                    <FileInput name="image_4" accept="image/*" />
-                    <FileInput name="image_5" accept="image/*" />
-                    <FileInput name="image_6" accept="image/*" />
-                    <AdminButton>Сохранить изменения</AdminButton>
-                  </Form>
-                }
-              />
-            </h2>
+            <h2 className="section_title">{post.title}</h2>
             <div className={styles.blog_grid_1}>
               <figure className={styles.blog_image_wrapper_big}>
                 <Image className={styles.blog_image} src={post.image_1} width={440} height={550} alt="Фото модели" />

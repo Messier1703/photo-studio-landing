@@ -8,13 +8,6 @@ import BrightButton from "@/components/ui/BrightButton/BrightButton"
 import Image from "next/image"
 import placeholderText from "@/constants/placeholderText"
 import { StaticImageData } from "next/image"
-import StyledPopover from "@/components/ui/StyledPopover/StyledPopover"
-import AdminButton from "@/components/ui/AdminButton/AdminButton"
-import AdminInput from "@/components/ui/AdminInput/AdminInput"
-import { Form } from "react-aria-components"
-import EditButton from "@/components/ui/EditButton/EditButton"
-import refreshToken from "@/lib/refreshToken"
-import FileInput from "@/components/ui/FileInput/FileInput"
 
 const InfographicsSection = () => {
   interface GetInfographicsProps {
@@ -59,36 +52,6 @@ const InfographicsSection = () => {
               <Link href="/#contacts" id={styles.desktop_only}>
                 <BrightButton>Обсудить работу</BrightButton>
               </Link>
-              <StyledPopover
-                button={<EditButton />}
-                content={
-                  <Form
-                    onSubmit={async (e) => {
-                      e.preventDefault()
-                      const formData = new FormData(e.currentTarget)
-                      try {
-                        refreshToken()
-                        const response = await ky.patch(`${API_BASE_URL}/infographic?infographic_id=1`, {
-                          body: formData,
-                          credentials: "include",
-                        })
-                        console.log(response)
-                        window.location.reload()
-                      } catch (error) {
-                        console.error(error)
-                      }
-                    }}
-                  >
-                    <AdminInput name="title" type="text" placeholder="Заголовок" />
-                    <AdminInput name="description" type="text" placeholder="Описание" />
-                    <FileInput name="image_1" accept="image/*" />
-                    <FileInput name="image_2" accept="image/*" />
-                    <FileInput name="image_3" accept="image/*" />
-                    <FileInput name="image_4" accept="image/*" />
-                    <AdminButton>Сохранить</AdminButton>
-                  </Form>
-                }
-              />
             </div>
             <div className={styles.infographics_images}>
               <figure className={styles.infographics_image_wrapper}>
@@ -114,36 +77,6 @@ const InfographicsSection = () => {
             <Link href="/#contacts" id={styles.mobile_only}>
               <BrightButton>Обсудить работу</BrightButton>
             </Link>
-            <StyledPopover
-              button={<EditButton />}
-              content={
-                <Form
-                  onSubmit={async (e) => {
-                    e.preventDefault()
-                    const formData = new FormData(e.currentTarget)
-                    try {
-                      refreshToken()
-                      const response = await ky.patch(`${API_BASE_URL}/infographic?infographic_id=1`, {
-                        body: formData,
-                        credentials: "include",
-                      })
-                      console.log(response)
-                      window.location.reload()
-                    } catch (error) {
-                      console.error(error)
-                    }
-                  }}
-                >
-                  <AdminInput name="title" type="text" placeholder="Заголовок" />
-                  <AdminInput name="description" type="text" placeholder="Описание" />
-                  <FileInput name="image_1" accept="image/*" />
-                  <FileInput name="image_2" accept="image/*" />
-                  <FileInput name="image_3" accept="image/*" />
-                  <FileInput name="image_4" accept="image/*" />
-                  <AdminButton>Сохранить</AdminButton>
-                </Form>
-              }
-            />
           </div>
         )}
       </div>

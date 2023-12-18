@@ -6,19 +6,12 @@ import { useState, useEffect } from "react"
 import API_BASE_URL from "@/constants/API_BASE_URL"
 import ky from "ky"
 import Image from "next/image"
-import EditButton from "@/components/ui/EditButton/EditButton"
-import StyledPopover from "@/components/ui/StyledPopover/StyledPopover"
-import AdminInput from "@/components/ui/AdminInput/AdminInput"
-import { Form } from "react-aria-components"
-import refreshToken from "@/lib/refreshToken"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 import Link from "next/link"
-import AdminButton from "@/components/ui/AdminButton/AdminButton"
-import FileInput from "@/components/ui/FileInput/FileInput"
 
 interface ImageInfo {
   id: number
@@ -53,33 +46,6 @@ const AboutSection = () => {
       {about && (
         <div className="container">
           <h2 className="section_title">О нас</h2>
-          <StyledPopover
-            button={<EditButton />}
-            content={
-              <Form
-                onSubmit={async (e) => {
-                  e.preventDefault()
-                  const formData = new FormData(e.currentTarget)
-                  try {
-                    refreshToken()
-                    const response = await ky.patch(`${API_BASE_URL}/about_us?section_id=1`, {
-                      body: formData,
-                      credentials: "include",
-                    })
-                    console.log(response)
-                    window.location.reload()
-                  } catch (error) {
-                    console.error(error)
-                  }
-                }}
-              >
-                <AdminInput name="title" type="text" placeholder="Заголовок" />
-                <AdminInput name="description" type="text" placeholder="Описание" />
-                <FileInput name="images" accept="image/*" multiple />
-                <AdminButton>Сохранить изменения</AdminButton>
-              </Form>
-            }
-          />
           <h4>листайте вправо</h4>
           <div className={styles.about_wrapper}>
             <div className={styles.about_images}>
