@@ -54,7 +54,7 @@ const MainSection = () => {
       <div className="container">
         <div className={styles.main_wrapper}>
           <div className={styles.main_content} id={styles.desktop_only}>
-            <h1>Создаем продающий контент для маркетплейсов</h1>
+            <h1>Успех в Каждом Кадре: Профессиональная Фото Студия для Вашего Бизнеса</h1>
             <Link href="/" id={styles.main_button_link}>
               <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
             </Link>
