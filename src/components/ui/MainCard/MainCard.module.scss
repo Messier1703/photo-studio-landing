@@ -38,6 +38,14 @@
   }
 }
 
+@media (max-width: 640px) {
+  .card {
+    h3 {
+      font-size: 16px;
+    }
+  }
+}
+
 @media (max-width: 460px) {
   .card {
     width: 170px;
@@ -50,6 +58,22 @@
 
     &:hover {
       transform: scale(1.05);
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .card {
+    width: 150px;
+    height: 220px;
+
+    h3 {
+      font-size: 12px;
+    }
+
+    &_image_wrapper {
+      width: 150px;
+      height: 220px;
     }
   }
 }

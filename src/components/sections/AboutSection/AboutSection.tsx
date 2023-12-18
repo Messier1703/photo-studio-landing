@@ -12,6 +12,7 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 import Link from "next/link"
+import swipeIcon from "public/svg/swipe-icon.svg"
 
 interface ImageInfo {
   id: number
@@ -46,7 +47,12 @@ const AboutSection = () => {
       {about && (
         <div className="container">
           <h2 className="section_title">О нас</h2>
-          <h4>листайте вправо</h4>
+          <div className={styles.about_swipe}>
+            <h4>листайте вправо</h4>
+            <figure>
+              <Image src={swipeIcon} alt="Иконка" />
+            </figure>
+          </div>
           <div className={styles.about_wrapper}>
             <div className={styles.about_images}>
               <Swiper

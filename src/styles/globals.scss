@@ -90,11 +90,7 @@ section {
 .section_title {
   font-size: 80px;
   margin-bottom: 50px;
-  font-weight: 500;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-weight: 600;
 }
 
 .flex {
@@ -135,6 +131,11 @@ section {
     padding: 0 20px;
   }
 
+  .section_title {
+    font-size: 45px;
+    margin-bottom: 30px;
+  }
+
   section {
     padding: 40px 0;
   }
@@ -144,9 +145,10 @@ section {
   .container {
     padding: 0 10px;
   }
+}
 
-  .section_title {
-    font-size: 30px;
-    margin-bottom: 25px;
+@media (max-width: 390px) {
+  .container {
+    padding: 0 5px;
   }
 }

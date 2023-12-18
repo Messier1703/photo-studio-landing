@@ -120,7 +120,9 @@ const SignUpForm: React.FC<SignUpFormProps> = () => {
         <Label>Инфографика</Label>
       </Checkbox>
       <DialogTrigger>
-        <BrightButton type="submit">Обсудить работу</BrightButton>
+        <div className={styles.form_button}>
+          <BrightButton type="submit">Обсудить работу</BrightButton>
+        </div>
         <Modal isDismissable>
           <Dialog className={styles.form_modal}>
             <Heading slot="title" className={styles.form_modal_title}>

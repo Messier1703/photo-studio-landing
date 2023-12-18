@@ -28,5 +28,25 @@
       height: 70px;
       font-size: 70px;
     }
+
+    h4 {
+      font-size: 15px;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .card {
+    gap: 10px;
+    figure {
+      width: 55px;
+      height: 55px;
+      font-size: 55px;
+    }
   }
 }

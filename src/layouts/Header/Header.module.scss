@@ -84,9 +84,13 @@
       gap: 30px;
     }
 
+    .header_wrapper {
+      height: 110px;
+    }
+
     &_scroll {
       .header_wrapper {
-        height: 120px;
+        height: 90px;
       }
     }
   }

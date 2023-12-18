@@ -4,6 +4,7 @@
   right: 20px;
   transition: var(--link-hover);
   cursor: pointer;
+  z-index: 999;
 
   &:hover {
     transform: scale(1.1);

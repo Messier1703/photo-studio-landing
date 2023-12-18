@@ -6,13 +6,14 @@ import ky from "ky"
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import placeholderText from "@/constants/placeholderText"
-import BrightButton from "../BrightButton/BrightButton"
+import BrightButton from "@/components/ui/BrightButton/BrightButton"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
-import UserPopover from "../UserPopover/UserPopover"
+import UserPopover from "@/components/ui/UserPopover/UserPopover"
+import swipeIcon from "public/svg/swipe-icon.svg"
 
 interface Image {
   id: number | undefined
@@ -74,7 +75,12 @@ const PortfolioDropdown: React.FC<PortfolioDropdownProps> = ({ id }) => {
       {portfolio.map((item) => (
         <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
           <h3>{item.title}</h3>
-          <p>листайте вправо</p>
+          <div className={styles.tabs_swipe}>
+            <h4>листайте вправо</h4>
+            <figure>
+              <Image src={swipeIcon} alt="Иконка" />
+            </figure>
+          </div>
           <div className={styles.tab_wrapper}>
             <Swiper
               spaceBetween={10}

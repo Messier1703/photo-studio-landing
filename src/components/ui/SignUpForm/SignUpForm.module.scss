@@ -110,5 +110,10 @@
     input {
       width: 370px;
     }
+    
+    &_button {
+      width: min-content;
+      margin: 0 auto;
+    }
   }
 }

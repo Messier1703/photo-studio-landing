@@ -78,6 +78,7 @@
   .infographics {
     &_images {
       grid-template-columns: repeat(1, min-content);
+      grid-gap: 10px;
     }
   }
 }
