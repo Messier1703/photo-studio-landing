@@ -61,7 +61,7 @@ const AboutSection = () => {
                 direction="horizontal"
                 className={styles.tab_swiper}
                 breakpoints={{
-                  550: {
+                  680: {
                     slidesPerView: 1.5,
                   },
                   840: {

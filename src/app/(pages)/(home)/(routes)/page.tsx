@@ -14,9 +14,9 @@ const HomePage = () => {
   return (
     <>
       <MainSection />
-      <ServicesSection />
       <AboutSection />
       <PortfolioSection />
+      <ServicesSection />
       <ObjectSection />
       <InfographicsSection />
       <PerksSection />
