@@ -5,7 +5,6 @@ import { AuthProvider } from "@/lib/AuthContext"
 
 import "@/styles/globals.scss"
 import "@/styles/variables.scss"
-import "@/styles/media.scss"
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--var-montserrat" })
 

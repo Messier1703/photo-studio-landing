@@ -1,6 +1,12 @@
 .blog {
   padding: 160px 0 220px;
 
+  h2 {
+    font-size: 65px;
+    margin-bottom: 50px;
+    font-weight: 600;
+  }
+
   &_grid_1,
   &_grid_2 {
     display: grid;
@@ -46,6 +52,24 @@
   p {
     grid-area: p;
     font-size: 18px;
+  }
+}
+
+@media (max-width: 960px) {
+  .blog {
+    h2 {
+      font-size: 50px;
+      margin-bottom: 35px;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .blog {
+    h2 {
+      font-size: 45px;
+      margin-bottom: 30px;
+    }
   }
 }
 

@@ -1,3 +1,4 @@
+import React from "react"
 import CalendarSection from "@/components/sections/CalendarSection/CalendarSection"
 import ContactsSection from "@/components/sections/ContactsSection/ContactsSection"
 

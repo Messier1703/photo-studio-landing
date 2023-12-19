@@ -42,13 +42,13 @@ const MainSection = () => {
     <main className={styles.main} id="main">
       <div className={styles.main_logos} id={styles.desktop_only}>
         <Link href="/" className={styles.main_logo}>
-          <Image src={wbLogo} alt="Озон" />
+          <Image src={wbLogo} alt="Wildberries" />
         </Link>
         <Link href="/" className={styles.main_logo}>
           <Image src={ozonLogo} alt="Озон" />
         </Link>
         <Link href="/" className={styles.main_logo}>
-          <Image src={yaMarketLogo} alt="Озон" />
+          <Image src={yaMarketLogo} alt="Yandex Market" />
         </Link>
       </div>
       <div className="container">
@@ -84,13 +84,13 @@ const MainSection = () => {
                 <Image src={ozonLogo} alt="Озон" />
               </Link>
               <Link href="/">
-                <Image src={wbLogo} alt="Озон" />
+                <Image src={wbLogo} alt="Wildberries" />
               </Link>
               <Link href="/">
-                <Image src={yaMarketLogo} alt="Озон" />
+                <Image src={yaMarketLogo} alt="Yandex Market" />
               </Link>
             </div>
-            <Link href="#contacts" id={styles.main_button_link}>
+            <Link href="/#contacts" id={styles.main_button_link}>
               <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
             </Link>
           </div>

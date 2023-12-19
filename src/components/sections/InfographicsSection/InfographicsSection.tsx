@@ -6,7 +6,6 @@ import API_BASE_URL from "@/constants/API_BASE_URL"
 import Link from "next/link"
 import BrightButton from "@/components/ui/BrightButton/BrightButton"
 import Image from "next/image"
-import placeholderText from "@/constants/placeholderText"
 import { StaticImageData } from "next/image"
 
 const InfographicsSection = () => {
@@ -20,8 +19,8 @@ const InfographicsSection = () => {
   }
 
   const [infographics, setInfographics] = useState<GetInfographicsProps>({
-    title: `${placeholderText}`,
-    description: `${placeholderText}`,
+    title: "",
+    description: "",
     image_1: {} as StaticImageData,
     image_2: {} as StaticImageData,
     image_3: {} as StaticImageData,

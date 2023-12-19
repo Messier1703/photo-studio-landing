@@ -46,7 +46,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isOpen, onClose, id, linkClass 
         <Link href="#contacts" className={linkClass} onClick={onClose}>
           Контакты
         </Link>
-        <Link href="/calendar" className={linkClass} onClick={onClose}>
+        <Link href="/calendar#calendar" className={linkClass} onClick={onClose}>
           Календарь съемок
         </Link>
         <HeaderButton onPress={() => onClose()}>Закрыть</HeaderButton>

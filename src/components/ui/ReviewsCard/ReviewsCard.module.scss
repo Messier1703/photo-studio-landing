@@ -7,6 +7,10 @@
   align-items: center;
   justify-content: center;
 
+  &_content {
+    max-width: 280px;
+  }
+
   &_info {
     display: flex;
 

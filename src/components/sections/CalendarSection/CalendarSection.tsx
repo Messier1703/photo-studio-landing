@@ -53,7 +53,7 @@ const CalendarSection = () => {
   }
 
   return (
-    <main className={styles.calendar}>
+    <main className={styles.calendar} id="calendar">
       <div className="container">
         <h2 className="section_title">Выберите модель для вашей съемки</h2>
         <div className={styles.calendar_grid}>{renderCalendarCards()}</div>

@@ -5,7 +5,6 @@ import API_BASE_URL from "@/constants/API_BASE_URL"
 import ky from "ky"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import placeholderText from "@/constants/placeholderText"
 import BrightButton from "@/components/ui/BrightButton/BrightButton"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
@@ -34,7 +33,7 @@ const PortfolioDropdown: React.FC<PortfolioDropdownProps> = ({ id }) => {
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>([
     {
       id: undefined,
-      title: `${placeholderText}`,
+      title: "",
       images: [
         {
           id: undefined,

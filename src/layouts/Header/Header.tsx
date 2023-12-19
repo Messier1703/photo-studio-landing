@@ -76,7 +76,7 @@ const Header = () => {
           <Link href="#contacts" className={styles.header_link} id={styles.desktop_only}>
             Контакты
           </Link>
-          <Link href="/calendar" className={styles.header_link} id={styles.desktop_only}>
+          <Link href="/calendar#calendar" className={styles.header_link} id={styles.desktop_only}>
             <HeaderButton>Календарь съемок</HeaderButton>
           </Link>
           <div className={styles.header_contacts}>
