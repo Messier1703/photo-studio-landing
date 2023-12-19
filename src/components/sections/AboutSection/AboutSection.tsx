@@ -44,51 +44,53 @@ const AboutSection = () => {
 
   return (
     <section className={styles.about} id="about">
-      {about && (
-        <div className="container">
-          <h2 className="section_title">О нас</h2>
-          <div className={styles.about_swipe}>
-            <h4>листайте вправо</h4>
-            <figure>
-              <Image src={swipeIcon} alt="Иконка" />
-            </figure>
-          </div>
-          <div className={styles.about_wrapper}>
-            <div className={styles.about_images}>
-              <Swiper
-                spaceBetween={10}
-                slidesPerView={1}
-                direction="horizontal"
-                className={styles.tab_swiper}
-                breakpoints={{
-                  680: {
-                    slidesPerView: 1.5,
-                  },
-                  840: {
-                    slidesPerView: 1,
-                  },
-                }}
-              >
-                {about.images.map((image) => (
-                  <SwiperSlide key={image.id} className={styles.swiper_slide}>
-                    <figure className={styles.about_image_wrapper}>
-                      <Image className={styles.about_image} src={image.image} alt="Фото" width={880} height={600} />
-                    </figure>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+      <div className="container">
+        <h2 className="section_title">О нас</h2>
+        {about && (
+          <>
+            <div className={styles.about_swipe}>
+              <h4>листайте вправо</h4>
+              <figure>
+                <Image src={swipeIcon} alt="Иконка" />
+              </figure>
             </div>
-            <div className={styles.about_text}>
-              <h3>{companyName}</h3>
-              <p>{about.title}</p>
-              <p>{about.description}</p>
-              <Link href="/#portfolio">
-                <BrightButton id={styles.btn}>Посмотреть работы</BrightButton>
-              </Link>
+            <div className={styles.about_wrapper}>
+              <div className={styles.about_images}>
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  direction="horizontal"
+                  className={styles.tab_swiper}
+                  breakpoints={{
+                    680: {
+                      slidesPerView: 1.5,
+                    },
+                    840: {
+                      slidesPerView: 1,
+                    },
+                  }}
+                >
+                  {about.images.map((image) => (
+                    <SwiperSlide key={image.id} className={styles.swiper_slide}>
+                      <figure className={styles.about_image_wrapper}>
+                        <Image className={styles.about_image} src={image.image} alt="Фото" width={880} height={600} />
+                      </figure>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              <div className={styles.about_text}>
+                <h3>{companyName}</h3>
+                <p>{about.title}</p>
+                <p>{about.description}</p>
+                <Link href="/#portfolio">
+                  <BrightButton id={styles.btn}>Посмотреть работы</BrightButton>
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </section>
   )
 }

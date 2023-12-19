@@ -1,6 +1,6 @@
 "use client"
 import { ReactNode } from "react"
-import s from "./BrightButton.module.scss"
+import styles from "./BrightButton.module.scss"
 import { Button } from "react-aria-components"
 
 interface BrightButtonProps {
@@ -11,7 +11,7 @@ interface BrightButtonProps {
 
 const BrightButton: React.FC<BrightButtonProps> = ({ children, id, type }) => {
   return (
-    <Button className={s.button} id={id} type={type}>
+    <Button className={styles.button} id={id} type={type}>
       {children}
     </Button>
   )

@@ -15,12 +15,12 @@ import UserPopover from "@/components/ui/UserPopover/UserPopover"
 import swipeIcon from "public/svg/swipe-icon.svg"
 
 interface Image {
-  id: number | undefined
+  id: number
   image: string
 }
 
 interface PortfolioItem {
-  id: number | undefined
+  id: number
   title: string
   images: Image[]
 }
@@ -30,18 +30,7 @@ interface PortfolioDropdownProps {
 }
 
 const PortfolioDropdown: React.FC<PortfolioDropdownProps> = ({ id }) => {
-  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([
-    {
-      id: undefined,
-      title: "",
-      images: [
-        {
-          id: undefined,
-          image: "",
-        },
-      ],
-    },
-  ])
+  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([])
 
   useEffect(() => {
     const getPortfolio = async () => {
@@ -57,56 +46,60 @@ const PortfolioDropdown: React.FC<PortfolioDropdownProps> = ({ id }) => {
   }, [])
 
   return (
-    <Tabs className={styles.tabs} id={id}>
-      <UserPopover
-        button={<BrightButton aria-label="Menu">категории</BrightButton>}
-        content={
-          <TabList className={styles.tab_list}>
-            {portfolio.map((item) => (
-              <Tab key={item.id} id={item.title.toLowerCase()} className={styles.tab}>
-                {item.title}
-              </Tab>
-            ))}
-          </TabList>
-        }
-      />
+    <>
+      {portfolio && (
+        <Tabs className={styles.tabs} id={id}>
+          <UserPopover
+            button={<BrightButton aria-label="Menu">категории</BrightButton>}
+            content={
+              <TabList className={styles.tab_list}>
+                {portfolio.map((item) => (
+                  <Tab key={item.id} id={item.title.toLowerCase()} className={styles.tab}>
+                    {item.title}
+                  </Tab>
+                ))}
+              </TabList>
+            }
+          />
 
-      {portfolio.map((item) => (
-        <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
-          <h3>{item.title}</h3>
-          <div className={styles.tabs_swipe}>
-            <h4>листайте вправо</h4>
-            <figure>
-              <Image src={swipeIcon} alt="Иконка" />
-            </figure>
-          </div>
-          <div className={styles.tab_wrapper}>
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={1}
-              direction="horizontal"
-              className={styles.tab_swiper}
-              breakpoints={{
-                540: {
-                  slidesPerView: 1.5,
-                },
-                730: {
-                  slidesPerView: 2,
-                },
-              }}
-            >
-              {item.images.map((image) => (
-                <SwiperSlide key={image.id}>
-                  <figure>
-                    <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
-                  </figure>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </TabPanel>
-      ))}
-    </Tabs>
+          {portfolio.map((item) => (
+            <TabPanel key={item.id} id={item.title.toLowerCase()} className={styles.tab_panel}>
+              <h3>{item.title}</h3>
+              <div className={styles.tabs_swipe}>
+                <h4>листайте вправо</h4>
+                <figure>
+                  <Image src={swipeIcon} alt="Иконка" />
+                </figure>
+              </div>
+              <div className={styles.tab_wrapper}>
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  direction="horizontal"
+                  className={styles.tab_swiper}
+                  breakpoints={{
+                    540: {
+                      slidesPerView: 1.5,
+                    },
+                    730: {
+                      slidesPerView: 2,
+                    },
+                  }}
+                >
+                  {item.images.map((image) => (
+                    <SwiperSlide key={image.id}>
+                      <figure>
+                        <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
+                      </figure>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            </TabPanel>
+          ))}
+        </Tabs>
+      )}
+    </>
   )
 }
 

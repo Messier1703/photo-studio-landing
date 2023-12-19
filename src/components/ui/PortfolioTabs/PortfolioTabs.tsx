@@ -24,18 +24,7 @@ interface PortfolioDropdownProps {
 const PortfolioTabs: React.FC<PortfolioDropdownProps> = ({ id }) => {
   const [isDataLoaded, setIsDataLoaded] = useState(false)
 
-  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([
-    {
-      id: undefined,
-      title: "",
-      images: [
-        {
-          id: undefined,
-          image: "",
-        },
-      ],
-    },
-  ])
+  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([])
 
   useEffect(() => {
     const getPortfolio = async () => {

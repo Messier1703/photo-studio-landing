@@ -14,14 +14,7 @@ const TeamSection = () => {
     image_1: StaticImageData
   }
 
-  const [team, setTeam] = useState<GetTeamProps[]>([
-    {
-      id: 0,
-      title: "",
-      job: "",
-      image_1: {} as StaticImageData,
-    },
-  ])
+  const [team, setTeam] = useState<GetTeamProps[]>([])
 
   useEffect(() => {
     const getTeam = async () => {
