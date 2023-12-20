@@ -1,3 +1,4 @@
+"use client"
 import MainSection from "@/components/sections/MainSection/MainSection"
 import AboutSection from "@/components/sections/AboutSection/AboutSection"
 import PortfolioSection from "@/components/sections/PortfolioSection/PortfolioSection"
