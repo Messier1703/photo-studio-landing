@@ -58,6 +58,7 @@ const AboutSection = () => {
               <div className={styles.about_wrapper}>
                 <div className={styles.about_images}>
                   <Swiper
+                    loop
                     spaceBetween={10}
                     slidesPerView={1}
                     direction="horizontal"
