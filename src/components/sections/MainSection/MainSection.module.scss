@@ -1,6 +1,14 @@
 .main {
+  padding: 130px 0 40px;
   background-color: var(--light-gray);
-  padding: 250px 0 120px;
+
+  &_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "c"
+      "t";
+  }
 
   &_logos {
     width: 150px;
@@ -11,183 +19,143 @@
     left: 50%;
     translate: (-50%);
 
-    img {
+    figure {
+      position: absolute;
       width: 50px;
       height: 50px;
-      object-fit: contain;
-      transition: var(--link-hover);
 
-      &:hover {
-        transform: scale(1.2);
+      &:nth-child(1) {
+        transform: rotate(-26deg);
+        left: 0;
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(21deg);
+        right: 0;
+        top: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(24deg);
+        left: 50px;
+        top: 75px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
         transition: var(--link-hover);
+
+        &:hover {
+          transform: scale(1.2);
+          transition: var(--link-hover);
+        }
       }
     }
   }
 
-  &_logo {
-    position: absolute;
+  &_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    grid-area: t;
 
-    &:nth-child(1) {
-      transform: rotate(-26deg);
-      left: 0;
-      top: 0;
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      text-align: center;
     }
 
-    &:nth-child(2) {
-      transform: rotate(21deg);
-      right: 0;
-      top: 0;
-    }
+    div {
+      display: flex;
+      gap: 20px;
+      width: min-content;
 
-    &:nth-child(3) {
-      transform: rotate(24deg);
-      left: 50px;
-      top: 75px;
-    }
-  }
+      figure {
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
 
-  h1 {
-    font-size: 55px;
-    font-weight: 500;
-    margin-bottom: 50px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          border-radius: 15px;
+        }
+      }
+    }
   }
 
   &_cards {
+    grid-area: c;
     width: min-content;
     margin: 0 auto;
 
     div {
-      display: grid;
-      grid-template-columns: repeat(2, min-content);
-      column-gap: 40px;
-
-      &:first-child {
-        margin-bottom: 20px;
-        margin-left: 80px;
-      }
-    }
-  }
-
-  &_wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-  }
-}
-
-#main_button_link {
-  width: min-content;
-}
-
-#main_button {
-  &:hover {
-    background-color: var(--white-color);
-  }
-}
-
-#mobile_only {
-  display: none;
-}
-
-@media (max-width: 1380px) {
-  #mobile_only {
-    display: block;
-  }
-
-  #desktop_only {
-    display: none;
-  }
-
-  #main_button_link {
-    margin: 0 auto;
-  }
-
-  .main {
-    padding: 160px 0 100px;
-    &_wrapper {
-      grid-template-columns: 1fr;
-      grid-gap: 10px;
-      width: min-content;
-      margin: 0 auto;
-    }
-
-    h1 {
-      margin-top: 45px;
-      font-size: 45px;
-      text-align: center;
-    }
-
-    &_logos {
-      width: min-content;
       display: flex;
       gap: 20px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
+    }
+  }
+}
 
-      position: static;
-      height: min-content;
-
-      translate: (0);
-
-      img {
-        width: 40px;
-        height: 40px;
-        position: static;
+@media (min-width: 390px) {
+  .main {
+    &_title {
+      h1 {
+        font-size: 32px;
       }
     }
   }
 }
 
-@media (max-width: 640px) {
+@media (min-width: 760px) {
   .main {
-    padding: 120px 0 80px;
-
-    h1 {
-      font-size: 30px;
+    &_wrapper {
+      grid-gap: 25px;
     }
 
     &_cards {
       div {
-        column-gap: 20px;
-
         &:first-child {
-          margin-left: 0;
+          margin-left: 80px;
         }
       }
     }
   }
 }
 
-@media (max-width: 460px) {
+@media (min-width: 1200px) {
   .main {
-    h1 {
-      margin: 0 0 15px;
+    padding: 200px 0 120px;
+
+    &_wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "t c";
+      grid-gap: 20px;
     }
 
-    &_cards {
-      div {
-        column-gap: 10px;
+    &_title {
+      align-items: baseline;
+      gap: 90px;
+      max-width: 440px;
 
-        &:first-child {
-          margin-bottom: 10px;
-        }
+      h1 {
+        font-size: 50px;
+        text-align: left;
       }
     }
   }
 }
 
-@media (max-width: 390px) {
+@media (min-width: 1440px) {
   .main {
-    h1 {
-      margin: 0 0 15px;
-    }
-
-    &_cards {
-      div {
-        column-gap: 10px;
-
-        &:first-child {
-          margin-bottom: 10px;
-        }
+    &_title {
+      h1 {
+        font-size: 60px;
       }
     }
   }

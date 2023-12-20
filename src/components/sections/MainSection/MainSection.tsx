@@ -10,6 +10,7 @@ import Image from "next/image"
 import ozonLogo from "public/images/ozon-logo.png"
 import wbLogo from "public/images/wb-logo.png"
 import yaMarketLogo from "public/images/ya-market-logo.png"
+import { motion } from "framer-motion"
 
 interface Image {
   id: number
@@ -23,6 +24,20 @@ interface PortfolioItem {
 }
 
 const MainSection = () => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1200)
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
   const [products, setProducts] = useState<PortfolioItem[]>([])
 
   useEffect(() => {
@@ -39,26 +54,22 @@ const MainSection = () => {
   }, [])
 
   return (
-    <main className={styles.main} id="main">
-      <div className={styles.main_logos} id={styles.desktop_only}>
-        <Link href="/" className={styles.main_logo}>
-          <Image src={wbLogo} alt="Wildberries" />
-        </Link>
-        <Link href="/" className={styles.main_logo}>
-          <Image src={ozonLogo} alt="Озон" />
-        </Link>
-        <Link href="/" className={styles.main_logo}>
-          <Image src={yaMarketLogo} alt="Yandex Market" />
-        </Link>
-      </div>
+    <motion.main className={styles.main} id="main">
+      {isDesktop && (
+        <div className={styles.main_logos} id={styles.desktop_only}>
+          <figure>
+            <Image src={wbLogo} alt="Wildberries" width={50} height={50} />
+          </figure>
+          <figure>
+            <Image src={ozonLogo} alt="Озон" width={50} height={50} />
+          </figure>
+          <figure>
+            <Image src={yaMarketLogo} alt="Yandex Market" width={50} height={50} />
+          </figure>
+        </div>
+      )}
       <div className="container">
         <div className={styles.main_wrapper}>
-          <div className={styles.main_content} id={styles.desktop_only}>
-            <h1>Успех в Каждом Кадре: Профессиональная Фото Студия для Вашего Бизнеса</h1>
-            <Link href="/" id={styles.main_button_link}>
-              <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
-            </Link>
-          </div>
           {products && (
             <div className={styles.main_cards}>
               <div>
@@ -77,26 +88,28 @@ const MainSection = () => {
               </div>
             </div>
           )}
-          <div className={styles.main_content} id={styles.mobile_only}>
-            <h1>Создаем продающий контент для маркетплейсов</h1>
-            <div className={styles.main_logos}>
-              <Link href="/">
-                <Image src={ozonLogo} alt="Озон" />
-              </Link>
-              <Link href="/">
-                <Image src={wbLogo} alt="Wildberries" />
-              </Link>
-              <Link href="/">
-                <Image src={yaMarketLogo} alt="Yandex Market" />
-              </Link>
-            </div>
+          <div className={styles.main_title} id={styles.desktop_only}>
+            <h1>Успех в Каждом Кадре: Профессиональная Фото Студия для Вашего Бизнеса</h1>
+            {!isDesktop && (
+              <div>
+                <figure>
+                  <Image src={wbLogo} alt="Wildberries" />
+                </figure>
+                <figure>
+                  <Image src={ozonLogo} alt="Озон" />
+                </figure>
+                <figure>
+                  <Image src={yaMarketLogo} alt="Yandex Market" />
+                </figure>
+              </div>
+            )}
             <Link href="/#contacts" id={styles.main_button_link}>
               <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
             </Link>
           </div>
         </div>
       </div>
-    </main>
+    </motion.main>
   )
 }
 

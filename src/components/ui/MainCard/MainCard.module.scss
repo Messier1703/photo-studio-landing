@@ -1,15 +1,16 @@
 .card {
-  width: 200px;
-  height: 280px;
-  background-color: var(--white-color);
-  border-radius: 20px;
   position: relative;
   transition: var(--link-hover);
   cursor: pointer;
 
+  &:hover {
+    transform: scale(1.05);
+    transition: var(--link-hover);
+  }
+
   h3 {
     color: var(--black-color);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     position: absolute;
     bottom: 20px;
@@ -18,62 +19,34 @@
     text-transform: capitalize;
   }
 
-  &_image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
+  figure {
+    width: 150px;
+    height: 220px;
+    transition: var(--link-hover);
 
-    &_wrapper {
-      transition: var(--link-hover);
-      width: 200px;
-      height: 280px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 20px;
     }
   }
-
-  &:hover {
-    transform: scale(1.1);
-    transition: var(--link-hover);
-  }
 }
 
-@media (max-width: 640px) {
+@media (min-width: 390px) {
   .card {
-    h3 {
-      font-size: 16px;
-    }
-  }
-}
-
-@media (max-width: 460px) {
-  .card {
-    width: 170px;
-    height: 240px;
-
-    &_image_wrapper {
+    figure {
       width: 170px;
       height: 240px;
     }
-
-    &:hover {
-      transform: scale(1.05);
-    }
   }
 }
 
-@media (max-width: 390px) {
+@media (min-width: 760px) {
   .card {
-    width: 150px;
-    height: 220px;
-
-    h3 {
-      font-size: 12px;
-    }
-
-    &_image_wrapper {
-      width: 150px;
-      height: 220px;
+    figure {
+      width: 200px;
+      height: 280px;
     }
   }
 }

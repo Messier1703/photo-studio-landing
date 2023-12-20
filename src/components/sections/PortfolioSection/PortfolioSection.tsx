@@ -80,7 +80,14 @@ const PortfolioSection = () => {
                     <div className={styles.tab_image_wrapper}>
                       {item.images.map((image) => (
                         <figure key={image.id}>
-                          <Image blurDataURL={image.image} src={image.image} alt={`Image ${image.id}`} width={300} height={420} />
+                          <Image
+                            blurDataURL={image.image}
+                            placeholder="blur"
+                            src={image.image}
+                            alt={`Image ${image.id}`}
+                            width={300}
+                            height={420}
+                          />
                         </figure>
                       ))}
                     </div>

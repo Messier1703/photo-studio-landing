@@ -1,7 +1,6 @@
 import { ReactNode } from "react"
 import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
-import { AuthProvider } from "@/lib/AuthContext"
 
 import "@/styles/globals.scss"
 import "@/styles/variables.scss"
@@ -20,9 +19,7 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html>
-      <AuthProvider>
-        <body className={montserrat.variable}>{children}</body>
-      </AuthProvider>
+      <body className={montserrat.variable}>{children}</body>
     </html>
   )
 }
