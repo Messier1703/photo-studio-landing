@@ -53,25 +53,61 @@ const MainSection = () => {
     getPortfolio()
   }, [])
 
+  const titleAnimation = {
+    hidden: {
+      x: -150,
+      opacity: 0,
+    },
+    visible: (custom: number) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.2 },
+    }),
+  }
+
+  const cardsAnimation = {
+    hidden: {
+      x: 150,
+      opacity: 0,
+    },
+    visible: (custom: number) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.2 },
+    }),
+  }
+
+  const desktopLogosAnimation = {
+    hidden: {
+      y: -150,
+      opacity: 0,
+    },
+    visible: (custom: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.2 },
+    }),
+  }
+
   return (
-    <motion.main className={styles.main} id="main">
+    <motion.main className={styles.main} id="main" initial="hidden" whileInView="visible" viewport={{ once: true }}>
       {isDesktop && (
         <div className={styles.main_logos} id={styles.desktop_only}>
-          <figure>
+          <motion.figure variants={desktopLogosAnimation} custom={6.5}>
             <Image src={wbLogo} alt="Wildberries" width={50} height={50} />
-          </figure>
-          <figure>
+          </motion.figure>
+          <motion.figure variants={desktopLogosAnimation} custom={7.5}>
             <Image src={ozonLogo} alt="Озон" width={50} height={50} />
-          </figure>
-          <figure>
+          </motion.figure>
+          <motion.figure variants={desktopLogosAnimation} custom={7}>
             <Image src={yaMarketLogo} alt="Yandex Market" width={50} height={50} />
-          </figure>
+          </motion.figure>
         </div>
       )}
       <div className="container">
         <div className={styles.main_wrapper}>
           {products && (
-            <div className={styles.main_cards}>
+            <motion.div className={styles.main_cards} variants={cardsAnimation} custom={4}>
               <div>
                 {products.slice(0, 2).map((category) => (
                   <Link href="/#portfolio">
@@ -86,12 +122,14 @@ const MainSection = () => {
                   </Link>
                 ))}
               </div>
-            </div>
+            </motion.div>
           )}
           <div className={styles.main_title} id={styles.desktop_only}>
-            <h1>Успех в Каждом Кадре: Профессиональная Фото Студия для Вашего Бизнеса</h1>
+            <motion.h1 custom={3} variants={titleAnimation}>
+              Успех в Каждом Кадре: Профессиональная Фото Студия для Вашего Бизнеса
+            </motion.h1>
             {!isDesktop && (
-              <div>
+              <motion.div variants={cardsAnimation} custom={6}>
                 <figure>
                   <Image src={wbLogo} alt="Wildberries" />
                 </figure>
@@ -101,11 +139,13 @@ const MainSection = () => {
                 <figure>
                   <Image src={yaMarketLogo} alt="Yandex Market" />
                 </figure>
-              </div>
+              </motion.div>
             )}
-            <Link href="/#contacts" id={styles.main_button_link}>
-              <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
-            </Link>
+            <motion.div variants={titleAnimation} custom={5}>
+              <Link href="/#contacts" id={styles.main_button_link}>
+                <BrightButton id={styles.main_button}>Узнать о фотосъемке</BrightButton>
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>
