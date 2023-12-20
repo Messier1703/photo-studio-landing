@@ -5,17 +5,13 @@ import { Tab, Tabs, TabList, TabPanel, MenuTrigger, Popover } from "react-aria-c
 import ky from "ky"
 import API_BASE_URL from "@/constants/API_BASE_URL"
 import Image from "next/image"
+import BrightButton from "@/components/ui/BrightButton/BrightButton"
+import swipeIcon from "public/svg/swipe-icon.svg"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
-import BrightButton from "@/components/ui/BrightButton/BrightButton"
-import "swiper/css"
-import "swiper/css/navigation"
-import "swiper/css/pagination"
-import "swiper/css/scrollbar"
-import swipeIcon from "public/svg/swipe-icon.svg"
 
 interface Image {
   id: number | undefined
@@ -63,12 +59,12 @@ const PortfolioSection = () => {
   }, [])
 
   return (
-    <section className={styles.portfolio} id="portfolio">
-      <div className="container">
-        <h2 className="section_title">Наши работы</h2>
-        {isDesktop ? (
-          <>
-            {portfolio && (
+    <>
+      {portfolio && portfolio.length > 0 && (
+        <section className={styles.portfolio} id="portfolio">
+          <div className="container">
+            <h2 className="section_title">Наши работы</h2>
+            {isDesktop ? (
               <Tabs className={styles.tabs}>
                 <TabList className={styles.tab_list}>
                   {portfolio.map((item) => (
@@ -91,11 +87,7 @@ const PortfolioSection = () => {
                   </TabPanel>
                 ))}
               </Tabs>
-            )}
-          </>
-        ) : (
-          <>
-            {portfolio && (
+            ) : (
               <Tabs className={styles.dropdown}>
                 <MenuTrigger>
                   <BrightButton>категории</BrightButton>
@@ -151,10 +143,10 @@ const PortfolioSection = () => {
                 ))}
               </Tabs>
             )}
-          </>
-        )}
-      </div>
-    </section>
+          </div>
+        </section>
+      )}
+    </>
   )
 }
 
