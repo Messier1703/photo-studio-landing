@@ -32,7 +32,7 @@ const TeamSection = () => {
 
   return (
     <>
-      {team && (
+      {team && team.length > 0 && (
         <section className={styles.team} id="team">
           <div className="container">
             <h2 className="section_title">Наша команда</h2>

@@ -32,7 +32,7 @@ const ReviewsSection = () => {
 
   return (
     <>
-      {reviews && (
+      {reviews && reviews.length > 0 && (
         <section className={styles.reviews} id="reviews">
           <div className="container">
             <h2 className="section_title">Отзывы наших клиентов</h2>

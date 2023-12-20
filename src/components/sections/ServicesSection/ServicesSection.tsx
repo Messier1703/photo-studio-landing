@@ -85,82 +85,84 @@ const ServicesSection = () => {
   }, [])
 
   return (
-    <section id="services">
-      <div className="container">
-        <h2 className="section_title">Услуги</h2>
-        {services && (
-          <div className={styles.services} key={services.id}>
-            <div>
-              <h4>{services.title_1}</h4>
-              <p>{services.description_1}</p>
+    <>
+      {services && (
+        <section id="services">
+          <div className="container">
+            <h2 className="section_title">Услуги</h2>
+            <div className={styles.services} key={services.id}>
+              <div>
+                <h4>{services.title_1}</h4>
+                <p>{services.description_1}</p>
+              </div>
+              <div>
+                <h4>{services.title_2}</h4>
+                <p>{services.description_2}</p>
+              </div>
+              <div>
+                <h4>{services.title_3}</h4>
+                <p>{services.description_3}</p>
+              </div>
+              <div>
+                <h3>{services.title_4}</h3>
+                <p>{services.description_4}</p>
+                <Link href="#contacts" className={styles.button_link}>
+                  <BrightButton>Записаться на съемку</BrightButton>
+                </Link>
+              </div>
             </div>
-            <div>
-              <h4>{services.title_2}</h4>
-              <p>{services.description_2}</p>
-            </div>
-            <div>
-              <h4>{services.title_3}</h4>
-              <p>{services.description_3}</p>
-            </div>
-            <div>
-              <h3>{services.title_4}</h3>
-              <p>{services.description_4}</p>
-              <Link href="#contacts" className={styles.button_link}>
-                <BrightButton>Записаться на съемку</BrightButton>
-              </Link>
-            </div>
+            {object && (
+              <div className={styles.object}>
+                <div className={styles.object_title}>
+                  <h2 className={styles.title}>{object.title}</h2>
+                  <p className={styles.description}>{object.description}</p>
+                </div>
+                <div className={styles.object_images}>
+                  <figure>
+                    <Image src={object.image_1} alt="Фото" width={300} height={500} />
+                  </figure>
+                  <figure>
+                    <Image src={object.image_2} alt="Фото" width={300} height={500} />
+                  </figure>
+                </div>
+                <div className={styles.object_button}>
+                  <Link href="#contacts" className={styles.button_link}>
+                    <BrightButton>Записаться на съемку</BrightButton>
+                  </Link>
+                </div>
+              </div>
+            )}
+            {infographics && (
+              <div className={styles.infographics}>
+                <div className={styles.infographics_title}>
+                  <h2 className={styles.title}>{infographics.title}</h2>
+                  <p className={styles.description}>{infographics.description}</p>
+                </div>
+                <div className={styles.infographics_images}>
+                  <figure>
+                    <Image src={infographics.image_1} alt="Фото" width={300} height={360} />
+                  </figure>
+                  <figure>
+                    <Image src={infographics.image_2} alt="Фото" width={300} height={360} />
+                  </figure>
+                  <figure>
+                    <Image src={infographics.image_3} alt="Фото" width={300} height={360} />
+                  </figure>
+                  <figure>
+                    <Image src={infographics.image_4} alt="Фото" width={300} height={360} />
+                  </figure>
+                </div>
+                <div className={styles.infographics_button}>
+                  <Link href="#contacts" className={styles.button_link}>
+                    <BrightButton>Обсудить работу</BrightButton>
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-        {object && (
-          <div className={styles.object}>
-            <div className={styles.object_title}>
-              <h2 className={styles.title}>{object.title}</h2>
-              <p className={styles.description}>{object.description}</p>
-            </div>
-            <div className={styles.object_images}>
-              <figure>
-                <Image src={object.image_1} alt="Фото" width={300} height={500} />
-              </figure>
-              <figure>
-                <Image src={object.image_2} alt="Фото" width={300} height={500} />
-              </figure>
-            </div>
-            <div className={styles.object_button}>
-              <Link href="#contacts" className={styles.button_link}>
-                <BrightButton>Записаться на съемку</BrightButton>
-              </Link>
-            </div>
-          </div>
-        )}
-        {infographics && (
-          <div className={styles.infographics}>
-            <div className={styles.infographics_title}>
-              <h2 className={styles.title}>{infographics.title}</h2>
-              <p className={styles.description}>{infographics.description}</p>
-            </div>
-            <div className={styles.infographics_images}>
-              <figure>
-                <Image src={infographics.image_1} alt="Фото" width={300} height={360} />
-              </figure>
-              <figure>
-                <Image src={infographics.image_2} alt="Фото" width={300} height={360} />
-              </figure>
-              <figure>
-                <Image src={infographics.image_3} alt="Фото" width={300} height={360} />
-              </figure>
-              <figure>
-                <Image src={infographics.image_4} alt="Фото" width={300} height={360} />
-              </figure>
-            </div>
-            <div className={styles.infographics_button}>
-              <Link href="#contacts" className={styles.button_link}>
-                <BrightButton>Обсудить работу</BrightButton>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
+        </section>
+      )}
+    </>
   )
 }
 
