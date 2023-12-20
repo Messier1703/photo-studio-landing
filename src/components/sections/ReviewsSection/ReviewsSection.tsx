@@ -31,11 +31,11 @@ const ReviewsSection = () => {
   }, [])
 
   return (
-    <section className={styles.reviews} id="reviews">
-      <div className="container">
-        <h2 className="section_title">Отзывы наших клиентов</h2>
-        {reviews && (
-          <>
+    <>
+      {reviews && (
+        <section className={styles.reviews} id="reviews">
+          <div className="container">
+            <h2 className="section_title">Отзывы наших клиентов</h2>
             <div id={styles.desktop_only}>
               <div className={styles.reviews_wrapper}>
                 {reviews.slice(0, 2).map((review) => (
@@ -86,10 +86,10 @@ const ReviewsSection = () => {
                 />
               ))}
             </div>
-          </>
-        )}
-      </div>
-    </section>
+          </div>
+        </section>
+      )}
+    </>
   )
 }
 

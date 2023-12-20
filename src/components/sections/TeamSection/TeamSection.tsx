@@ -31,18 +31,20 @@ const TeamSection = () => {
   }, [])
 
   return (
-    <section className={styles.team} id="team">
-      <div className="container">
-        <h2 className="section_title">Наша команда</h2>
-        {team && (
-          <div className={styles.team_grid}>
-            {team.map((member) => (
-              <TeamCard key={member.id} name={member.title} job={member.job} src={member.image_1} alt={member.title} />
-            ))}
+    <>
+      {team && (
+        <section className={styles.team} id="team">
+          <div className="container">
+            <h2 className="section_title">Наша команда</h2>
+            <div className={styles.team_grid}>
+              {team.map((member) => (
+                <TeamCard key={member.id} name={member.title} job={member.job} src={member.image_1} alt={member.title} />
+              ))}
+            </div>
           </div>
-        )}
-      </div>
-    </section>
+        </section>
+      )}
+    </>
   )
 }
 
