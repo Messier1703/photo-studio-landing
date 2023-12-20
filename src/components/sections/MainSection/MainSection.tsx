@@ -77,14 +77,44 @@ const MainSection = () => {
     }),
   }
 
-  const desktopLogosAnimation = {
+  const desktopLogoFirst = {
     hidden: {
-      y: -150,
+      y: -10,
       opacity: 0,
+      rotate: 25,
     },
     visible: (custom: number) => ({
       y: 0,
       opacity: 1,
+      rotate: -26,
+      transition: { delay: custom * 0.2 },
+    }),
+  }
+
+  const desktopLogoSecond = {
+    hidden: {
+      y: -10,
+      opacity: 0,
+      rotate: 0,
+    },
+    visible: (custom: number) => ({
+      y: 0,
+      opacity: 1,
+      rotate: 21,
+      transition: { delay: custom * 0.2 },
+    }),
+  }
+
+  const desktopLogoThird = {
+    hidden: {
+      y: -10,
+      opacity: 0,
+      rotate: -20,
+    },
+    visible: (custom: number) => ({
+      y: 0,
+      opacity: 1,
+      rotate: 24,
       transition: { delay: custom * 0.2 },
     }),
   }
@@ -93,13 +123,13 @@ const MainSection = () => {
     <motion.main className={styles.main} id="main" initial="hidden" whileInView="visible" viewport={{ once: true }}>
       {isDesktop && (
         <div className={styles.main_logos} id={styles.desktop_only}>
-          <motion.figure variants={desktopLogosAnimation} custom={6.5}>
+          <motion.figure variants={desktopLogoFirst} custom={6.5}>
             <Image src={wbLogo} alt="Wildberries" width={50} height={50} />
           </motion.figure>
-          <motion.figure variants={desktopLogosAnimation} custom={7.5}>
+          <motion.figure variants={desktopLogoSecond} custom={7.5}>
             <Image src={ozonLogo} alt="Озон" width={50} height={50} />
           </motion.figure>
-          <motion.figure variants={desktopLogosAnimation} custom={7}>
+          <motion.figure variants={desktopLogoThird} custom={7}>
             <Image src={yaMarketLogo} alt="Yandex Market" width={50} height={50} />
           </motion.figure>
         </div>
